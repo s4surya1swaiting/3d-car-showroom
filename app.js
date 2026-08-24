@@ -1,10 +1,11 @@
-// AURA MOTORS 3D ARCHITECTURAL SHOWROOM ROOM WALKTHROUGH (MADHUKANTA-STYLE)
+// AURA MOTORS 2-STORY ARCHITECTURAL 3D SHOWROOM WITH 3D CAR MESHES & STAIRS
 
 const carsData = [
+  // GROUND FLOOR BAYS
   {
     id: "car-1",
+    floor: "Ground Floor — Display Bay 1",
     name: "Mahindra Scorpio-N Z8L 4x4",
-    wall: "West Showroom Wall — Bay 1",
     price: "₹ 24,50,000",
     year: "2023",
     km: "12,000 KM",
@@ -13,13 +14,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: { x: -14, y: 1.8, z: -10 },
-    rotY: Math.PI / 6
+    pos: [-10, 0.4, -6],
+    color: 0x5c6b73, // Silver Metallic SUV
+    dim: [3.4, 1.45, 1.75]
   },
   {
     id: "car-2",
+    floor: "Ground Floor — Display Bay 2",
     name: "Tata Nexon EV Dark Edition",
-    wall: "West Showroom Wall — Bay 2",
     price: "₹ 16,80,000",
     year: "2023",
     km: "8,500 KM",
@@ -28,13 +30,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-    pos: { x: -14, y: 1.8, z: 0 },
-    rotY: Math.PI / 6
+    pos: [-3, 0.4, -6],
+    color: 0x0a3641, // Teal Electric
+    dim: [2.9, 1.25, 1.6]
   },
   {
     id: "car-3",
+    floor: "Ground Floor — Display Bay 3",
     name: "Mahindra Thar LX 4x4 Hard Top",
-    wall: "West Showroom Wall — Bay 3",
     price: "₹ 15,20,000",
     year: "2022",
     km: "18,400 KM",
@@ -43,13 +46,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "138/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
-    pos: { x: -14, y: 1.8, z: 10 },
-    rotY: Math.PI / 6
+    pos: [4, 0.4, -6],
+    color: 0x1f2421, // Matte Black Off-Road
+    dim: [2.8, 1.35, 1.65]
   },
   {
     id: "car-4",
+    floor: "Ground Floor — Display Bay 4",
     name: "Mahindra Bolero Neo N10 Opt",
-    wall: "North Showroom Wall — Bay 4",
     price: "₹ 10,90,000",
     year: "2022",
     km: "24,000 KM",
@@ -58,13 +62,16 @@ const carsData = [
     owner: "1st Owner",
     grade: "135/140 Certified",
     img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
-    pos: { x: -6, y: 1.8, z: -18 },
-    rotY: 0
+    pos: [11, 0.4, -6],
+    color: 0x22382b, // Forest Green
+    dim: [3.1, 1.35, 1.6]
   },
+
+  // 1ST FLOOR MEZZANINE BALCONY BAYS (Height y = 5.4)
   {
     id: "car-5",
+    floor: "1st Floor Mezzanine — Bay 5",
     name: "Mercedes-Benz S-Class S450",
-    wall: "North Showroom Wall — Bay 5",
     price: "₹ 1,35,00,000",
     year: "2022",
     km: "14,200 KM",
@@ -73,13 +80,14 @@ const carsData = [
     owner: "1st Owner (Individual)",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-    pos: { x: 6, y: 1.8, z: -18 },
-    rotY: 0
+    pos: [-10, 5.4, 4],
+    color: 0x0b132b, // Midnight Navy Limousine
+    dim: [3.8, 0.95, 1.75]
   },
   {
     id: "car-6",
+    floor: "1st Floor Mezzanine — Bay 6",
     name: "BMW 7 Series 730Ld M-Sport",
-    wall: "East Showroom Wall — Bay 6",
     price: "₹ 1,18,00,000",
     year: "2021",
     km: "22,000 KM",
@@ -88,13 +96,14 @@ const carsData = [
     owner: "1st Owner (Corporate)",
     grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    pos: { x: 14, y: 1.8, z: -10 },
-    rotY: -Math.PI / 6
+    pos: [-3, 5.4, 4],
+    color: 0x6e0d16, // Carbon Crimson
+    dim: [3.7, 0.95, 1.75]
   },
   {
     id: "car-7",
+    floor: "1st Floor Mezzanine — Bay 7",
     name: "Jeep Compass Model S 4x4",
-    wall: "East Showroom Wall — Bay 7",
     price: "₹ 26,40,000",
     year: "2023",
     km: "11,000 KM",
@@ -103,13 +112,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: { x: 14, y: 1.8, z: 0 },
-    rotY: -Math.PI / 6
+    pos: [4, 5.4, 4],
+    color: 0xdedede, // Pearl White Premium
+    dim: [3.2, 1.25, 1.65]
   },
   {
     id: "car-8",
+    floor: "1st Floor Mezzanine — Bay 8",
     name: "Audi RS e-tron GT Quattro",
-    wall: "East Showroom Wall — Bay 8",
     price: "₹ 1,62,00,000",
     year: "2023",
     km: "6,500 KM",
@@ -118,13 +128,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    pos: { x: 14, y: 1.8, z: 10 },
-    rotY: -Math.PI / 6
+    pos: [11, 5.4, 4],
+    color: 0x1c1e24, // Daytona Matte Gray Supercar
+    dim: [3.6, 0.85, 1.8]
   },
   {
     id: "car-9",
+    floor: "1st Floor Mezzanine — Bay 9",
     name: "Porsche 911 Carrera S",
-    wall: "South Entrance Wall — Bay 9",
     price: "₹ 1,85,00,000",
     year: "2022",
     km: "4,800 KM",
@@ -133,13 +144,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
-    pos: { x: -6, y: 1.8, z: 18 },
-    rotY: Math.PI
+    pos: [-6, 5.4, 12],
+    color: 0xd90429, // Guards Red Sports Coupe
+    dim: [3.3, 0.8, 1.7]
   },
   {
     id: "car-10",
+    floor: "1st Floor Mezzanine — Bay 10",
     name: "Toyota Fortuner Legender 4x4",
-    wall: "South Entrance Wall — Bay 10",
     price: "₹ 44,50,000",
     year: "2023",
     km: "15,800 KM",
@@ -148,17 +160,17 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
-    pos: { x: 6, y: 1.8, z: 18 },
-    rotY: Math.PI
+    pos: [6, 5.4, 12],
+    color: 0xf8f9fa, // Pearl White & Black Roof SUV
+    dim: [3.6, 1.45, 1.75]
   }
 ];
 
 let activeCar = null;
 let scene, camera, renderer;
-let targetPos = new THREE.Vector3(0, 2.2, 16);
+let targetPos = new THREE.Vector3(0, 3.5, 18);
 let targetLookAt = new THREE.Vector3(0, 2.0, 0);
 let currentLookAt = new THREE.Vector3(0, 2.0, 0);
-let isNavigating = false;
 let carMeshes = [];
 
 function initShowroom3D() {
@@ -171,8 +183,8 @@ function initShowroom3D() {
   scene.fog = new THREE.FogExp2(0x0a0c10, 0.015);
 
   // 2. Camera setup
-  camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.set(0, 2.2, 16);
+  camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 120);
+  camera.position.set(0, 3.5, 20);
 
   // 3. Renderer setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -183,33 +195,29 @@ function initShowroom3D() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   container.appendChild(renderer.domElement);
 
-  // 4. Showroom Lighting
+  // 4. Lighting setup
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
   scene.add(ambient);
 
-  const mainLight = new THREE.DirectionalLight(0xfffaed, 1.5);
-  mainLight.position.set(10, 20, 10);
-  mainLight.castShadow = true;
-  scene.add(mainLight);
+  const sunLight = new THREE.DirectionalLight(0xfff5e6, 1.6);
+  sunLight.position.set(12, 22, 14);
+  sunLight.castShadow = true;
+  scene.add(sunLight);
 
-  const accentBlue = new THREE.PointLight(0x00d2ff, 1.8, 30);
-  accentBlue.position.set(-12, 6, -12);
-  scene.add(accentBlue);
+  const fillLight = new THREE.PointLight(0xe2b755, 1.5, 30);
+  fillLight.position.set(0, 10, 0);
+  scene.add(fillLight);
 
-  const accentGold = new THREE.PointLight(0xe2b755, 1.8, 30);
-  accentGold.position.set(12, 6, -12);
-  scene.add(accentGold);
+  // 5. Build 2-Story Architectural Building with Stairs & Balcony
+  build2StoryShowroomBuilding();
 
-  // 5. Build Architectural Showroom Corridor
-  buildArchitecturalRoom();
-
-  // 6. Mount Car Bays & Frames
-  mountCarBays();
+  // 6. Build & Position 10 Detailed 3D Car Meshes
+  build3DCarModels();
 
   // 7. Touch & Mouse Navigation Controls
   setupNavigation(container);
 
-  // 8. Raycaster Click Listener
+  // 8. Raycaster for Tapping 3D Cars
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
@@ -235,7 +243,7 @@ function initShowroom3D() {
   function animate() {
     requestAnimationFrame(animate);
 
-    // Smooth Camera Movement
+    // Smooth Camera lerp to target
     camera.position.lerp(targetPos, 0.06);
     currentLookAt.lerp(targetLookAt, 0.06);
     camera.lookAt(currentLookAt);
@@ -251,140 +259,173 @@ function initShowroom3D() {
   });
 }
 
-// Build Architectural Room Corridor (Walls, Polished Floor, Ceiling, Glass Door)
-function buildArchitecturalRoom() {
-  const textureLoader = new THREE.TextureLoader();
-
-  // Polished Showroom Floor
-  const floorGeo = new THREE.PlaneGeometry(36, 44);
-  const floorMat = new THREE.MeshStandardMaterial({
-    color: 0x11141d,
-    roughness: 0.15,
-    metalness: 0.85
-  });
+// Build 2-Story Building Structure (Ground Floor, 1st Floor Balcony, Stairs, Glass Facade)
+function build2StoryShowroomBuilding() {
+  // Ground Floor Slab
+  const floorGeo = new THREE.PlaneGeometry(36, 40);
+  const floorMat = new THREE.MeshStandardMaterial({ color: 0x11141d, roughness: 0.15, metalness: 0.85 });
   const floor = new THREE.Mesh(floorGeo, floorMat);
   floor.rotation.x = -Math.PI / 2;
   floor.receiveShadow = true;
   scene.add(floor);
 
-  // Floor Grid Tile Lines
-  const grid = new THREE.GridHelper(44, 44, 0xe2b755, 0x232733);
+  const grid = new THREE.GridHelper(40, 40, 0xe2b755, 0x232733);
   grid.position.y = 0.01;
   scene.add(grid);
 
-  // Ceiling with LED Strip Fixtures
-  const ceilingGeo = new THREE.PlaneGeometry(36, 44);
-  const ceilingMat = new THREE.MeshStandardMaterial({ color: 0x07080b, roughness: 0.8 });
-  const ceiling = new THREE.Mesh(ceilingGeo, ceilingMat);
-  ceiling.rotation.x = Math.PI / 2;
-  ceiling.position.y = 8;
-  scene.add(ceiling);
+  // 1st Floor Mezzanine Balcony Slab (Height y = 5.0)
+  const mezGeo = new THREE.BoxGeometry(34, 0.4, 20);
+  const mezMat = new THREE.MeshStandardMaterial({ color: 0x181c28, roughness: 0.2, metalness: 0.7 });
+  const mezzanine = new THREE.Mesh(mezGeo, mezMat);
+  mezzanine.position.set(0, 5.0, 7);
+  mezzanine.receiveShadow = true;
+  scene.add(mezzanine);
 
-  // Showroom Walls (North, West, East, South)
-  const wallMat = new THREE.MeshStandardMaterial({ color: 0x0d1017, roughness: 0.4 });
+  const mezGrid = new THREE.GridHelper(34, 34, 0xe2b755, 0x2d3345);
+  mezGrid.position.set(0, 5.21, 7);
+  scene.add(mezGrid);
 
-  // North Wall (Back)
-  const northWall = new THREE.Mesh(new THREE.PlaneGeometry(36, 8), wallMat);
-  northWall.position.set(0, 4, -22);
-  scene.add(northWall);
+  // Support Columns for Mezzanine
+  const colGeo = new THREE.CylinderGeometry(0.4, 0.4, 5.0, 16);
+  const colMat = new THREE.MeshStandardMaterial({ color: 0x090b0e, metalness: 0.9, roughness: 0.1 });
+  [[-15, -1], [15, -1], [-15, 15], [15, 15]].forEach(([cx, cz]) => {
+    const col = new THREE.Mesh(colGeo, colMat);
+    col.position.set(cx, 2.5, cz);
+    scene.add(col);
+  });
 
-  // West Wall (Left)
-  const westWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 8), wallMat);
-  westWall.rotation.y = Math.PI / 2;
-  westWall.position.set(-18, 4, 0);
-  scene.add(westWall);
-
-  // East Wall (Right)
-  const eastWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 8), wallMat);
-  eastWall.rotation.y = -Math.PI / 2;
-  eastWall.position.set(18, 4, 0);
-  scene.add(eastWall);
-
-  // South Wall (Front Entrance with Glass Door)
-  const southWallL = new THREE.Mesh(new THREE.PlaneGeometry(12, 8), wallMat);
-  southWallL.rotation.y = Math.PI;
-  southWallL.position.set(-12, 4, 22);
-  scene.add(southWallL);
-
-  const southWallR = new THREE.Mesh(new THREE.PlaneGeometry(12, 8), wallMat);
-  southWallR.rotation.y = Math.PI;
-  southWallR.position.set(12, 4, 22);
-  scene.add(southWallR);
-
-  // Glass Entrance Door Frame
-  const glassDoorMat = new THREE.MeshPhysicalMaterial({
+  // Architectural Glass Railing around 1st Floor Balcony
+  const glassRailMat = new THREE.MeshPhysicalMaterial({
     color: 0x88ccff,
     transparent: true,
     opacity: 0.25,
-    roughness: 0.1,
-    transmission: 0.9
+    transmission: 0.9,
+    roughness: 0.05
   });
-  const glassDoor = new THREE.Mesh(new THREE.PlaneGeometry(12, 7), glassDoorMat);
-  glassDoor.position.set(0, 3.5, 22);
-  scene.add(glassDoor);
+
+  const railFrontGeo = new THREE.BoxGeometry(34, 1.0, 0.1);
+  const railFront = new THREE.Mesh(railFrontGeo, glassRailMat);
+  railFront.position.set(0, 5.7, -3);
+  scene.add(railFront);
+
+  // Architectural Grand Staircase leading from Ground Floor to Mezzanine Balcony
+  const stepCount = 14;
+  const stepHeight = 5.0 / stepCount;
+  const stepDepth = 0.45;
+  const stepWidth = 3.6;
+  const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.7, roughness: 0.2 });
+
+  for (let i = 0; i < stepCount; i++) {
+    const stepGeo = new THREE.BoxGeometry(stepWidth, stepHeight, stepDepth);
+    const step = new THREE.Mesh(stepGeo, stepMat);
+    step.position.set(14, (i + 0.5) * stepHeight, -2 + i * stepDepth);
+    step.receiveShadow = true;
+    scene.add(step);
+  }
+
+  // Outer Glass Facade Wall
+  const glassWallGeo = new THREE.PlaneGeometry(36, 12);
+  const glassWallMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.95 });
+  const glassWall = new THREE.Mesh(glassWallGeo, glassWallMat);
+  glassWall.position.set(0, 6, -20);
+  scene.add(glassWall);
 }
 
-// Mount All 10 Car Bays with Renders, Spotlight, & 3D Podium
-function mountCarBays() {
-  const textureLoader = new THREE.TextureLoader();
+// Build & Staging 10 Detailed Procedural 3D Car Models
+function build3DCarModels() {
   carMeshes = [];
 
   carsData.forEach((car) => {
-    const bayGroup = new THREE.Group();
-    bayGroup.userData = { carData: car };
+    const carGroup = new THREE.Group();
+    carGroup.userData = { carData: car };
 
-    // 1. Gold Illuminated Podium Base
-    const podGeo = new THREE.CylinderGeometry(2.8, 3.0, 0.2, 32);
-    const podMat = new THREE.MeshStandardMaterial({ color: 0x181b24, metalness: 0.9, roughness: 0.2 });
-    const pod = new THREE.Mesh(podGeo, podMat);
-    pod.position.y = 0.1;
-    bayGroup.add(pod);
+    // 1. Gold Illuminated Display Podium Base
+    const padGeo = new THREE.CylinderGeometry(2.5, 2.7, 0.15, 32);
+    const padMat = new THREE.MeshStandardMaterial({ color: 0x1b1e2a, metalness: 0.85, roughness: 0.25 });
+    const pad = new THREE.Mesh(padGeo, padMat);
+    pad.position.y = 0.08;
+    carGroup.add(pad);
 
-    const podRing = new THREE.Mesh(
-      new THREE.TorusGeometry(2.85, 0.05, 16, 64),
+    const padRing = new THREE.Mesh(
+      new THREE.TorusGeometry(2.55, 0.04, 16, 64),
       new THREE.MeshBasicMaterial({ color: 0xe2b755 })
     );
-    podRing.rotation.x = Math.PI / 2;
-    podRing.position.y = 0.21;
-    bayGroup.add(podRing);
+    padRing.rotation.x = Math.PI / 2;
+    padRing.position.y = 0.16;
+    carGroup.add(padRing);
 
-    // 2. High-Definition 3D Car Frame Display
-    textureLoader.load(car.img, (texture) => {
-      texture.encoding = THREE.sRGBEncoding;
+    // 2. 3D Metallic Car Body Shell
+    const [len, ht, wd] = car.dim;
+    const bodyGeo = new THREE.BoxGeometry(len, ht * 0.55, wd);
+    const bodyMat = new THREE.MeshStandardMaterial({
+      color: car.color,
+      roughness: 0.15,
+      metalness: 0.85
+    });
+    const body = new THREE.Mesh(bodyGeo, bodyMat);
+    body.position.y = (ht * 0.55) / 2 + 0.35;
+    body.castShadow = true;
+    carGroup.add(body);
 
-      const frameGeo = new THREE.BoxGeometry(4.8, 2.8, 0.15);
-      const frameMat = new THREE.MeshStandardMaterial({ color: 0x11141c, metalness: 0.8 });
-      const frame = new THREE.Mesh(frameGeo, frameMat);
-      frame.position.y = 2.2;
+    // 3. Cabin & Glass Roof Windows
+    const cabinGeo = new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88);
+    const cabinMat = new THREE.MeshStandardMaterial({
+      color: 0x090b0e,
+      roughness: 0.05,
+      metalness: 0.95,
+      transparent: true,
+      opacity: 0.85
+    });
+    const cabin = new THREE.Mesh(cabinGeo, cabinMat);
+    cabin.position.set(-len * 0.08, body.position.y + ht * 0.5, 0);
+    cabin.castShadow = true;
+    carGroup.add(cabin);
 
-      const displayGeo = new THREE.PlaneGeometry(4.6, 2.6);
-      const displayMat = new THREE.MeshBasicMaterial({ map: texture });
-      const display = new THREE.Mesh(displayGeo, displayMat);
-      display.position.set(0, 2.2, 0.08);
+    // 4. Headlights & Taillights
+    const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), headMat);
+    lightL.position.set(len / 2 + 0.02, body.position.y, wd * 0.32);
+    const lightR = lightL.clone();
+    lightR.position.z = -wd * 0.32;
+    carGroup.add(lightL, lightR);
 
-      bayGroup.add(frame);
-      bayGroup.add(display);
+    // 5. 4 Wheels with Rims
+    const wRadius = ht * 0.26;
+    const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.22, 24);
+    const wheelMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.6 });
+    const rimMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.1 });
+
+    const wheelOffsetX = len * 0.32;
+    const wheelOffsetZ = wd * 0.52;
+    [
+      [wheelOffsetX, wRadius, wheelOffsetZ],
+      [wheelOffsetX, wRadius, -wheelOffsetZ],
+      [-wheelOffsetX, wRadius, wheelOffsetZ],
+      [-wheelOffsetX, wRadius, -wheelOffsetZ]
+    ].forEach(([wx, wy, wz]) => {
+      const wGroup = new THREE.Group();
+      const tire = new THREE.Mesh(wheelGeo, wheelMat);
+      tire.rotation.x = Math.PI / 2;
+      wGroup.add(tire);
+
+      const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.65, wRadius * 0.65, 0.23, 8), rimMat);
+      rim.rotation.x = Math.PI / 2;
+      wGroup.add(rim);
+
+      wGroup.position.set(wx, wy, wz);
+      carGroup.add(wGroup);
     });
 
-    // 3. Spotlight Fixture
-    const spot = new THREE.SpotLight(0xfffaed, 3);
-    spot.position.set(car.pos.x, 7.5, car.pos.z);
-    spot.target = bayGroup;
-    spot.angle = Math.PI / 5;
-    spot.penumbra = 0.5;
-    scene.add(spot);
-    scene.add(spot.target);
+    // Position Car Group in Showroom Bay
+    const [px, py, pz] = car.pos;
+    carGroup.position.set(px, py, pz);
+    scene.add(carGroup);
 
-    // Position & Rotate Bay Group
-    bayGroup.position.set(car.pos.x, 0, car.pos.z);
-    bayGroup.rotation.y = car.rotY;
-
-    scene.add(bayGroup);
-    carMeshes.push(bayGroup);
+    carMeshes.push(carGroup);
   });
 }
 
-// Navigation Handlers (D-Pad, Arrow Keys, Reset)
+// Navigation & Camera Controls
 function setupNavigation(container) {
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
@@ -405,7 +446,6 @@ function setupNavigation(container) {
     isDragging = false;
   });
 
-  // Touch Drag for Mobile
   container.addEventListener("touchstart", (e) => {
     if (e.touches.length === 1) {
       isDragging = true;
@@ -425,36 +465,33 @@ function setupNavigation(container) {
   });
 }
 
-// D-Pad Button Functions
 function moveCamera(dir) {
-  const step = 4;
+  const step = 3.5;
   if (dir === 'up') targetPos.z -= step;
   if (dir === 'down') targetPos.z += step;
   if (dir === 'left') targetPos.x -= step;
   if (dir === 'right') targetPos.x += step;
 
-  // Clamp Camera inside Showroom Walls
   targetPos.x = Math.max(-14, Math.min(14, targetPos.x));
-  targetPos.z = Math.max(-18, Math.min(18, targetPos.z));
-  targetLookAt.set(targetPos.x, 2.0, targetPos.z - 4);
+  targetPos.z = Math.max(-12, Math.min(22, targetPos.z));
+  targetLookAt.set(targetPos.x, targetPos.y - 1.5, targetPos.z - 5);
 }
 
 function resetShowroomCamera() {
-  targetPos.set(0, 2.2, 16);
+  targetPos.set(0, 3.5, 20);
   targetLookAt.set(0, 2.0, 0);
   closeInspectorModal();
 }
 
-// Inspector Modal Handler
 function openInspectorModal(carData) {
   activeCar = carData;
 
-  // Focus Camera on Selected Car Bay
-  targetPos.set(carData.pos.x, 2.2, carData.pos.z + 5);
-  targetLookAt.set(carData.pos.x, 2.0, carData.pos.z);
+  // Elevate Camera to Car Bay (Ground or 1st Floor)
+  const [px, py, pz] = carData.pos;
+  targetPos.set(px, py + 1.8, pz + 5.5);
+  targetLookAt.set(px, py + 0.8, pz);
 
-  // Populate Modal UI
-  document.getElementById("modal-wall-tag").textContent = carData.wall;
+  document.getElementById("modal-wall-tag").textContent = carData.floor;
   document.getElementById("modal-car-title").textContent = carData.name;
   document.getElementById("modal-car-price").textContent = carData.price;
   document.getElementById("m-year").textContent = carData.year;
@@ -474,26 +511,19 @@ function closeInspectorModal() {
   if (modal) modal.classList.remove("active");
 }
 
-// Fullscreen Toggle (Madhukanta Feature)
 function toggleShowroomFullscreen() {
   const wrapper = document.getElementById("museum-stage-wrapper");
   if (!document.fullscreenElement) {
-    if (wrapper.requestFullscreen) {
-      wrapper.requestFullscreen();
-    } else if (wrapper.webkitRequestFullscreen) {
-      wrapper.webkitRequestFullscreen();
-    }
+    if (wrapper.requestFullscreen) wrapper.requestFullscreen();
+    else if (wrapper.webkitRequestFullscreen) wrapper.webkitRequestFullscreen();
   } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    }
+    if (document.exitFullscreen) document.exitFullscreen();
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   initShowroom3D();
 
-  // Populate Selector Pills
   const pillsContainer = document.getElementById("car-pills-wrap");
   if (pillsContainer) {
     pillsContainer.innerHTML = "";
@@ -506,10 +536,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Close Modal Button Listener
   document.getElementById("inspector-close-btn").addEventListener("click", closeInspectorModal);
 
-  // EMI Calculator Calculation
   const rngAmount = document.getElementById("rng-amount");
   const rngRate = document.getElementById("rng-rate");
   const rngTenure = document.getElementById("rng-tenure");
@@ -531,7 +559,6 @@ document.addEventListener("DOMContentLoaded", () => {
   calcEMI();
 });
 
-// WhatsApp Booking Triggers
 function bookWhatsAppDrive() {
   if (!activeCar) activeCar = carsData[0];
   const msg = encodeURIComponent(`Hi Aura Motors, I want to schedule a physical test drive for the ${activeCar.name} (${activeCar.price}). Please share available slots!`);

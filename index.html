@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA MOTORS — 3D Virtual Luxury Car Showroom</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>AURA MOTORS — 3D Luxury Architectural Car Showroom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.0.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -17,10 +20,10 @@
     <div class="nav-brand">
       <span class="brand-logo">✦</span>
       <span class="brand-name">AURA <span>MOTORS</span></span>
-      <span class="badge-tag">3D VIRTUAL SHOWROOM</span>
+      <span class="badge-tag">2-STORY 3D SHOWROOM</span>
     </div>
     <nav class="nav-links">
-      <a href="#3d-showroom">3D Showroom Walkthrough</a>
+      <a href="#3d-showroom">3D Showroom Building</a>
       <a href="#inventory">10-Car Fleet</a>
       <a href="#emi-calculator">EMI Calculator</a>
       <a href="#test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
@@ -34,8 +37,8 @@
   <section class="hero-section">
     <div class="hero-content">
       <span class="hero-tag">ARCHITECTURAL 3D SHOWROOM EXPERIENCE</span>
-      <h1 class="hero-title">Step Inside Our <span>3D Virtual Showroom</span></h1>
-      <p class="hero-subtext">Walk through the showroom corridor, explore 10 certified pre-owned vehicles mounted across display bays, and inspect full specifications in 3D.</p>
+      <h1 class="hero-title">Step Inside Our <span>2-Story 3D Showroom</span></h1>
+      <p class="hero-subtext">Walk through the glass showroom building, climb the architectural stairs to the 1st floor mezzanine balcony, and inspect 10 3D cars in real time.</p>
       <div class="hero-actions">
         <a href="#3d-showroom" class="btn-primary">Walk Through 3D Showroom ↓</a>
         <a href="#emi-calculator" class="btn-secondary">Calculate Loan EMI</a>
@@ -43,23 +46,23 @@
     </div>
   </section>
 
-  <!-- 3D Showroom Walkthrough Section (Madhukanta-Style) -->
+  <!-- 3D Showroom Walkthrough Section -->
   <section id="3d-showroom" class="museum-3d-section">
     <div class="museum-header">
-      <span class="museum-sub-tag">ARCHITECTURAL 360° SHOWROOM CORRIDOR</span>
+      <span class="museum-sub-tag">ARCHITECTURAL 360° SHOWROOM BUILDING</span>
       <h2 class="museum-title">Explore the <span>Aura Motors Fleet</span></h2>
-      <p class="museum-desc">Step inside our virtual showroom hall. Vehicles are staged across 4 display walls. Tap any car bay to navigate directly to it and inspect specifications.</p>
+      <p class="museum-desc">Ground Floor & 1st Floor Mezzanine Balcony connected by architectural stairs. Tap any 3D car to inspect its specifications.</p>
     </div>
 
-    <!-- Quick Car Pills Bar -->
+    <!-- Quick Car Selection Pills -->
     <div class="car-selector-pills-wrap" id="car-pills-wrap">
-      <!-- Dynamic car pills -->
+      <!-- Dynamic 10 Car Pills -->
     </div>
 
     <!-- 3D Stage Wrapper -->
     <div class="museum-stage-wrapper" id="museum-stage-wrapper">
       
-      <!-- Fullscreen Toggle Button -->
+      <!-- Fullscreen Button -->
       <button class="museum-fullscreen-btn" onclick="toggleShowroomFullscreen()">
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
         FULLSCREEN 3D VIEW
@@ -68,7 +71,7 @@
       <!-- 3D Canvas Target -->
       <div id="museum-canvas-target"></div>
 
-      <!-- D-Pad Touch Navigation (Bottom Left) -->
+      <!-- D-Pad Touch Navigation -->
       <div class="museum-dpad">
         <button class="dpad-btn dpad-up" onclick="moveCamera('up')">▲</button>
         <button class="dpad-btn dpad-left" onclick="moveCamera('left')">◄</button>
@@ -77,18 +80,18 @@
         <button class="dpad-btn dpad-down" onclick="moveCamera('down')">▼</button>
       </div>
 
-      <!-- Instruction Hint Pill (Bottom Right) -->
+      <!-- Hint Pill -->
       <div class="museum-hint-pill">
-        ✨ Click/Tap D-Pad or Drag to Walk Through • Click Car Bay to Inspect
+        ✨ Click/Tap D-Pad or Drag to Walk Through • Click Any 3D Car to Inspect
       </div>
 
-      <!-- Floating Inspector Modal (Top Right) -->
+      <!-- Floating Inspector Modal -->
       <div class="museum-inspector-modal" id="museum-inspector-modal">
         <button class="inspector-close-btn" id="inspector-close-btn">×</button>
-        <span class="modal-wall-tag" id="modal-wall-tag">West Showroom Wall — Bay 1</span>
+        <span class="modal-wall-tag" id="modal-wall-tag">Ground Floor — Display Bay 1</span>
         <h3 class="modal-car-title" id="modal-car-title">Mahindra Scorpio-N Z8L 4x4</h3>
         <div class="modal-car-img-wrap">
-          <img id="modal-car-img" src="" alt="Car Image">
+          <img id="modal-car-img" src="" alt="Car Photo">
         </div>
         <p class="modal-price" id="modal-car-price">₹ 24,50,000</p>
         <div class="modal-specs-grid">
@@ -125,7 +128,7 @@
     </div>
   </section>
 
-  <!-- Inventory Grid Section (All 10 Vehicles) -->
+  <!-- Inventory Grid Section -->
   <section id="inventory" class="inventory-section">
     <div class="section-title">
       <h2>Curated 10-Vehicle Pre-Owned Fleet</h2>
@@ -135,7 +138,7 @@
     <div class="inventory-grid">
       <!-- 10 Car Cards -->
       <div class="car-card">
-        <div class="card-badge">SUV • 4X4</div>
+        <div class="card-badge">GROUND FLOOR • SUV</div>
         <div class="card-img-placeholder scorpio-bg"></div>
         <div class="card-body">
           <h3>Mahindra Scorpio-N Z8L 4x4</h3>
@@ -145,12 +148,12 @@
             <li>✓ 2.2L Diesel (172 BHP) • 4XPLOR</li>
             <li>✓ Sunroof & Sony 3D Audio</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[0])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[0])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge electric-badge">EV CROSSOVER</div>
+        <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
         <div class="card-img-placeholder nexon-bg"></div>
         <div class="card-body">
           <h3>Tata Nexon EV Dark Edition</h3>
@@ -160,12 +163,12 @@
             <li>✓ Electric (465 KM Range)</li>
             <li>✓ Ventilated Seats & 360 Camera</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[1])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[1])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge">OFF-ROAD JEEP</div>
+        <div class="card-badge">GROUND FLOOR • 4X4</div>
         <div class="card-img-placeholder thar-bg"></div>
         <div class="card-body">
           <h3>Mahindra Thar LX Hard Top</h3>
@@ -175,12 +178,12 @@
             <li>✓ 2.0L Turbo Petrol 4WD</li>
             <li>✓ Touchscreen & Convertible Vibes</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[2])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[2])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge">UTILITY SUV</div>
+        <div class="card-badge">GROUND FLOOR • UTILITY</div>
         <div class="card-img-placeholder bolero-bg"></div>
         <div class="card-body">
           <h3>Mahindra Bolero Neo N10 Opt</h3>
@@ -190,12 +193,12 @@
             <li>✓ 1.5L mHawk Diesel MLD</li>
             <li>✓ 7-Seater Tough Body</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[3])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[3])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge gold-badge">LUXURY SALOON</div>
+        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder merc-bg"></div>
         <div class="card-body">
           <h3>Mercedes-Benz S-Class S450</h3>
@@ -205,12 +208,12 @@
             <li>✓ 3.0L V6 Turbo Petrol</li>
             <li>✓ Rear Massage Seats & Burmester</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[4])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[4])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge gold-badge">M-SPORT SEDAN</div>
+        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder bmw-bg"></div>
         <div class="card-body">
           <h3>BMW 7 Series 730Ld M-Sport</h3>
@@ -220,12 +223,12 @@
             <li>✓ 3.0L Straight-6 Diesel</li>
             <li>✓ Executive Lounge Rear Theater</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[5])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[5])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge">PREMIUM 4X4</div>
+        <div class="card-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder jeep-bg"></div>
         <div class="card-body">
           <h3>Jeep Compass Model S 4x4</h3>
@@ -235,12 +238,12 @@
             <li>✓ 2.0L Diesel 9-Speed Automatic</li>
             <li>✓ Panoramic Sunroof & 4x4 Select</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[6])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[6])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge electric-badge">ELECTRIC SUPERCAR</div>
+        <div class="card-badge electric-badge">1ST FLOOR • SUPERCAR</div>
         <div class="card-img-placeholder audi-bg"></div>
         <div class="card-body">
           <h3>Audi RS e-tron GT Quattro</h3>
@@ -250,12 +253,12 @@
             <li>✓ 637 HP Dual Electric Motors</li>
             <li>✓ 0-100 km/h in 3.3 Seconds</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[7])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[7])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge gold-badge">SPORTS COUPE</div>
+        <div class="card-badge gold-badge">1ST FLOOR • SPORTS</div>
         <div class="card-img-placeholder porsche-bg"></div>
         <div class="card-body">
           <h3>Porsche 911 Carrera S</h3>
@@ -265,12 +268,12 @@
             <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
             <li>✓ Sport Chrono Package & Exhaust</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[8])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[8])">Locate 3D Car Model →</button>
         </div>
       </div>
 
       <div class="car-card">
-        <div class="card-badge">FLAGSHIP 7-SEATER</div>
+        <div class="card-badge">1ST FLOOR • FLAGSHIP</div>
         <div class="card-img-placeholder fortuner-bg"></div>
         <div class="card-body">
           <h3>Toyota Fortuner Legender 4x4</h3>
@@ -280,7 +283,7 @@
             <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
             <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[9])">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[9])">Locate 3D Car Model →</button>
         </div>
       </div>
     </div>
@@ -322,6 +325,6 @@
     <p>© 2026 AURA MOTORS 3D ARCHITECTURAL SHOWROOM DEMO • DEVELOPED BY SANTANU DHALI</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2.0.0"></script>
 </body>
 </html>
