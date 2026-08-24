@@ -1,7 +1,7 @@
 :root {
-  --bg-dark: #0a0b0d;
-  --bg-card: #12141a;
-  --bg-card-hover: #181b24;
+  --bg-dark: #060709;
+  --bg-card: #10131a;
+  --bg-card-hover: #161a24;
   --gold-primary: #e2b755;
   --gold-glow: rgba(226, 183, 85, 0.25);
   --text-main: #f5f6f8;
@@ -31,7 +31,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 18px 5%;
-  background: rgba(10, 11, 13, 0.85);
+  background: rgba(6, 7, 9, 0.88);
   backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
@@ -109,7 +109,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-  padding: 90px 5% 60px;
+  padding: 80px 5% 50px;
   text-align: center;
   background: radial-gradient(circle at 50% 30%, rgba(226, 183, 85, 0.08) 0%, transparent 60%);
 }
@@ -135,7 +135,7 @@ body {
 }
 
 .hero-subtext {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto 32px;
   color: var(--text-muted);
   font-size: 1.1rem;
@@ -186,7 +186,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -201,16 +201,30 @@ body {
   font-size: 0.95rem;
 }
 
-.car-selector-pills {
+/* Floor Level Selector Bar */
+.floor-selector-bar {
   display: flex;
+  align-items: center;
   gap: 10px;
+  background: var(--bg-card);
+  padding: 6px;
+  border-radius: 30px;
+  border: 1px solid var(--border-gold);
 }
 
-.pill-btn {
-  background: var(--bg-card);
+.selector-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  padding-left: 12px;
+  letter-spacing: 1px;
+}
+
+.floor-pill {
+  background: transparent;
   color: var(--text-muted);
-  border: 1px solid var(--border-light);
-  padding: 10px 18px;
+  border: none;
+  padding: 8px 16px;
   border-radius: 20px;
   font-family: var(--font-family);
   font-weight: 600;
@@ -219,22 +233,51 @@ body {
   transition: all 0.2s ease;
 }
 
-.pill-btn.active, .pill-btn:hover {
+.floor-pill.active, .floor-pill:hover {
   background: var(--gold-primary);
-  color: #0a0b0d;
+  color: #060709;
+}
+
+/* Car Quick Selection Pills Wrap */
+.car-selector-pills-wrap {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 0 16px;
+  margin-bottom: 16px;
+  scrollbar-width: thin;
+}
+
+.car-pill {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.car-pill.active, .car-pill:hover {
+  background: rgba(226, 183, 85, 0.15);
+  color: var(--gold-primary);
   border-color: var(--gold-primary);
 }
 
 /* Canvas Viewport */
 .canvas-container {
   width: 100%;
-  height: 520px;
-  background: radial-gradient(circle at 50% 60%, #1c202b 0%, #0a0b0d 80%);
+  height: 580px;
+  background: radial-gradient(circle at 50% 60%, #151822 0%, #060709 85%);
   border-radius: 20px;
   border: 1px solid var(--border-gold);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
 }
 
 .canvas-container canvas {
@@ -248,7 +291,7 @@ body {
   top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(10, 11, 13, 0.75);
+  background: rgba(6, 7, 9, 0.85);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-light);
   padding: 6px 16px;
@@ -258,11 +301,25 @@ body {
   pointer-events: none;
 }
 
+.floor-tag-badge {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  background: rgba(226, 183, 85, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
 .canvas-overlay-specs {
   position: absolute;
   bottom: 24px;
   left: 24px;
-  background: rgba(18, 20, 26, 0.9);
+  background: rgba(16, 19, 26, 0.92);
   backdrop-filter: blur(16px);
   padding: 20px 24px;
   border-radius: 16px;
@@ -293,6 +350,7 @@ body {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
+  flex-wrap: wrap;
 }
 
 .spec-tags span {
@@ -307,7 +365,7 @@ body {
 .btn-inspect-modal {
   width: 100%;
   background: var(--gold-primary);
-  color: #0a0b0d;
+  color: #060709;
   font-weight: 700;
   padding: 10px;
   border-radius: 8px;
@@ -324,7 +382,7 @@ body {
 /* Inventory Section */
 .inventory-section {
   padding: 60px 5%;
-  background: #0d0e12;
+  background: #090b0e;
 }
 
 .section-title {
@@ -344,7 +402,7 @@ body {
 
 .inventory-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
@@ -367,47 +425,48 @@ body {
   top: 14px;
   right: 14px;
   background: rgba(226, 183, 85, 0.9);
-  color: #0a0b0d;
-  font-size: 0.7rem;
+  color: #060709;
+  font-size: 0.65rem;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 20px;
   z-index: 2;
 }
 
-.gold-badge {
-  background: var(--gold-primary);
-}
-
-.electric-badge {
-  background: #00d2ff;
-  color: #000;
-}
+.gold-badge { background: var(--gold-primary); }
+.electric-badge { background: #00d2ff; color: #000; }
 
 .card-img-placeholder {
-  height: 200px;
+  height: 190px;
   background-size: cover;
   background-position: center;
 }
 
-.merc-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(18,20,26,0.9)), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop'); }
-.bmw-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(18,20,26,0.9)), url('https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop'); }
-.audi-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(18,20,26,0.9)), url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop'); }
+.scorpio-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop'); }
+.nexon-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop'); }
+.thar-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop'); }
+.bolero-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop'); }
+.merc-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop'); }
+.bmw-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop'); }
+.jeep-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop'); }
+.audi-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop'); }
+.porsche-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop'); }
+.fortuner-bg { background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(16,19,26,0.9)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop'); }
 
 .card-body {
   padding: 20px;
 }
 
 .card-body h3 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
 .card-price {
   color: var(--gold-primary);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 800;
-  margin: 6px 0 14px;
+  margin: 4px 0 12px;
 }
 
 .card-features {
@@ -416,7 +475,7 @@ body {
 }
 
 .card-features li {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   margin-bottom: 4px;
 }
@@ -430,13 +489,14 @@ body {
   border-radius: 8px;
   font-family: var(--font-family);
   font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-card-action:hover {
   background: var(--gold-primary);
-  color: #0a0b0d;
+  color: #060709;
 }
 
 /* EMI Section */
@@ -480,7 +540,7 @@ body {
 }
 
 .emi-result-box {
-  background: #0a0b0d;
+  background: #060709;
   border-radius: 16px;
   padding: 28px;
   border: 1px solid var(--border-light);
@@ -636,4 +696,5 @@ body {
   .hero-title { font-size: 2.2rem; }
   .emi-card { grid-template-columns: 1fr; }
   .modal-specs-grid { grid-template-columns: 1fr; }
+  .floor-selector-bar { flex-direction: column; align-items: stretch; }
 }

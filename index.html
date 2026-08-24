@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA MOTORS — 3D Virtual Luxury Car Showroom</title>
+  <title>AURA MOTORS — 3-Story 3D Luxury Car Showroom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,13 +18,13 @@
     <div class="nav-brand">
       <span class="brand-logo">✦</span>
       <span class="brand-name">AURA <span>MOTORS</span></span>
-      <span class="badge-tag">3D VIRTUAL SHOWROOM</span>
+      <span class="badge-tag">3-STORY 3D SHOWROOM</span>
     </div>
     <nav class="nav-links">
-      <a href="#3d-showroom">3D Showroom</a>
-      <a href="#inventory">Inventory</a>
+      <a href="#3d-showroom">3D Showroom Building</a>
+      <a href="#inventory">10-Car Fleet</a>
       <a href="#emi-calculator">EMI Calculator</a>
-      <a href="#test-drive" class="btn-nav-whatsapp">
+      <a href="#test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.51 1.036 3.534l-.678 2.473 2.539-.665c.983.551 2.115.864 3.314.865 3.18 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.768-5.767-5.768zm4.186 8.083c-.174.489-.861.94-1.393.993-.532.054-1.077.165-3.571-.853-2.127-.869-3.486-3.037-3.593-3.178-.106-.142-.862-1.149-.862-2.19 0-1.042.545-1.554.739-1.767.194-.213.424-.266.565-.266.142 0 .283.002.407.008.132.006.31-.05.485.37.177.424.602 1.469.655 1.575.053.106.088.23.018.371-.071.142-.106.23-.212.355-.106.124-.223.277-.319.371-.106.106-.217.221-.093.434.124.213.552.911 1.186 1.476.815.726 1.503.951 1.716 1.057.213.106.337.088.461-.053.124-.142.532-.619.674-.831.142-.213.283-.177.478-.106.195.071 1.241.585 1.454.691.213.106.355.159.407.248.053.089.053.514-.121 1.003z"/></svg>
         WhatsApp Booking
       </a>
@@ -34,11 +34,11 @@
   <!-- Hero Banner -->
   <section class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag font-accent">PRE-OWNED LUXURY SELECTION</span>
-      <h1 class="hero-title">Experience Certified Cars In <span>Interactive 3D</span></h1>
-      <p class="hero-subtext">Rotate, inspect exterior finishes, view cabin specifications, and book your physical test drive directly from your phone or desktop.</p>
+      <span class="hero-tag">ARCHITECTURAL 3D SHOWROOM FACILITY</span>
+      <h1 class="hero-title">Step Inside Our <span>3-Story 3D Showroom</span></h1>
+      <p class="hero-subtext">Explore 10 certified pre-owned vehicles across Ground, 1st, and 2nd floor display galleries. Click any car or floor level to navigate directly to its bay.</p>
       <div class="hero-actions">
-        <a href="#3d-showroom" class="btn-primary">Enter 3D Virtual Showroom ↓</a>
+        <a href="#3d-showroom" class="btn-primary">Explore 3D Showroom Building ↓</a>
         <a href="#emi-calculator" class="btn-secondary">Calculate Loan EMI</a>
       </div>
     </div>
@@ -48,73 +48,171 @@
   <section id="3d-showroom" class="showroom-section">
     <div class="showroom-header">
       <div class="showroom-title-wrap">
-        <h2>360° Interactive Showroom Stage</h2>
-        <p>Use your mouse or finger to rotate 360°, zoom into body lines, and tap hotspots to inspect car specifications.</p>
+        <h2>3-Floor Architectural Showroom Building</h2>
+        <p>Use floor controls or tap any vehicle on display to zoom the camera directly onto that car bay.</p>
       </div>
-      <div class="car-selector-pills" id="car-selector">
-        <button class="pill-btn active" data-car="0">Mercedes-Benz S-Class</button>
-        <button class="pill-btn" data-car="1">BMW 7 Series M-Sport</button>
-        <button class="pill-btn" data-car="2">Audi RS e-tron GT</button>
+
+      <!-- Floor Level Controls -->
+      <div class="floor-selector-bar">
+        <span class="selector-label">FLOOR LEVEL:</span>
+        <button class="floor-pill active" data-floor="0">Ground Floor (SUVs & Off-Road)</button>
+        <button class="floor-pill" data-floor="1">1st Floor (Executive Sedans)</button>
+        <button class="floor-pill" data-floor="2">2nd Floor (Supercars & Flagships)</button>
       </div>
+    </div>
+
+    <!-- Car Quick Selection Pills -->
+    <div class="car-selector-pills-wrap" id="car-pills-wrap">
+      <!-- Dynamically populated 10 car pills -->
     </div>
 
     <!-- 3D Canvas Viewport -->
     <div class="canvas-container" id="canvas-container">
       <div class="canvas-hint-pill">
-        <span>✨ Drag to Rotate 360° • Scroll to Zoom • Tap Car to Inspect</span>
+        <span>✨ Drag to Rotate 360° • Click Any Car Bay to Zoom In • Scroll to Zoom</span>
       </div>
+
+      <div class="floor-tag-badge" id="floor-tag-label">
+        Ground Floor — SUV & Off-Road Zone
+      </div>
+
       <div class="canvas-overlay-specs" id="car-quick-specs">
-        <h3 id="quick-car-name">Mercedes-Benz S-Class S450</h3>
-        <p id="quick-car-price">₹ 1,35,00,000 <span>• 2022 Model</span></p>
+        <h3 id="quick-car-name">Mahindra Scorpio-N Z8L 4x4</h3>
+        <p id="quick-car-price">₹ 24,50,000 <span>• 2023 Model</span></p>
         <div class="spec-tags">
-          <span id="spec-km">14,200 KM</span>
+          <span id="spec-km">12,000 KM</span>
           <span id="spec-owner">1st Owner</span>
-          <span id="spec-fuel">Petrol V6 Turbo</span>
+          <span id="spec-fuel">2.2L mHawk Diesel</span>
         </div>
         <button class="btn-inspect-modal" id="btn-open-modal">Full Vehicle Details & Inspection →</button>
       </div>
     </div>
   </section>
 
-  <!-- Inventory Grid Section -->
+  <!-- Inventory Grid Section (All 10 Vehicles) -->
   <section id="inventory" class="inventory-section">
     <div class="section-title">
-      <h2>Curated Pre-Owned Fleet</h2>
+      <h2>Curated 10-Vehicle Pre-Owned Fleet</h2>
       <p>Every vehicle undergoes a 140-point technical inspection & non-accident certification.</p>
     </div>
+
     <div class="inventory-grid">
+
+      <!-- Car 0: Scorpio-N -->
       <div class="car-card">
-        <div class="card-badge">JUST ARRIVED</div>
+        <div class="card-badge">GROUND FLOOR • SUV</div>
+        <div class="card-img-placeholder scorpio-bg"></div>
+        <div class="card-body">
+          <h3>Mahindra Scorpio-N Z8L 4x4</h3>
+          <p class="card-price">₹ 24,50,000</p>
+          <ul class="card-features">
+            <li>✓ 2023 Model • 12,000 KM</li>
+            <li>✓ 2.2L Diesel (172 BHP) • 4XPLOR</li>
+            <li>✓ Sunroof & Sony 3D Audio</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(0)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 1: Nexon EV -->
+      <div class="car-card">
+        <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
+        <div class="card-img-placeholder nexon-bg"></div>
+        <div class="card-body">
+          <h3>Tata Nexon EV Dark Edition</h3>
+          <p class="card-price">₹ 16,80,000</p>
+          <ul class="card-features">
+            <li>✓ 2023 Model • 8,500 KM</li>
+            <li>✓ Electric (465 KM Range)</li>
+            <li>✓ Ventilated Seats & 360 Camera</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(1)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 2: Thar 4x4 -->
+      <div class="car-card">
+        <div class="card-badge">GROUND FLOOR • 4X4</div>
+        <div class="card-img-placeholder thar-bg"></div>
+        <div class="card-body">
+          <h3>Mahindra Thar LX Hard Top</h3>
+          <p class="card-price">₹ 15,20,000</p>
+          <ul class="card-features">
+            <li>✓ 2022 Model • 18,400 KM</li>
+            <li>✓ 2.0L Turbo Petrol 4WD</li>
+            <li>✓ Touchscreen & Convertible Vibes</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(2)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 3: Bolero Neo -->
+      <div class="card-badge-wrap car-card">
+        <div class="card-badge">GROUND FLOOR • UTILITY</div>
+        <div class="card-img-placeholder bolero-bg"></div>
+        <div class="card-body">
+          <h3>Mahindra Bolero Neo N10 Opt</h3>
+          <p class="card-price">₹ 10,90,000</p>
+          <ul class="card-features">
+            <li>✓ 2022 Model • 24,000 KM</li>
+            <li>✓ 1.5L mHawk Diesel MLD</li>
+            <li>✓ 7-Seater Tough Body</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(3)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 4: Mercedes S-Class -->
+      <div class="car-card">
+        <div class="card-badge gold-badge">1ST FLOOR • LUXURY</div>
         <div class="card-img-placeholder merc-bg"></div>
         <div class="card-body">
           <h3>Mercedes-Benz S-Class S450</h3>
           <p class="card-price">₹ 1,35,00,000</p>
           <ul class="card-features">
             <li>✓ 2022 Model • 14,200 KM</li>
-            <li>✓ Full Company Service Record</li>
-            <li>✓ Zero Depreciation Insurance</li>
+            <li>✓ 3.0L V6 Turbo Petrol</li>
+            <li>✓ Rear Massage Seats & Burmester</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(0)">View in 3D Stage →</button>
+          <button class="btn-card-action" onclick="switchCar(4)">Locate in 3D Showroom →</button>
         </div>
       </div>
 
+      <!-- Car 5: BMW 7 Series -->
       <div class="car-card">
-        <div class="card-badge gold-badge">CERTIFIED</div>
+        <div class="card-badge gold-badge">1ST FLOOR • M-SPORT</div>
         <div class="card-img-placeholder bmw-bg"></div>
         <div class="card-body">
           <h3>BMW 7 Series 730Ld M-Sport</h3>
           <p class="card-price">₹ 1,18,00,000</p>
           <ul class="card-features">
             <li>✓ 2021 Model • 22,000 KM</li>
-            <li>✓ M-Sport Aerodynamic Package</li>
-            <li>✓ Executive Lounge Seating</li>
+            <li>✓ 3.0L Straight-6 Diesel</li>
+            <li>✓ Executive Lounge Rear Theater</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(1)">View in 3D Stage →</button>
+          <button class="btn-card-action" onclick="switchCar(5)">Locate in 3D Showroom →</button>
         </div>
       </div>
 
+      <!-- Car 6: Jeep Compass -->
       <div class="car-card">
-        <div class="card-badge electric-badge">100% ELECTRIC</div>
+        <div class="card-badge">1ST FLOOR • PREMIUM</div>
+        <div class="card-img-placeholder jeep-bg"></div>
+        <div class="card-body">
+          <h3>Jeep Compass Model S 4x4</h3>
+          <p class="card-price">₹ 26,40,000</p>
+          <ul class="card-features">
+            <li>✓ 2023 Model • 11,000 KM</li>
+            <li>✓ 2.0L Diesel 9-Speed Automatic</li>
+            <li>✓ Panoramic Sunroof & 4x4 Select</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(6)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 7: Audi RS e-tron GT -->
+      <div class="car-card">
+        <div class="card-badge electric-badge">2ND FLOOR • SUPERCAR</div>
         <div class="card-img-placeholder audi-bg"></div>
         <div class="card-body">
           <h3>Audi RS e-tron GT Quattro</h3>
@@ -122,11 +220,44 @@
           <ul class="card-features">
             <li>✓ 2023 Model • 6,500 KM</li>
             <li>✓ 637 HP Dual Electric Motors</li>
-            <li>✓ Carbon Fiber Roof & Trim</li>
+            <li>✓ 0-100 km/h in 3.3 Seconds</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(2)">View in 3D Stage →</button>
+          <button class="btn-card-action" onclick="switchCar(7)">Locate in 3D Showroom →</button>
         </div>
       </div>
+
+      <!-- Car 8: Porsche 911 -->
+      <div class="car-card">
+        <div class="card-badge gold-badge">2ND FLOOR • SPORTS</div>
+        <div class="card-img-placeholder porsche-bg"></div>
+        <div class="card-body">
+          <h3>Porsche 911 Carrera S</h3>
+          <p class="card-price">₹ 1,85,00,000</p>
+          <ul class="card-features">
+            <li>✓ 2022 Model • 4,800 KM</li>
+            <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
+            <li>✓ Sport Chrono Package & Exhaust</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(8)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
+      <!-- Car 9: Fortuner Legender -->
+      <div class="car-card">
+        <div class="card-badge">2ND FLOOR • FLAGSHIP</div>
+        <div class="card-img-placeholder fortuner-bg"></div>
+        <div class="card-body">
+          <h3>Toyota Fortuner Legender 4x4</h3>
+          <p class="card-price">₹ 44,50,000</p>
+          <ul class="card-features">
+            <li>✓ 2023 Model • 15,800 KM</li>
+            <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
+            <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
+          </ul>
+          <button class="btn-card-action" onclick="switchCar(9)">Locate in 3D Showroom →</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -168,29 +299,29 @@
       <button class="btn-modal-close" id="btn-modal-close">×</button>
       <div class="modal-header">
         <span class="modal-tag">AURA CERTIFIED VEHICLE</span>
-        <h2 id="modal-car-title">Mercedes-Benz S-Class S450</h2>
-        <p class="modal-price" id="modal-car-price">₹ 1,35,00,000</p>
+        <h2 id="modal-car-title">Mahindra Scorpio-N Z8L 4x4</h2>
+        <p class="modal-price" id="modal-car-price">₹ 24,50,000</p>
       </div>
       <div class="modal-specs-grid">
         <div class="modal-spec-item">
           <span class="spec-key">Registration Year</span>
-          <span class="spec-val" id="m-year">2022</span>
+          <span class="spec-val" id="m-year">2023</span>
         </div>
         <div class="modal-spec-item">
           <span class="spec-key">Kilometers Driven</span>
-          <span class="spec-val" id="m-km">14,200 KM</span>
+          <span class="spec-val" id="m-km">12,000 KM</span>
         </div>
         <div class="modal-spec-item">
           <span class="spec-key">Fuel & Engine</span>
-          <span class="spec-val" id="m-engine">3.0L V6 Turbo Petrol</span>
+          <span class="spec-val" id="m-engine">2.2L mHawk Diesel</span>
         </div>
         <div class="modal-spec-item">
           <span class="spec-key">Transmission</span>
-          <span class="spec-val" id="m-trans">9G-TRONIC Automatic</span>
+          <span class="spec-val" id="m-trans">6-Speed Automatic 4XPLOR</span>
         </div>
         <div class="modal-spec-item">
           <span class="spec-key">Ownership</span>
-          <span class="spec-val" id="m-owner">1st Owner (Individual)</span>
+          <span class="spec-val" id="m-owner">1st Owner</span>
         </div>
         <div class="modal-spec-item">
           <span class="spec-key">Inspection Grade</span>
@@ -206,7 +337,7 @@
   </div>
 
   <footer class="footer">
-    <p>© 2026 AURA MOTORS 3D SHOWROOM DEMO • DEVELOPED BY SANTANU DHALI</p>
+    <p>© 2026 AURA MOTORS 3D ARCHITECTURAL SHOWROOM DEMO • DEVELOPED BY SANTANU DHALI</p>
   </footer>
 
   <script src="app.js"></script>
