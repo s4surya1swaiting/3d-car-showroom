@@ -6,16 +6,16 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>AURA MOTORS — 3D Luxury Architectural Car Showroom</title>
+  <title>AURA MOTORS — Luxury 3D Virtual Dealership & Pre-Owned Car Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.0.0">
+  <link rel="stylesheet" href="style.css?v=2.1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
+  <!-- 1. Top Navigation Header -->
   <header class="navbar">
     <div class="nav-brand">
       <span class="brand-logo">✦</span>
@@ -23,34 +23,54 @@
       <span class="badge-tag">2-STORY 3D SHOWROOM</span>
     </div>
     <nav class="nav-links">
-      <a href="#3d-showroom">3D Showroom Building</a>
-      <a href="#inventory">10-Car Fleet</a>
-      <a href="#emi-calculator">EMI Calculator</a>
-      <a href="#test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
+      <a href="#3d-showroom">3D Showroom</a>
+      <a href="#inventory">Fleet Inventory</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#emi-calculator">EMI Finance</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#book-test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.51 1.036 3.534l-.678 2.473 2.539-.665c.983.551 2.115.864 3.314.865 3.18 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.768-5.767-5.768zm4.186 8.083c-.174.489-.861.94-1.393.993-.532.054-1.077.165-3.571-.853-2.127-.869-3.486-3.037-3.593-3.178-.106-.142-.862-1.149-.862-2.19 0-1.042.545-1.554.739-1.767.194-.213.424-.266.565-.266.142 0 .283.002.407.008.132.006.31-.05.485.37.177.424.602 1.469.655 1.575.053.106.088.23.018.371-.071.142-.106.23-.212.355-.106.124-.223.277-.319.371-.106.106-.217.221-.093.434.124.213.552.911 1.186 1.476.815.726 1.503.951 1.716 1.057.213.106.337.088.461-.053.124-.142.532-.619.674-.831.142-.213.283-.177.478-.106.195.071 1.241.585 1.454.691.213.106.355.159.407.248.053.089.053.514-.121 1.003z"/></svg>
-        WhatsApp Booking
+        Book Test Drive
       </a>
     </nav>
   </header>
 
-  <!-- Hero Banner -->
+  <!-- 2. Hero Banner Section -->
   <section class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag">ARCHITECTURAL 3D SHOWROOM EXPERIENCE</span>
-      <h1 class="hero-title">Step Inside Our <span>2-Story 3D Showroom</span></h1>
-      <p class="hero-subtext">Walk through the glass showroom building, climb the architectural stairs to the 1st floor mezzanine balcony, and inspect 10 3D cars in real time.</p>
+      <span class="hero-tag font-accent">INDIA'S PREMIER 3D VIRTUAL DEALERSHIP PLATFORM</span>
+      <h1 class="hero-title">Experience Certified Cars In <span>Interactive 3D</span></h1>
+      <p class="hero-subtext">Step inside our 2-story glass showroom building, walk through the mezzanine balcony, inspect 10 certified pre-owned luxury vehicles in 3D, and schedule doorstep test drives.</p>
       <div class="hero-actions">
-        <a href="#3d-showroom" class="btn-primary">Walk Through 3D Showroom ↓</a>
-        <a href="#emi-calculator" class="btn-secondary">Calculate Loan EMI</a>
+        <a href="#3d-showroom" class="btn-primary">Walk Through 3D Showroom Building ↓</a>
+        <a href="#inventory" class="btn-secondary">Browse 10-Car Inventory</a>
+      </div>
+      <div class="hero-trust-stats">
+        <div class="trust-stat-item">
+          <span class="stat-num">140+</span>
+          <span class="stat-lbl">Points Technical Inspection</span>
+        </div>
+        <div class="trust-stat-item">
+          <span class="stat-num">7 Days</span>
+          <span class="stat-lbl">Money-Back Guarantee</span>
+        </div>
+        <div class="trust-stat-item">
+          <span class="stat-num">1 Year</span>
+          <span class="stat-lbl">Comprehensive Warranty</span>
+        </div>
+        <div class="trust-stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-lbl">Non-Accident Certified</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 3D Showroom Walkthrough Section -->
+  <!-- 3. 3D Architectural Showroom Walkthrough Section -->
   <section id="3d-showroom" class="museum-3d-section">
     <div class="museum-header">
       <span class="museum-sub-tag">ARCHITECTURAL 360° SHOWROOM BUILDING</span>
-      <h2 class="museum-title">Explore the <span>Aura Motors Fleet</span></h2>
+      <h2 class="museum-title">Walk Through Our <span>2-Story Showroom</span></h2>
       <p class="museum-desc">Ground Floor & 1st Floor Mezzanine Balcony connected by architectural stairs. Tap any 3D car to inspect its specifications.</p>
     </div>
 
@@ -128,16 +148,50 @@
     </div>
   </section>
 
-  <!-- Inventory Grid Section -->
+  <!-- 4. Fleet Filter & Search Bar Section -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <div class="filter-group">
+        <label>Body Type</label>
+        <select id="filter-type" onchange="filterInventory()">
+          <option value="all">All Body Types (10 Cars)</option>
+          <option value="SUV">SUVs & Off-Road</option>
+          <option value="Sedan">Luxury Sedans</option>
+          <option value="EV">Electric Vehicles (EV)</option>
+          <option value="Supercar">Supercars & Sports</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Budget Range</label>
+        <select id="filter-budget" onchange="filterInventory()">
+          <option value="all">All Prices</option>
+          <option value="under20">Under ₹ 20 Lakhs</option>
+          <option value="20to50">₹ 20 Lakhs - ₹ 50 Lakhs</option>
+          <option value="above1cr">Above ₹ 1 Crore</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Fuel Type</label>
+        <select id="filter-fuel" onchange="filterInventory()">
+          <option value="all">All Fuel Types</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Electric">100% Electric</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 10-Car Inventory Fleet Section -->
   <section id="inventory" class="inventory-section">
     <div class="section-title">
       <h2>Curated 10-Vehicle Pre-Owned Fleet</h2>
       <p>Every vehicle undergoes a 140-point technical inspection & non-accident certification.</p>
     </div>
 
-    <div class="inventory-grid">
+    <div class="inventory-grid" id="inventory-grid">
       <!-- 10 Car Cards -->
-      <div class="car-card">
+      <div class="car-card" data-type="SUV" data-price="2450000" data-fuel="Diesel">
         <div class="card-badge">GROUND FLOOR • SUV</div>
         <div class="card-img-placeholder scorpio-bg"></div>
         <div class="card-body">
@@ -152,7 +206,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="EV" data-price="1680000" data-fuel="Electric">
         <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
         <div class="card-img-placeholder nexon-bg"></div>
         <div class="card-body">
@@ -167,7 +221,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="SUV" data-price="1520000" data-fuel="Petrol">
         <div class="card-badge">GROUND FLOOR • 4X4</div>
         <div class="card-img-placeholder thar-bg"></div>
         <div class="card-body">
@@ -182,7 +236,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="SUV" data-price="1090000" data-fuel="Diesel">
         <div class="card-badge">GROUND FLOOR • UTILITY</div>
         <div class="card-img-placeholder bolero-bg"></div>
         <div class="card-body">
@@ -197,7 +251,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="Sedan" data-price="13500000" data-fuel="Petrol">
         <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder merc-bg"></div>
         <div class="card-body">
@@ -212,7 +266,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="Sedan" data-price="11800000" data-fuel="Diesel">
         <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder bmw-bg"></div>
         <div class="card-body">
@@ -227,7 +281,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="SUV" data-price="2640000" data-fuel="Diesel">
         <div class="card-badge">1ST FLOOR • MEZZANINE</div>
         <div class="card-img-placeholder jeep-bg"></div>
         <div class="card-body">
@@ -242,7 +296,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="EV" data-price="16200000" data-fuel="Electric">
         <div class="card-badge electric-badge">1ST FLOOR • SUPERCAR</div>
         <div class="card-img-placeholder audi-bg"></div>
         <div class="card-body">
@@ -257,7 +311,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="Supercar" data-price="18500000" data-fuel="Petrol">
         <div class="card-badge gold-badge">1ST FLOOR • SPORTS</div>
         <div class="card-img-placeholder porsche-bg"></div>
         <div class="card-body">
@@ -272,7 +326,7 @@
         </div>
       </div>
 
-      <div class="car-card">
+      <div class="car-card" data-type="SUV" data-price="4450000" data-fuel="Diesel">
         <div class="card-badge">1ST FLOOR • FLAGSHIP</div>
         <div class="card-img-placeholder fortuner-bg"></div>
         <div class="card-body">
@@ -289,7 +343,37 @@
     </div>
   </section>
 
-  <!-- EMI Loan Calculator Section -->
+  <!-- 6. Why Choose Aura Motors Section -->
+  <section id="why-us" class="why-us-section">
+    <div class="section-title">
+      <h2>Why Luxury Buyers Choose Aura Motors</h2>
+      <p>Redefining pre-owned luxury car buying with total transparency and 3D digital technology.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <h3>140-Point Certified Inspection</h3>
+        <p>Every engine, transmission, electrical harness, and body panel is tested by certified luxury technicians.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>1-Year Warranty & RSA</h3>
+        <p>Drive with peace of mind with 12 months comprehensive warranty and 24/7 pan-India roadside assistance.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔄</div>
+        <h3>7-Day Money-Back Guarantee</h3>
+        <p>If you aren't completely in love with your car, return it within 7 days for a 100% full refund—no questions asked.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚚</div>
+        <h3>Doorstep Home Delivery</h3>
+        <p>Experience physical test drives and contactless vehicle delivery directly to your home or office.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Interactive Finance EMI Calculator Section -->
   <section id="emi-calculator" class="emi-section">
     <div class="section-title">
       <h2>Interactive Finance EMI Calculator</h2>
@@ -321,10 +405,129 @@
     </div>
   </section>
 
+  <!-- 8. Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="section-title">
+      <h2>What Our Clients Say</h2>
+      <p>Hear from luxury car owners who bought their dream vehicles through Aura Motors 3D Showroom.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Exploring the Mercedes S-Class in 3D before booking the physical test drive saved me so much time. The car was delivered in pristine condition!"</p>
+        <div class="testi-user">
+          <div class="user-avatar">VK</div>
+          <div>
+            <h4>Vikram Kulkarni</h4>
+            <span>Bought Mercedes S-Class • Mumbai</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The 3D showroom walkthrough gave me full confidence in the car's condition. The loan approval on WhatsApp was done within 4 hours!"</p>
+        <div class="testi-user">
+          <div class="user-avatar">RS</div>
+          <div>
+            <h4>Rajesh Sharma</h4>
+            <span>Bought Scorpio-N 4x4 • Delhi NCR</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Buying an Audi RS e-tron GT online seemed crazy until I walked through their virtual showroom. Exceptional transparency and service!"</p>
+        <div class="testi-user">
+          <div class="user-avatar">AM</div>
+          <div>
+            <h4>Ananya Mehta</h4>
+            <span>Bought Audi RS e-tron • Bengaluru</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Doorstep Test Drive Booking Form -->
+  <section id="book-test-drive" class="booking-section">
+    <div class="booking-card">
+      <div class="booking-header">
+        <h2>Schedule Doorstep Test Drive</h2>
+        <p>Select your preferred vehicle and location—our concierge will bring the car to you.</p>
+      </div>
+      <form class="booking-form" onsubmit="handleFormBooking(event)">
+        <div class="form-row">
+          <input type="text" id="b-name" placeholder="Full Name" required>
+          <input type="tel" id="b-phone" placeholder="Mobile Number" required>
+        </div>
+        <div class="form-row">
+          <select id="b-car" required>
+            <option value="">Select Preferred Car</option>
+            <option value="Mahindra Scorpio-N">Mahindra Scorpio-N Z8L 4x4</option>
+            <option value="Tata Nexon EV">Tata Nexon EV Dark Edition</option>
+            <option value="Mahindra Thar 4x4">Mahindra Thar LX Hard Top</option>
+            <option value="Mercedes S-Class">Mercedes-Benz S-Class S450</option>
+            <option value="BMW 7 Series">BMW 7 Series 730Ld M-Sport</option>
+            <option value="Audi RS e-tron GT">Audi RS e-tron GT Quattro</option>
+            <option value="Porsche 911 Carrera">Porsche 911 Carrera S</option>
+            <option value="Toyota Fortuner">Toyota Fortuner Legender 4x4</option>
+          </select>
+          <input type="text" id="b-city" placeholder="City / Location" required>
+        </div>
+        <button type="submit" class="btn-submit-booking">Submit Test Drive Request →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 10. FAQ Section -->
+  <section class="faq-section">
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about our certified pre-owned purchasing process.</p>
+    </div>
+    <div class="faq-accordion">
+      <details class="faq-item">
+        <summary>How does the 140-point technical inspection work?</summary>
+        <p>Every vehicle is inspected by certified master technicians covering engine compression, gearbox shift smoothness, suspension damping, OBD-II diagnostic scans, and paint thickness analysis.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I request a doorstep test drive before making a payment?</summary>
+        <p>Yes! Simply click "Book Test Drive", and our concierge team will deliver the vehicle to your home or office for a physical test drive with no obligation.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What loan financing options are available?</summary>
+        <p>We partner with HDFC, ICICI, Axis Bank, and Kotak Prime to offer up to 90% funding with interest rates starting at 8.5% P.A. and flexible tenures up to 7 years.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 11. Footer Section -->
   <footer class="footer">
-    <p>© 2026 AURA MOTORS 3D ARCHITECTURAL SHOWROOM DEMO • DEVELOPED BY SANTANU DHALI</p>
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="brand-name">AURA <span>MOTORS</span></span>
+        <p>India's premier 3D virtual luxury car showroom & certified pre-owned dealership platform.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#3d-showroom">3D Showroom Building</a></li>
+          <li><a href="#inventory">Fleet Inventory</a></li>
+          <li><a href="#emi-calculator">EMI Calculator</a></li>
+          <li><a href="#why-us">Why Aura Motors</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Showroom Hubs</h4>
+        <p>📍 Mumbai • Delhi NCR • Bengaluru • Hyderabad</p>
+        <p>📞 Concierge Hotline: +91 98765 43210</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AURA MOTORS 3D VIRTUAL SHOWROOM • DEVELOPED BY SANTANU DHALI</p>
+    </div>
   </footer>
 
-  <script src="app.js?v=2.0.0"></script>
+  <script src="app.js?v=2.1.0"></script>
 </body>
 </html>

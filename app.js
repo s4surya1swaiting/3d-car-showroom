@@ -1,4 +1,4 @@
-// AURA MOTORS 2-STORY ARCHITECTURAL 3D SHOWROOM WITH 3D CAR MESHES & STAIRS
+// AURA MOTORS 2-STORY ARCHITECTURAL 3D SHOWROOM WITH 3D CAR MESHES & FULL COMMERCIAL SECTIONS
 
 const carsData = [
   // GROUND FLOOR BAYS
@@ -15,7 +15,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
     pos: [-10, 0.4, -6],
-    color: 0x5c6b73, // Silver Metallic SUV
+    color: 0x5c6b73,
     dim: [3.4, 1.45, 1.75]
   },
   {
@@ -31,7 +31,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
     pos: [-3, 0.4, -6],
-    color: 0x0a3641, // Teal Electric
+    color: 0x0a3641,
     dim: [2.9, 1.25, 1.6]
   },
   {
@@ -47,7 +47,7 @@ const carsData = [
     grade: "138/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
     pos: [4, 0.4, -6],
-    color: 0x1f2421, // Matte Black Off-Road
+    color: 0x1f2421,
     dim: [2.8, 1.35, 1.65]
   },
   {
@@ -63,7 +63,7 @@ const carsData = [
     grade: "135/140 Certified",
     img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
     pos: [11, 0.4, -6],
-    color: 0x22382b, // Forest Green
+    color: 0x22382b,
     dim: [3.1, 1.35, 1.6]
   },
 
@@ -81,7 +81,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
     pos: [-10, 5.4, 4],
-    color: 0x0b132b, // Midnight Navy Limousine
+    color: 0x0b132b,
     dim: [3.8, 0.95, 1.75]
   },
   {
@@ -97,7 +97,7 @@ const carsData = [
     grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
     pos: [-3, 5.4, 4],
-    color: 0x6e0d16, // Carbon Crimson
+    color: 0x6e0d16,
     dim: [3.7, 0.95, 1.75]
   },
   {
@@ -113,7 +113,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
     pos: [4, 5.4, 4],
-    color: 0xdedede, // Pearl White Premium
+    color: 0xdedede,
     dim: [3.2, 1.25, 1.65]
   },
   {
@@ -129,7 +129,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
     pos: [11, 5.4, 4],
-    color: 0x1c1e24, // Daytona Matte Gray Supercar
+    color: 0x1c1e24,
     dim: [3.6, 0.85, 1.8]
   },
   {
@@ -145,7 +145,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
     pos: [-6, 5.4, 12],
-    color: 0xd90429, // Guards Red Sports Coupe
+    color: 0xd90429,
     dim: [3.3, 0.8, 1.7]
   },
   {
@@ -161,7 +161,7 @@ const carsData = [
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
     pos: [6, 5.4, 12],
-    color: 0xf8f9fa, // Pearl White & Black Roof SUV
+    color: 0xf8f9fa,
     dim: [3.6, 1.45, 1.75]
   }
 ];
@@ -177,16 +177,13 @@ function initShowroom3D() {
   const container = document.getElementById("museum-canvas-target");
   if (!container) return;
 
-  // 1. Scene setup
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x0a0c10);
   scene.fog = new THREE.FogExp2(0x0a0c10, 0.015);
 
-  // 2. Camera setup
   camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 120);
   camera.position.set(0, 3.5, 20);
 
-  // 3. Renderer setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -195,7 +192,6 @@ function initShowroom3D() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   container.appendChild(renderer.domElement);
 
-  // 4. Lighting setup
   const ambient = new THREE.AmbientLight(0xffffff, 0.9);
   scene.add(ambient);
 
@@ -208,16 +204,10 @@ function initShowroom3D() {
   fillLight.position.set(0, 10, 0);
   scene.add(fillLight);
 
-  // 5. Build 2-Story Architectural Building with Stairs & Balcony
   build2StoryShowroomBuilding();
-
-  // 6. Build & Position 10 Detailed 3D Car Meshes
   build3DCarModels();
-
-  // 7. Touch & Mouse Navigation Controls
   setupNavigation(container);
 
-  // 8. Raycaster for Tapping 3D Cars
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
@@ -239,15 +229,11 @@ function initShowroom3D() {
     }
   });
 
-  // Render Loop
   function animate() {
     requestAnimationFrame(animate);
-
-    // Smooth Camera lerp to target
     camera.position.lerp(targetPos, 0.06);
     currentLookAt.lerp(targetLookAt, 0.06);
     camera.lookAt(currentLookAt);
-
     renderer.render(scene, camera);
   }
   animate();
@@ -259,9 +245,7 @@ function initShowroom3D() {
   });
 }
 
-// Build 2-Story Building Structure (Ground Floor, 1st Floor Balcony, Stairs, Glass Facade)
 function build2StoryShowroomBuilding() {
-  // Ground Floor Slab
   const floorGeo = new THREE.PlaneGeometry(36, 40);
   const floorMat = new THREE.MeshStandardMaterial({ color: 0x11141d, roughness: 0.15, metalness: 0.85 });
   const floor = new THREE.Mesh(floorGeo, floorMat);
@@ -273,7 +257,6 @@ function build2StoryShowroomBuilding() {
   grid.position.y = 0.01;
   scene.add(grid);
 
-  // 1st Floor Mezzanine Balcony Slab (Height y = 5.0)
   const mezGeo = new THREE.BoxGeometry(34, 0.4, 20);
   const mezMat = new THREE.MeshStandardMaterial({ color: 0x181c28, roughness: 0.2, metalness: 0.7 });
   const mezzanine = new THREE.Mesh(mezGeo, mezMat);
@@ -285,7 +268,6 @@ function build2StoryShowroomBuilding() {
   mezGrid.position.set(0, 5.21, 7);
   scene.add(mezGrid);
 
-  // Support Columns for Mezzanine
   const colGeo = new THREE.CylinderGeometry(0.4, 0.4, 5.0, 16);
   const colMat = new THREE.MeshStandardMaterial({ color: 0x090b0e, metalness: 0.9, roughness: 0.1 });
   [[-15, -1], [15, -1], [-15, 15], [15, 15]].forEach(([cx, cz]) => {
@@ -294,21 +276,13 @@ function build2StoryShowroomBuilding() {
     scene.add(col);
   });
 
-  // Architectural Glass Railing around 1st Floor Balcony
   const glassRailMat = new THREE.MeshPhysicalMaterial({
-    color: 0x88ccff,
-    transparent: true,
-    opacity: 0.25,
-    transmission: 0.9,
-    roughness: 0.05
+    color: 0x88ccff, transparent: true, opacity: 0.25, transmission: 0.9, roughness: 0.05
   });
-
-  const railFrontGeo = new THREE.BoxGeometry(34, 1.0, 0.1);
-  const railFront = new THREE.Mesh(railFrontGeo, glassRailMat);
+  const railFront = new THREE.Mesh(new THREE.BoxGeometry(34, 1.0, 0.1), glassRailMat);
   railFront.position.set(0, 5.7, -3);
   scene.add(railFront);
 
-  // Architectural Grand Staircase leading from Ground Floor to Mezzanine Balcony
   const stepCount = 14;
   const stepHeight = 5.0 / stepCount;
   const stepDepth = 0.45;
@@ -316,22 +290,17 @@ function build2StoryShowroomBuilding() {
   const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.7, roughness: 0.2 });
 
   for (let i = 0; i < stepCount; i++) {
-    const stepGeo = new THREE.BoxGeometry(stepWidth, stepHeight, stepDepth);
-    const step = new THREE.Mesh(stepGeo, stepMat);
+    const step = new THREE.Mesh(new THREE.BoxGeometry(stepWidth, stepHeight, stepDepth), stepMat);
     step.position.set(14, (i + 0.5) * stepHeight, -2 + i * stepDepth);
     step.receiveShadow = true;
     scene.add(step);
   }
 
-  // Outer Glass Facade Wall
-  const glassWallGeo = new THREE.PlaneGeometry(36, 12);
-  const glassWallMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.95 });
-  const glassWall = new THREE.Mesh(glassWallGeo, glassWallMat);
+  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(36, 12), new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.95 }));
   glassWall.position.set(0, 6, -20);
   scene.add(glassWall);
 }
 
-// Build & Staging 10 Detailed Procedural 3D Car Models
 function build3DCarModels() {
   carMeshes = [];
 
@@ -339,49 +308,26 @@ function build3DCarModels() {
     const carGroup = new THREE.Group();
     carGroup.userData = { carData: car };
 
-    // 1. Gold Illuminated Display Podium Base
-    const padGeo = new THREE.CylinderGeometry(2.5, 2.7, 0.15, 32);
-    const padMat = new THREE.MeshStandardMaterial({ color: 0x1b1e2a, metalness: 0.85, roughness: 0.25 });
-    const pad = new THREE.Mesh(padGeo, padMat);
+    const pad = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.7, 0.15, 32), new THREE.MeshStandardMaterial({ color: 0x1b1e2a, metalness: 0.85, roughness: 0.25 }));
     pad.position.y = 0.08;
     carGroup.add(pad);
 
-    const padRing = new THREE.Mesh(
-      new THREE.TorusGeometry(2.55, 0.04, 16, 64),
-      new THREE.MeshBasicMaterial({ color: 0xe2b755 })
-    );
+    const padRing = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.04, 16, 64), new THREE.MeshBasicMaterial({ color: 0xe2b755 }));
     padRing.rotation.x = Math.PI / 2;
     padRing.position.y = 0.16;
     carGroup.add(padRing);
 
-    // 2. 3D Metallic Car Body Shell
     const [len, ht, wd] = car.dim;
-    const bodyGeo = new THREE.BoxGeometry(len, ht * 0.55, wd);
-    const bodyMat = new THREE.MeshStandardMaterial({
-      color: car.color,
-      roughness: 0.15,
-      metalness: 0.85
-    });
-    const body = new THREE.Mesh(bodyGeo, bodyMat);
+    const body = new THREE.Mesh(new THREE.BoxGeometry(len, ht * 0.55, wd), new THREE.MeshStandardMaterial({ color: car.color, roughness: 0.15, metalness: 0.85 }));
     body.position.y = (ht * 0.55) / 2 + 0.35;
     body.castShadow = true;
     carGroup.add(body);
 
-    // 3. Cabin & Glass Roof Windows
-    const cabinGeo = new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88);
-    const cabinMat = new THREE.MeshStandardMaterial({
-      color: 0x090b0e,
-      roughness: 0.05,
-      metalness: 0.95,
-      transparent: true,
-      opacity: 0.85
-    });
-    const cabin = new THREE.Mesh(cabinGeo, cabinMat);
+    const cabin = new THREE.Mesh(new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88), new THREE.MeshStandardMaterial({ color: 0x090b0e, roughness: 0.05, metalness: 0.95, transparent: true, opacity: 0.85 }));
     cabin.position.set(-len * 0.08, body.position.y + ht * 0.5, 0);
     cabin.castShadow = true;
     carGroup.add(cabin);
 
-    // 4. Headlights & Taillights
     const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
     const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), headMat);
     lightL.position.set(len / 2 + 0.02, body.position.y, wd * 0.32);
@@ -389,7 +335,6 @@ function build3DCarModels() {
     lightR.position.z = -wd * 0.32;
     carGroup.add(lightL, lightR);
 
-    // 5. 4 Wheels with Rims
     const wRadius = ht * 0.26;
     const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.22, 24);
     const wheelMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.6 });
@@ -407,25 +352,20 @@ function build3DCarModels() {
       const tire = new THREE.Mesh(wheelGeo, wheelMat);
       tire.rotation.x = Math.PI / 2;
       wGroup.add(tire);
-
       const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.65, wRadius * 0.65, 0.23, 8), rimMat);
       rim.rotation.x = Math.PI / 2;
       wGroup.add(rim);
-
       wGroup.position.set(wx, wy, wz);
       carGroup.add(wGroup);
     });
 
-    // Position Car Group in Showroom Bay
     const [px, py, pz] = car.pos;
     carGroup.position.set(px, py, pz);
     scene.add(carGroup);
-
     carMeshes.push(carGroup);
   });
 }
 
-// Navigation & Camera Controls
 function setupNavigation(container) {
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
@@ -442,9 +382,7 @@ function setupNavigation(container) {
     previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
-  window.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
+  window.addEventListener("mouseup", () => { isDragging = false; });
 
   container.addEventListener("touchstart", (e) => {
     if (e.touches.length === 1) {
@@ -460,9 +398,7 @@ function setupNavigation(container) {
     previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
   });
 
-  window.addEventListener("touchend", () => {
-    isDragging = false;
-  });
+  window.addEventListener("touchend", () => { isDragging = false; });
 }
 
 function moveCamera(dir) {
@@ -486,7 +422,6 @@ function resetShowroomCamera() {
 function openInspectorModal(carData) {
   activeCar = carData;
 
-  // Elevate Camera to Car Bay (Ground or 1st Floor)
   const [px, py, pz] = carData.pos;
   targetPos.set(px, py + 1.8, pz + 5.5);
   targetLookAt.set(px, py + 0.8, pz);
@@ -519,6 +454,46 @@ function toggleShowroomFullscreen() {
   } else {
     if (document.exitFullscreen) document.exitFullscreen();
   }
+}
+
+// Inventory Search & Filter Handler
+function filterInventory() {
+  const typeVal = document.getElementById("filter-type").value;
+  const budgetVal = document.getElementById("filter-budget").value;
+  const fuelVal = document.getElementById("filter-fuel").value;
+
+  const cards = document.querySelectorAll(".car-card");
+  cards.forEach(card => {
+    const cType = card.getAttribute("data-type");
+    const cPrice = parseInt(card.getAttribute("data-price"), 10);
+    const cFuel = card.getAttribute("data-fuel");
+
+    let matchType = (typeVal === "all" || cType === typeVal);
+    let matchFuel = (fuelVal === "all" || cFuel === fuelVal);
+    let matchBudget = true;
+
+    if (budgetVal === "under20") matchBudget = (cPrice < 2000000);
+    if (budgetVal === "20to50") matchBudget = (cPrice >= 2000000 && cPrice <= 5000000);
+    if (budgetVal === "above1cr") matchBudget = (cPrice > 10000000);
+
+    if (matchType && matchFuel && matchBudget) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+// Test Drive Concierge Form Submission
+function handleFormBooking(e) {
+  e.preventDefault();
+  const name = document.getElementById("b-name").value;
+  const phone = document.getElementById("b-phone").value;
+  const car = document.getElementById("b-car").value;
+  const city = document.getElementById("b-city").value;
+
+  const msg = encodeURIComponent(`Hi Aura Motors, my name is ${name} (${phone}). I would like to book a doorstep test drive for ${car} in ${city}. Please confirm my concierge appointment!`);
+  window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 document.addEventListener("DOMContentLoaded", () => {
