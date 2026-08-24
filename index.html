@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA MOTORS — 3-Story 3D Luxury Car Showroom</title>
+  <title>AURA MOTORS — 3D Virtual Luxury Car Showroom</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
 
@@ -18,10 +17,10 @@
     <div class="nav-brand">
       <span class="brand-logo">✦</span>
       <span class="brand-name">AURA <span>MOTORS</span></span>
-      <span class="badge-tag">3-STORY 3D SHOWROOM</span>
+      <span class="badge-tag">3D VIRTUAL SHOWROOM</span>
     </div>
     <nav class="nav-links">
-      <a href="#3d-showroom">3D Showroom Building</a>
+      <a href="#3d-showroom">3D Showroom Walkthrough</a>
       <a href="#inventory">10-Car Fleet</a>
       <a href="#emi-calculator">EMI Calculator</a>
       <a href="#test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
@@ -34,58 +33,95 @@
   <!-- Hero Banner -->
   <section class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag">ARCHITECTURAL 3D SHOWROOM FACILITY</span>
-      <h1 class="hero-title">Step Inside Our <span>3-Story 3D Showroom</span></h1>
-      <p class="hero-subtext">Explore 10 certified pre-owned vehicles across Ground, 1st, and 2nd floor display galleries. Click any car or floor level to navigate directly to its bay.</p>
+      <span class="hero-tag">ARCHITECTURAL 3D SHOWROOM EXPERIENCE</span>
+      <h1 class="hero-title">Step Inside Our <span>3D Virtual Showroom</span></h1>
+      <p class="hero-subtext">Walk through the showroom corridor, explore 10 certified pre-owned vehicles mounted across display bays, and inspect full specifications in 3D.</p>
       <div class="hero-actions">
-        <a href="#3d-showroom" class="btn-primary">Explore 3D Showroom Building ↓</a>
+        <a href="#3d-showroom" class="btn-primary">Walk Through 3D Showroom ↓</a>
         <a href="#emi-calculator" class="btn-secondary">Calculate Loan EMI</a>
       </div>
     </div>
   </section>
 
-  <!-- 3D Virtual Showroom Section -->
-  <section id="3d-showroom" class="showroom-section">
-    <div class="showroom-header">
-      <div class="showroom-title-wrap">
-        <h2>3-Floor Architectural Showroom Building</h2>
-        <p>Use floor controls or tap any vehicle on display to zoom the camera directly onto that car bay.</p>
-      </div>
-
-      <!-- Floor Level Controls -->
-      <div class="floor-selector-bar">
-        <span class="selector-label">FLOOR LEVEL:</span>
-        <button class="floor-pill active" data-floor="0">Ground Floor (SUVs & Off-Road)</button>
-        <button class="floor-pill" data-floor="1">1st Floor (Executive Sedans)</button>
-        <button class="floor-pill" data-floor="2">2nd Floor (Supercars & Flagships)</button>
-      </div>
+  <!-- 3D Showroom Walkthrough Section (Madhukanta-Style) -->
+  <section id="3d-showroom" class="museum-3d-section">
+    <div class="museum-header">
+      <span class="museum-sub-tag">ARCHITECTURAL 360° SHOWROOM CORRIDOR</span>
+      <h2 class="museum-title">Explore the <span>Aura Motors Fleet</span></h2>
+      <p class="museum-desc">Step inside our virtual showroom hall. Vehicles are staged across 4 display walls. Tap any car bay to navigate directly to it and inspect specifications.</p>
     </div>
 
-    <!-- Car Quick Selection Pills -->
+    <!-- Quick Car Pills Bar -->
     <div class="car-selector-pills-wrap" id="car-pills-wrap">
-      <!-- Dynamically populated 10 car pills -->
+      <!-- Dynamic car pills -->
     </div>
 
-    <!-- 3D Canvas Viewport -->
-    <div class="canvas-container" id="canvas-container">
-      <div class="canvas-hint-pill">
-        <span>✨ Drag to Rotate 360° • Click Any Car Bay to Zoom In • Scroll to Zoom</span>
+    <!-- 3D Stage Wrapper -->
+    <div class="museum-stage-wrapper" id="museum-stage-wrapper">
+      
+      <!-- Fullscreen Toggle Button -->
+      <button class="museum-fullscreen-btn" onclick="toggleShowroomFullscreen()">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+        FULLSCREEN 3D VIEW
+      </button>
+
+      <!-- 3D Canvas Target -->
+      <div id="museum-canvas-target"></div>
+
+      <!-- D-Pad Touch Navigation (Bottom Left) -->
+      <div class="museum-dpad">
+        <button class="dpad-btn dpad-up" onclick="moveCamera('up')">▲</button>
+        <button class="dpad-btn dpad-left" onclick="moveCamera('left')">◄</button>
+        <button class="dpad-btn dpad-center" onclick="resetShowroomCamera()">RST</button>
+        <button class="dpad-btn dpad-right" onclick="moveCamera('right')">►</button>
+        <button class="dpad-btn dpad-down" onclick="moveCamera('down')">▼</button>
       </div>
 
-      <div class="floor-tag-badge" id="floor-tag-label">
-        Ground Floor — SUV & Off-Road Zone
+      <!-- Instruction Hint Pill (Bottom Right) -->
+      <div class="museum-hint-pill">
+        ✨ Click/Tap D-Pad or Drag to Walk Through • Click Car Bay to Inspect
       </div>
 
-      <div class="canvas-overlay-specs" id="car-quick-specs">
-        <h3 id="quick-car-name">Mahindra Scorpio-N Z8L 4x4</h3>
-        <p id="quick-car-price">₹ 24,50,000 <span>• 2023 Model</span></p>
-        <div class="spec-tags">
-          <span id="spec-km">12,000 KM</span>
-          <span id="spec-owner">1st Owner</span>
-          <span id="spec-fuel">2.2L mHawk Diesel</span>
+      <!-- Floating Inspector Modal (Top Right) -->
+      <div class="museum-inspector-modal" id="museum-inspector-modal">
+        <button class="inspector-close-btn" id="inspector-close-btn">×</button>
+        <span class="modal-wall-tag" id="modal-wall-tag">West Showroom Wall — Bay 1</span>
+        <h3 class="modal-car-title" id="modal-car-title">Mahindra Scorpio-N Z8L 4x4</h3>
+        <div class="modal-car-img-wrap">
+          <img id="modal-car-img" src="" alt="Car Image">
         </div>
-        <button class="btn-inspect-modal" id="btn-open-modal">Full Vehicle Details & Inspection →</button>
+        <p class="modal-price" id="modal-car-price">₹ 24,50,000</p>
+        <div class="modal-specs-grid">
+          <div class="modal-spec-item">
+            <span class="spec-key">Year</span>
+            <span class="spec-val" id="m-year">2023</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-key">Driven</span>
+            <span class="spec-val" id="m-km">12,000 KM</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-key">Fuel & Engine</span>
+            <span class="spec-val" id="m-engine">2.2L Diesel</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-key">Transmission</span>
+            <span class="spec-val" id="m-trans">Automatic</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-key">Ownership</span>
+            <span class="spec-val" id="m-owner">1st Owner</span>
+          </div>
+          <div class="modal-spec-item">
+            <span class="spec-key">Inspection</span>
+            <span class="spec-val" id="m-grade">140/140 Certified</span>
+          </div>
+        </div>
+        <button class="btn-whatsapp-modal" onclick="bookWhatsAppDrive()">
+          🚗 Schedule Physical Test Drive on WhatsApp
+        </button>
       </div>
+
     </div>
   </section>
 
@@ -97,10 +133,9 @@
     </div>
 
     <div class="inventory-grid">
-
-      <!-- Car 0: Scorpio-N -->
+      <!-- 10 Car Cards -->
       <div class="car-card">
-        <div class="card-badge">GROUND FLOOR • SUV</div>
+        <div class="card-badge">SUV • 4X4</div>
         <div class="card-img-placeholder scorpio-bg"></div>
         <div class="card-body">
           <h3>Mahindra Scorpio-N Z8L 4x4</h3>
@@ -110,13 +145,12 @@
             <li>✓ 2.2L Diesel (172 BHP) • 4XPLOR</li>
             <li>✓ Sunroof & Sony 3D Audio</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(0)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[0])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 1: Nexon EV -->
       <div class="car-card">
-        <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
+        <div class="card-badge electric-badge">EV CROSSOVER</div>
         <div class="card-img-placeholder nexon-bg"></div>
         <div class="card-body">
           <h3>Tata Nexon EV Dark Edition</h3>
@@ -126,13 +160,12 @@
             <li>✓ Electric (465 KM Range)</li>
             <li>✓ Ventilated Seats & 360 Camera</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(1)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[1])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 2: Thar 4x4 -->
       <div class="car-card">
-        <div class="card-badge">GROUND FLOOR • 4X4</div>
+        <div class="card-badge">OFF-ROAD JEEP</div>
         <div class="card-img-placeholder thar-bg"></div>
         <div class="card-body">
           <h3>Mahindra Thar LX Hard Top</h3>
@@ -142,13 +175,12 @@
             <li>✓ 2.0L Turbo Petrol 4WD</li>
             <li>✓ Touchscreen & Convertible Vibes</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(2)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[2])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 3: Bolero Neo -->
-      <div class="card-badge-wrap car-card">
-        <div class="card-badge">GROUND FLOOR • UTILITY</div>
+      <div class="car-card">
+        <div class="card-badge">UTILITY SUV</div>
         <div class="card-img-placeholder bolero-bg"></div>
         <div class="card-body">
           <h3>Mahindra Bolero Neo N10 Opt</h3>
@@ -158,13 +190,12 @@
             <li>✓ 1.5L mHawk Diesel MLD</li>
             <li>✓ 7-Seater Tough Body</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(3)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[3])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 4: Mercedes S-Class -->
       <div class="car-card">
-        <div class="card-badge gold-badge">1ST FLOOR • LUXURY</div>
+        <div class="card-badge gold-badge">LUXURY SALOON</div>
         <div class="card-img-placeholder merc-bg"></div>
         <div class="card-body">
           <h3>Mercedes-Benz S-Class S450</h3>
@@ -174,13 +205,12 @@
             <li>✓ 3.0L V6 Turbo Petrol</li>
             <li>✓ Rear Massage Seats & Burmester</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(4)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[4])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 5: BMW 7 Series -->
       <div class="car-card">
-        <div class="card-badge gold-badge">1ST FLOOR • M-SPORT</div>
+        <div class="card-badge gold-badge">M-SPORT SEDAN</div>
         <div class="card-img-placeholder bmw-bg"></div>
         <div class="card-body">
           <h3>BMW 7 Series 730Ld M-Sport</h3>
@@ -190,13 +220,12 @@
             <li>✓ 3.0L Straight-6 Diesel</li>
             <li>✓ Executive Lounge Rear Theater</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(5)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[5])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 6: Jeep Compass -->
       <div class="car-card">
-        <div class="card-badge">1ST FLOOR • PREMIUM</div>
+        <div class="card-badge">PREMIUM 4X4</div>
         <div class="card-img-placeholder jeep-bg"></div>
         <div class="card-body">
           <h3>Jeep Compass Model S 4x4</h3>
@@ -206,13 +235,12 @@
             <li>✓ 2.0L Diesel 9-Speed Automatic</li>
             <li>✓ Panoramic Sunroof & 4x4 Select</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(6)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[6])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 7: Audi RS e-tron GT -->
       <div class="car-card">
-        <div class="card-badge electric-badge">2ND FLOOR • SUPERCAR</div>
+        <div class="card-badge electric-badge">ELECTRIC SUPERCAR</div>
         <div class="card-img-placeholder audi-bg"></div>
         <div class="card-body">
           <h3>Audi RS e-tron GT Quattro</h3>
@@ -222,13 +250,12 @@
             <li>✓ 637 HP Dual Electric Motors</li>
             <li>✓ 0-100 km/h in 3.3 Seconds</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(7)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[7])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 8: Porsche 911 -->
       <div class="car-card">
-        <div class="card-badge gold-badge">2ND FLOOR • SPORTS</div>
+        <div class="card-badge gold-badge">SPORTS COUPE</div>
         <div class="card-img-placeholder porsche-bg"></div>
         <div class="card-body">
           <h3>Porsche 911 Carrera S</h3>
@@ -238,13 +265,12 @@
             <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
             <li>✓ Sport Chrono Package & Exhaust</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(8)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[8])">Locate in 3D Showroom →</button>
         </div>
       </div>
 
-      <!-- Car 9: Fortuner Legender -->
       <div class="car-card">
-        <div class="card-badge">2ND FLOOR • FLAGSHIP</div>
+        <div class="card-badge">FLAGSHIP 7-SEATER</div>
         <div class="card-img-placeholder fortuner-bg"></div>
         <div class="card-body">
           <h3>Toyota Fortuner Legender 4x4</h3>
@@ -254,10 +280,9 @@
             <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
             <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
           </ul>
-          <button class="btn-card-action" onclick="switchCar(9)">Locate in 3D Showroom →</button>
+          <button class="btn-card-action" onclick="openInspectorModal(carsData[9])">Locate in 3D Showroom →</button>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -292,49 +317,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Inspection Modal -->
-  <div class="modal-backdrop" id="modal-backdrop">
-    <div class="modal-box">
-      <button class="btn-modal-close" id="btn-modal-close">×</button>
-      <div class="modal-header">
-        <span class="modal-tag">AURA CERTIFIED VEHICLE</span>
-        <h2 id="modal-car-title">Mahindra Scorpio-N Z8L 4x4</h2>
-        <p class="modal-price" id="modal-car-price">₹ 24,50,000</p>
-      </div>
-      <div class="modal-specs-grid">
-        <div class="modal-spec-item">
-          <span class="spec-key">Registration Year</span>
-          <span class="spec-val" id="m-year">2023</span>
-        </div>
-        <div class="modal-spec-item">
-          <span class="spec-key">Kilometers Driven</span>
-          <span class="spec-val" id="m-km">12,000 KM</span>
-        </div>
-        <div class="modal-spec-item">
-          <span class="spec-key">Fuel & Engine</span>
-          <span class="spec-val" id="m-engine">2.2L mHawk Diesel</span>
-        </div>
-        <div class="modal-spec-item">
-          <span class="spec-key">Transmission</span>
-          <span class="spec-val" id="m-trans">6-Speed Automatic 4XPLOR</span>
-        </div>
-        <div class="modal-spec-item">
-          <span class="spec-key">Ownership</span>
-          <span class="spec-val" id="m-owner">1st Owner</span>
-        </div>
-        <div class="modal-spec-item">
-          <span class="spec-key">Inspection Grade</span>
-          <span class="spec-val" id="m-grade">140/140 Points Passed</span>
-        </div>
-      </div>
-      <div class="modal-actions">
-        <button class="btn-whatsapp-booking" onclick="bookWhatsAppDrive()">
-          🚗 Schedule Physical Test Drive on WhatsApp
-        </button>
-      </div>
-    </div>
-  </div>
 
   <footer class="footer">
     <p>© 2026 AURA MOTORS 3D ARCHITECTURAL SHOWROOM DEMO • DEVELOPED BY SANTANU DHALI</p>

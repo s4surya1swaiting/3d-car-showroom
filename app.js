@@ -1,214 +1,180 @@
-// AURA MOTORS 3-STORY LUXURY ARCHITECTURAL SHOWROOM ENGINE
+// AURA MOTORS 3D ARCHITECTURAL SHOWROOM ROOM WALKTHROUGH (MADHUKANTA-STYLE)
 
 const carsData = [
-  // GROUND FLOOR: SUVs & Utility
   {
-    id: 0,
-    floor: 0,
-    floorName: "Ground Floor — SUV & Off-Road Zone",
+    id: "car-1",
     name: "Mahindra Scorpio-N Z8L 4x4",
+    wall: "West Showroom Wall — Bay 1",
     price: "₹ 24,50,000",
     year: "2023",
     km: "12,000 KM",
-    owner: "1st Owner",
     fuel: "2.2L mHawk Diesel (172 BHP)",
     trans: "6-Speed Automatic 4XPLOR",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "SUV",
-    color: 0x8899a6, // Deep Metallic Silver
-    accentColor: 0xd4af37,
-    pos: [-6, 0.4, -3],
-    dim: [3.4, 1.4, 1.7] // [length, height, width]
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
+    pos: { x: -14, y: 1.8, z: -10 },
+    rotY: Math.PI / 6
   },
   {
-    id: 1,
-    floor: 0,
-    floorName: "Ground Floor — SUV & Off-Road Zone",
+    id: "car-2",
     name: "Tata Nexon EV Dark Edition",
+    wall: "West Showroom Wall — Bay 2",
     price: "₹ 16,80,000",
     year: "2023",
     km: "8,500 KM",
-    owner: "1st Owner",
     fuel: "Electric (465 KM Range)",
     trans: "Single-Speed Automatic",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "EV Crossover",
-    color: 0x0f2b3c, // Midnight Electric Teal
-    accentColor: 0x00d2ff,
-    pos: [0, 0.4, -3],
-    dim: [2.9, 1.25, 1.55]
+    img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
+    pos: { x: -14, y: 1.8, z: 0 },
+    rotY: Math.PI / 6
   },
   {
-    id: 2,
-    floor: 0,
-    floorName: "Ground Floor — SUV & Off-Road Zone",
+    id: "car-3",
     name: "Mahindra Thar LX 4x4 Hard Top",
+    wall: "West Showroom Wall — Bay 3",
     price: "₹ 15,20,000",
     year: "2022",
     km: "18,400 KM",
-    owner: "1st Owner",
     fuel: "2.0L mStallion Turbo Petrol",
     trans: "6-Speed Automatic 4WD",
+    owner: "1st Owner",
     grade: "138/140 Certified",
-    type: "Off-Road Jeep",
-    color: 0x1c1d21, // Matte Black
-    accentColor: 0xff4444,
-    pos: [6, 0.4, -3],
-    dim: [2.8, 1.35, 1.6]
+    img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
+    pos: { x: -14, y: 1.8, z: 10 },
+    rotY: Math.PI / 6
   },
   {
-    id: 3,
-    floor: 0,
-    floorName: "Ground Floor — SUV & Off-Road Zone",
+    id: "car-4",
     name: "Mahindra Bolero Neo N10 Opt",
+    wall: "North Showroom Wall — Bay 4",
     price: "₹ 10,90,000",
     year: "2022",
     km: "24,000 KM",
-    owner: "1st Owner",
     fuel: "1.5L mHawk75 Diesel",
     trans: "5-Speed Manual MLD",
+    owner: "1st Owner",
     grade: "135/140 Certified",
-    type: "Utility SUV",
-    color: 0x1e3a2b, // Forest Green
-    accentColor: 0xcccccc,
-    pos: [-3, 0.4, 3],
-    dim: [3.1, 1.3, 1.6]
+    img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
+    pos: { x: -6, y: 1.8, z: -18 },
+    rotY: 0
   },
-
-  // 1ST FLOOR: Luxury & Executive Sedans
   {
-    id: 4,
-    floor: 1,
-    floorName: "1st Floor — Executive Luxury Suite",
+    id: "car-5",
     name: "Mercedes-Benz S-Class S450",
+    wall: "North Showroom Wall — Bay 5",
     price: "₹ 1,35,00,000",
     year: "2022",
     km: "14,200 KM",
-    owner: "1st Owner (Individual)",
     fuel: "3.0L V6 Turbo Petrol",
     trans: "9G-TRONIC Automatic",
+    owner: "1st Owner (Individual)",
     grade: "140/140 Certified",
-    type: "Luxury Saloon",
-    color: 0x0d131f, // Metallic Obsidian Navy
-    accentColor: 0xe2b755,
-    pos: [-5, 5.4, -3],
-    dim: [3.8, 0.95, 1.75]
+    img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
+    pos: { x: 6, y: 1.8, z: -18 },
+    rotY: 0
   },
   {
-    id: 5,
-    floor: 1,
-    floorName: "1st Floor — Executive Luxury Suite",
+    id: "car-6",
     name: "BMW 7 Series 730Ld M-Sport",
+    wall: "East Showroom Wall — Bay 6",
     price: "₹ 1,18,00,000",
     year: "2021",
     km: "22,000 KM",
-    owner: "1st Owner (Corporate)",
     fuel: "3.0L Straight-6 Diesel",
     trans: "8-Speed Steptronic",
+    owner: "1st Owner (Corporate)",
     grade: "139/140 Certified",
-    type: "Executive Sedan",
-    color: 0x6e0d16, // Carbon Red Metallic
-    accentColor: 0xffffff,
-    pos: [1, 5.4, -3],
-    dim: [3.7, 0.95, 1.75]
+    img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
+    pos: { x: 14, y: 1.8, z: -10 },
+    rotY: -Math.PI / 6
   },
   {
-    id: 6,
-    floor: 1,
-    floorName: "1st Floor — Executive Luxury Suite",
+    id: "car-7",
     name: "Jeep Compass Model S 4x4",
+    wall: "East Showroom Wall — Bay 7",
     price: "₹ 26,40,000",
     year: "2023",
     km: "11,000 KM",
-    owner: "1st Owner",
     fuel: "2.0L Multijet II Turbo Diesel",
     trans: "9-Speed Torque Converter",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "Premium SUV",
-    color: 0xe8e8e8, // Pearl White Metallic
-    accentColor: 0x333333,
-    pos: [6, 5.4, 2],
-    dim: [3.2, 1.25, 1.65]
+    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
+    pos: { x: 14, y: 1.8, z: 0 },
+    rotY: -Math.PI / 6
   },
-
-  // 2ND FLOOR: Supercars & Premium Flagships
   {
-    id: 7,
-    floor: 2,
-    floorName: "2nd Floor — Performance & Flagship Gallery",
+    id: "car-8",
     name: "Audi RS e-tron GT Quattro",
+    wall: "East Showroom Wall — Bay 8",
     price: "₹ 1,62,00,000",
     year: "2023",
     km: "6,500 KM",
-    owner: "1st Owner",
     fuel: "637 HP Dual Electric Motors",
     trans: "2-Speed Rear Automatic",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "Electric Supercar",
-    color: 0x22252a, // Daytona Matte Gray
-    accentColor: 0x00d2ff,
-    pos: [-5, 10.4, -3],
-    dim: [3.6, 0.85, 1.8]
+    img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
+    pos: { x: 14, y: 1.8, z: 10 },
+    rotY: -Math.PI / 6
   },
   {
-    id: 8,
-    floor: 2,
-    floorName: "2nd Floor — Performance & Flagship Gallery",
+    id: "car-9",
     name: "Porsche 911 Carrera S",
+    wall: "South Entrance Wall — Bay 9",
     price: "₹ 1,85,00,000",
     year: "2022",
     km: "4,800 KM",
-    owner: "1st Owner",
     fuel: "3.0L Twin-Turbo Flat-6 (450 HP)",
     trans: "8-Speed PDK Dual-Clutch",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "Sports Coupe",
-    color: 0xcc0000, // Guards Red
-    accentColor: 0x111111,
-    pos: [1, 10.4, -3],
-    dim: [3.3, 0.8, 1.7]
+    img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+    pos: { x: -6, y: 1.8, z: 18 },
+    rotY: Math.PI
   },
   {
-    id: 9,
-    floor: 2,
-    floorName: "2nd Floor — Performance & Flagship Gallery",
+    id: "car-10",
     name: "Toyota Fortuner Legender 4x4",
+    wall: "South Entrance Wall — Bay 10",
     price: "₹ 44,50,000",
     year: "2023",
     km: "15,800 KM",
-    owner: "1st Owner",
     fuel: "2.8L Turbo Diesel (204 BHP)",
     trans: "6-Speed Automatic",
+    owner: "1st Owner",
     grade: "140/140 Certified",
-    type: "Luxury 7-Seater SUV",
-    color: 0xf5f5f5, // Pearl White & Black Roof
-    accentColor: 0xd4af37,
-    pos: [6, 10.4, 2],
-    dim: [3.6, 1.45, 1.75]
+    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
+    pos: { x: 6, y: 1.8, z: 18 },
+    rotY: Math.PI
   }
 ];
 
-let activeCarIndex = 0;
-let scene, camera, renderer, controls;
+let activeCar = null;
+let scene, camera, renderer;
+let targetPos = new THREE.Vector3(0, 2.2, 16);
+let targetLookAt = new THREE.Vector3(0, 2.0, 0);
+let currentLookAt = new THREE.Vector3(0, 2.0, 0);
+let isNavigating = false;
 let carMeshes = [];
-let targetCameraPos = new THREE.Vector3(0, 4, 16);
-let targetLookAt = new THREE.Vector3(0, 2, 0);
-let currentLookAt = new THREE.Vector3(0, 2, 0);
 
-function init3D() {
-  const container = document.getElementById("canvas-container");
+function initShowroom3D() {
+  const container = document.getElementById("museum-canvas-target");
   if (!container) return;
 
   // 1. Scene setup
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x060709);
-  scene.fog = new THREE.FogExp2(0x060709, 0.015);
+  scene.background = new THREE.Color(0x0a0c10);
+  scene.fog = new THREE.FogExp2(0x0a0c10, 0.015);
 
-  // 2. Camera
-  camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 150);
-  camera.position.set(0, 4, 22);
+  // 2. Camera setup
+  camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.set(0, 2.2, 16);
 
-  // 3. Renderer
+  // 3. Renderer setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -217,34 +183,33 @@ function init3D() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   container.appendChild(renderer.domElement);
 
-  // 4. Orbit Controls
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.enableDamping = true;
-  controls.dampingFactor = 0.05;
-  controls.maxPolarAngle = Math.PI / 2 - 0.01;
-  controls.minDistance = 3;
-  controls.maxDistance = 45;
+  // 4. Showroom Lighting
+  const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+  scene.add(ambient);
 
-  // 5. Showroom Lighting setup
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
-  scene.add(ambientLight);
+  const mainLight = new THREE.DirectionalLight(0xfffaed, 1.5);
+  mainLight.position.set(10, 20, 10);
+  mainLight.castShadow = true;
+  scene.add(mainLight);
 
-  const mainSun = new THREE.DirectionalLight(0xfff5e6, 1.8);
-  mainSun.position.set(15, 25, 20);
-  mainSun.castShadow = true;
-  scene.add(mainSun);
+  const accentBlue = new THREE.PointLight(0x00d2ff, 1.8, 30);
+  accentBlue.position.set(-12, 6, -12);
+  scene.add(accentBlue);
 
-  const blueFill = new THREE.DirectionalLight(0x00d2ff, 0.8);
-  blueFill.position.set(-15, 15, -10);
-  scene.add(blueFill);
+  const accentGold = new THREE.PointLight(0xe2b755, 1.8, 30);
+  accentGold.position.set(12, 6, -12);
+  scene.add(accentGold);
 
-  // 6. Build Architectural Multi-Floor Showroom Building
-  build3DShowroomBuilding();
+  // 5. Build Architectural Showroom Corridor
+  buildArchitecturalRoom();
 
-  // 7. Populate All 10 Cars on Showroom Floors
-  populateShowroomCars();
+  // 6. Mount Car Bays & Frames
+  mountCarBays();
 
-  // Raycaster for Clicking Cars
+  // 7. Touch & Mouse Navigation Controls
+  setupNavigation(container);
+
+  // 8. Raycaster Click Listener
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
@@ -257,24 +222,23 @@ function init3D() {
     const intersects = raycaster.intersectObjects(carMeshes, true);
     if (intersects.length > 0) {
       let obj = intersects[0].object;
-      while (obj.parent && !obj.userData.carId && obj.userData.carId !== 0) {
+      while (obj.parent && !obj.userData.carData) {
         obj = obj.parent;
       }
-      if (obj.userData.carId !== undefined) {
-        switchCar(obj.userData.carId);
+      if (obj.userData.carData) {
+        openInspectorModal(obj.userData.carData);
       }
     }
   });
 
-  // Animation Loop
+  // Render Loop
   function animate() {
     requestAnimationFrame(animate);
-    controls.update();
 
-    // Smooth Camera lerp to target car bay
-    camera.position.lerp(targetCameraPos, 0.05);
-    currentLookAt.lerp(targetLookAt, 0.05);
-    controls.target.copy(currentLookAt);
+    // Smooth Camera Movement
+    camera.position.lerp(targetPos, 0.06);
+    currentLookAt.lerp(targetLookAt, 0.06);
+    camera.lookAt(currentLookAt);
 
     renderer.render(scene, camera);
   }
@@ -287,243 +251,263 @@ function init3D() {
   });
 }
 
-// Build 3-Story Glass & Steel Luxury Showroom Building
-function build3DShowroomBuilding() {
-  const floorHeights = [0, 5, 10];
+// Build Architectural Room Corridor (Walls, Polished Floor, Ceiling, Glass Door)
+function buildArchitecturalRoom() {
+  const textureLoader = new THREE.TextureLoader();
 
-  floorHeights.forEach((yPos, floorIdx) => {
-    // Showroom Floor Slab
-    const floorGeo = new THREE.BoxGeometry(22, 0.4, 16);
-    const floorMat = new THREE.MeshStandardMaterial({
-      color: floorIdx === 0 ? 0x12141c : 0x1a1d26,
-      roughness: 0.2,
-      metalness: 0.7
-    });
-    const floorMesh = new THREE.Mesh(floorGeo, floorMat);
-    floorMesh.position.set(0, yPos, 0);
-    floorMesh.receiveShadow = true;
-    scene.add(floorMesh);
-
-    // Floor Grid Tile Lines
-    const grid = new THREE.GridHelper(22, 22, 0xd4af37, 0x2a2e3d);
-    grid.position.set(0, yPos + 0.21, 0);
-    scene.add(grid);
-
-    // Ceiling & Track Spotlights for Each Floor
-    const spot = new THREE.PointLight(0xfffaed, 2, 12);
-    spot.position.set(0, yPos + 3.8, 0);
-    scene.add(spot);
-
-    // Floor Level Marker Pillars & Glass Railing
-    const pillarGeo = new THREE.BoxGeometry(0.6, 5, 0.6);
-    const pillarMat = new THREE.MeshStandardMaterial({ color: 0x0a0c10, metalness: 0.9, roughness: 0.1 });
-    
-    [[-10.8, -7.8], [10.8, -7.8], [-10.8, 7.8], [10.8, 7.8]].forEach(([px, pz]) => {
-      const pillar = new THREE.Mesh(pillarGeo, pillarMat);
-      pillar.position.set(px, yPos + 2.5, pz);
-      scene.add(pillar);
-    });
+  // Polished Showroom Floor
+  const floorGeo = new THREE.PlaneGeometry(36, 44);
+  const floorMat = new THREE.MeshStandardMaterial({
+    color: 0x11141d,
+    roughness: 0.15,
+    metalness: 0.85
   });
+  const floor = new THREE.Mesh(floorGeo, floorMat);
+  floor.rotation.x = -Math.PI / 2;
+  floor.receiveShadow = true;
+  scene.add(floor);
 
-  // Glass Facade Enclosure (Outer Glass Showroom Walls)
-  const glassMat = new THREE.MeshPhysicalMaterial({
+  // Floor Grid Tile Lines
+  const grid = new THREE.GridHelper(44, 44, 0xe2b755, 0x232733);
+  grid.position.y = 0.01;
+  scene.add(grid);
+
+  // Ceiling with LED Strip Fixtures
+  const ceilingGeo = new THREE.PlaneGeometry(36, 44);
+  const ceilingMat = new THREE.MeshStandardMaterial({ color: 0x07080b, roughness: 0.8 });
+  const ceiling = new THREE.Mesh(ceilingGeo, ceilingMat);
+  ceiling.rotation.x = Math.PI / 2;
+  ceiling.position.y = 8;
+  scene.add(ceiling);
+
+  // Showroom Walls (North, West, East, South)
+  const wallMat = new THREE.MeshStandardMaterial({ color: 0x0d1017, roughness: 0.4 });
+
+  // North Wall (Back)
+  const northWall = new THREE.Mesh(new THREE.PlaneGeometry(36, 8), wallMat);
+  northWall.position.set(0, 4, -22);
+  scene.add(northWall);
+
+  // West Wall (Left)
+  const westWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 8), wallMat);
+  westWall.rotation.y = Math.PI / 2;
+  westWall.position.set(-18, 4, 0);
+  scene.add(westWall);
+
+  // East Wall (Right)
+  const eastWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 8), wallMat);
+  eastWall.rotation.y = -Math.PI / 2;
+  eastWall.position.set(18, 4, 0);
+  scene.add(eastWall);
+
+  // South Wall (Front Entrance with Glass Door)
+  const southWallL = new THREE.Mesh(new THREE.PlaneGeometry(12, 8), wallMat);
+  southWallL.rotation.y = Math.PI;
+  southWallL.position.set(-12, 4, 22);
+  scene.add(southWallL);
+
+  const southWallR = new THREE.Mesh(new THREE.PlaneGeometry(12, 8), wallMat);
+  southWallR.rotation.y = Math.PI;
+  southWallR.position.set(12, 4, 22);
+  scene.add(southWallR);
+
+  // Glass Entrance Door Frame
+  const glassDoorMat = new THREE.MeshPhysicalMaterial({
     color: 0x88ccff,
     transparent: true,
-    opacity: 0.18,
-    roughness: 0.05,
-    transmission: 0.9,
-    thickness: 0.5
+    opacity: 0.25,
+    roughness: 0.1,
+    transmission: 0.9
   });
-
-  const glassBackGeo = new THREE.PlaneGeometry(22, 15);
-  const glassBack = new THREE.Mesh(glassBackGeo, glassMat);
-  glassBack.position.set(0, 7.5, -7.9);
-  scene.add(glassBack);
-
-  // Exterior Brand Banner Structure
-  const bannerGeo = new THREE.BoxGeometry(22.4, 1.2, 0.3);
-  const bannerMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.8, roughness: 0.2 });
-  const banner = new THREE.Mesh(bannerGeo, bannerMat);
-  banner.position.set(0, 15.6, 7.9);
-  scene.add(banner);
+  const glassDoor = new THREE.Mesh(new THREE.PlaneGeometry(12, 7), glassDoorMat);
+  glassDoor.position.set(0, 3.5, 22);
+  scene.add(glassDoor);
 }
 
-// Generate 10 Distinct Procedural Car Models
-function populateShowroomCars() {
+// Mount All 10 Car Bays with Renders, Spotlight, & 3D Podium
+function mountCarBays() {
+  const textureLoader = new THREE.TextureLoader();
   carMeshes = [];
 
   carsData.forEach((car) => {
-    const carGroup = new THREE.Group();
-    carGroup.userData = { carId: car.id };
+    const bayGroup = new THREE.Group();
+    bayGroup.userData = { carData: car };
 
-    // 1. Display Stage Base Pad
-    const padGeo = new THREE.CylinderGeometry(2.4, 2.6, 0.15, 32);
-    const padMat = new THREE.MeshStandardMaterial({ color: 0x222633, metalness: 0.8, roughness: 0.3 });
-    const pad = new THREE.Mesh(padGeo, padMat);
-    pad.position.y = 0.08;
-    carGroup.add(pad);
+    // 1. Gold Illuminated Podium Base
+    const podGeo = new THREE.CylinderGeometry(2.8, 3.0, 0.2, 32);
+    const podMat = new THREE.MeshStandardMaterial({ color: 0x181b24, metalness: 0.9, roughness: 0.2 });
+    const pod = new THREE.Mesh(podGeo, podMat);
+    pod.position.y = 0.1;
+    bayGroup.add(pod);
 
-    const padRing = new THREE.Mesh(
-      new THREE.TorusGeometry(2.45, 0.04, 16, 64),
-      new THREE.MeshBasicMaterial({ color: car.accentColor })
+    const podRing = new THREE.Mesh(
+      new THREE.TorusGeometry(2.85, 0.05, 16, 64),
+      new THREE.MeshBasicMaterial({ color: 0xe2b755 })
     );
-    padRing.rotation.x = Math.PI / 2;
-    padRing.position.y = 0.16;
-    carGroup.add(padRing);
+    podRing.rotation.x = Math.PI / 2;
+    podRing.position.y = 0.21;
+    bayGroup.add(podRing);
 
-    // 2. Car Body Shell
-    const [len, ht, wd] = car.dim;
-    const bodyGeo = new THREE.BoxGeometry(len, ht * 0.6, wd);
-    const bodyMat = new THREE.MeshStandardMaterial({
-      color: car.color,
-      roughness: 0.15,
-      metalness: 0.85
-    });
-    const body = new THREE.Mesh(bodyGeo, bodyMat);
-    body.position.y = (ht * 0.6) / 2 + 0.35;
-    body.castShadow = true;
-    carGroup.add(body);
+    // 2. High-Definition 3D Car Frame Display
+    textureLoader.load(car.img, (texture) => {
+      texture.encoding = THREE.sRGBEncoding;
 
-    // 3. Cabin & Glass Roof
-    const cabinGeo = new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88);
-    const cabinMat = new THREE.MeshStandardMaterial({
-      color: 0x111622,
-      roughness: 0.05,
-      metalness: 0.95,
-      transparent: true,
-      opacity: 0.8
-    });
-    const cabin = new THREE.Mesh(cabinGeo, cabinMat);
-    cabin.position.set(-len * 0.08, body.position.y + ht * 0.55, 0);
-    carGroup.add(cabin);
+      const frameGeo = new THREE.BoxGeometry(4.8, 2.8, 0.15);
+      const frameMat = new THREE.MeshStandardMaterial({ color: 0x11141c, metalness: 0.8 });
+      const frame = new THREE.Mesh(frameGeo, frameMat);
+      frame.position.y = 2.2;
 
-    // 4. Headlights & Taillights
-    const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), headMat);
-    lightL.position.set(len / 2 + 0.02, body.position.y, wd * 0.32);
-    const lightR = lightL.clone();
-    lightR.position.z = -wd * 0.32;
-    carGroup.add(lightL, lightR);
+      const displayGeo = new THREE.PlaneGeometry(4.6, 2.6);
+      const displayMat = new THREE.MeshBasicMaterial({ map: texture });
+      const display = new THREE.Mesh(displayGeo, displayMat);
+      display.position.set(0, 2.2, 0.08);
 
-    // 5. 4 Wheels
-    const wRadius = ht * 0.28;
-    const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.22, 24);
-    const wheelMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.6 });
-    const rimMat = new THREE.MeshStandardMaterial({ color: car.accentColor, metalness: 0.9, roughness: 0.1 });
-
-    const wheelOffsetX = len * 0.32;
-    const wheelOffsetZ = wd * 0.52;
-    [
-      [wheelOffsetX, wRadius, wheelOffsetZ],
-      [wheelOffsetX, wRadius, -wheelOffsetZ],
-      [-wheelOffsetX, wRadius, wheelOffsetZ],
-      [-wheelOffsetX, wRadius, -wheelOffsetZ]
-    ].forEach(([wx, wy, wz]) => {
-      const wGroup = new THREE.Group();
-      const tire = new THREE.Mesh(wheelGeo, wheelMat);
-      tire.rotation.x = Math.PI / 2;
-      wGroup.add(tire);
-
-      const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.65, wRadius * 0.65, 0.23, 8), rimMat);
-      rim.rotation.x = Math.PI / 2;
-      wGroup.add(rim);
-
-      wGroup.position.set(wx, wy, wz);
-      carGroup.add(wGroup);
+      bayGroup.add(frame);
+      bayGroup.add(display);
     });
 
-    // Position Car Group on Showroom Floor
-    const [px, py, pz] = car.pos;
-    carGroup.position.set(px, py, pz);
-    scene.add(carGroup);
+    // 3. Spotlight Fixture
+    const spot = new THREE.SpotLight(0xfffaed, 3);
+    spot.position.set(car.pos.x, 7.5, car.pos.z);
+    spot.target = bayGroup;
+    spot.angle = Math.PI / 5;
+    spot.penumbra = 0.5;
+    scene.add(spot);
+    scene.add(spot.target);
 
-    carMeshes.push(carGroup);
+    // Position & Rotate Bay Group
+    bayGroup.position.set(car.pos.x, 0, car.pos.z);
+    bayGroup.rotation.y = car.rotY;
+
+    scene.add(bayGroup);
+    carMeshes.push(bayGroup);
   });
 }
 
-// Switch Active Car & Animate Camera to Car Bay
-function switchCar(index) {
-  activeCarIndex = index;
-  const car = carsData[index];
+// Navigation Handlers (D-Pad, Arrow Keys, Reset)
+function setupNavigation(container) {
+  let isDragging = false;
+  let previousMousePosition = { x: 0, y: 0 };
 
-  // Update UI Selector Pills
-  document.querySelectorAll(".car-pill").forEach((btn) => {
-    btn.classList.toggle("active", parseInt(btn.dataset.carId) === index);
+  container.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
-  // Update UI Floor Pills
-  document.querySelectorAll(".floor-pill").forEach((btn) => {
-    btn.classList.toggle("active", parseInt(btn.dataset.floor) === car.floor);
+  container.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const deltaX = e.clientX - previousMousePosition.x;
+    targetLookAt.x += deltaX * 0.02;
+    previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
-  // Update Quick Overlay Specs
-  document.getElementById("quick-car-name").textContent = car.name;
-  document.getElementById("quick-car-price").innerHTML = `${car.price} <span>• ${car.year} Model</span>`;
-  document.getElementById("spec-km").textContent = car.km;
-  document.getElementById("spec-owner").textContent = car.owner;
-  document.getElementById("spec-fuel").textContent = car.fuel;
-  document.getElementById("floor-tag-label").textContent = car.floorName;
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
 
-  // Set Smooth Camera Target Position
-  const [px, py, pz] = car.pos;
-  targetLookAt.set(px, py + 1.0, pz);
-  targetCameraPos.set(px + 4.5, py + 2.5, pz + 5.5);
+  // Touch Drag for Mobile
+  container.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    }
+  });
+
+  container.addEventListener("touchmove", (e) => {
+    if (!isDragging || e.touches.length !== 1) return;
+    const deltaX = e.touches[0].clientX - previousMousePosition.x;
+    targetLookAt.x += deltaX * 0.03;
+    previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  });
+
+  window.addEventListener("touchend", () => {
+    isDragging = false;
+  });
 }
 
-function switchFloor(floorNum) {
-  // Find first car on this floor
-  const carOnFloor = carsData.find(c => c.floor === floorNum);
-  if (carOnFloor) {
-    switchCar(carOnFloor.id);
+// D-Pad Button Functions
+function moveCamera(dir) {
+  const step = 4;
+  if (dir === 'up') targetPos.z -= step;
+  if (dir === 'down') targetPos.z += step;
+  if (dir === 'left') targetPos.x -= step;
+  if (dir === 'right') targetPos.x += step;
+
+  // Clamp Camera inside Showroom Walls
+  targetPos.x = Math.max(-14, Math.min(14, targetPos.x));
+  targetPos.z = Math.max(-18, Math.min(18, targetPos.z));
+  targetLookAt.set(targetPos.x, 2.0, targetPos.z - 4);
+}
+
+function resetShowroomCamera() {
+  targetPos.set(0, 2.2, 16);
+  targetLookAt.set(0, 2.0, 0);
+  closeInspectorModal();
+}
+
+// Inspector Modal Handler
+function openInspectorModal(carData) {
+  activeCar = carData;
+
+  // Focus Camera on Selected Car Bay
+  targetPos.set(carData.pos.x, 2.2, carData.pos.z + 5);
+  targetLookAt.set(carData.pos.x, 2.0, carData.pos.z);
+
+  // Populate Modal UI
+  document.getElementById("modal-wall-tag").textContent = carData.wall;
+  document.getElementById("modal-car-title").textContent = carData.name;
+  document.getElementById("modal-car-price").textContent = carData.price;
+  document.getElementById("m-year").textContent = carData.year;
+  document.getElementById("m-km").textContent = carData.km;
+  document.getElementById("m-engine").textContent = carData.fuel;
+  document.getElementById("m-trans").textContent = carData.trans;
+  document.getElementById("m-owner").textContent = carData.owner;
+  document.getElementById("m-grade").textContent = carData.grade;
+  document.getElementById("modal-car-img").src = carData.img;
+
+  const modal = document.getElementById("museum-inspector-modal");
+  if (modal) modal.classList.add("active");
+}
+
+function closeInspectorModal() {
+  const modal = document.getElementById("museum-inspector-modal");
+  if (modal) modal.classList.remove("active");
+}
+
+// Fullscreen Toggle (Madhukanta Feature)
+function toggleShowroomFullscreen() {
+  const wrapper = document.getElementById("museum-stage-wrapper");
+  if (!document.fullscreenElement) {
+    if (wrapper.requestFullscreen) {
+      wrapper.requestFullscreen();
+    } else if (wrapper.webkitRequestFullscreen) {
+      wrapper.webkitRequestFullscreen();
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
   }
-}
-
-// Modal Handlers
-function updateModalData() {
-  const car = carsData[activeCarIndex];
-  document.getElementById("modal-car-title").textContent = car.name;
-  document.getElementById("modal-car-price").textContent = car.price;
-  document.getElementById("m-year").textContent = car.year;
-  document.getElementById("m-km").textContent = car.km;
-  document.getElementById("m-engine").textContent = car.fuel;
-  document.getElementById("m-trans").textContent = car.trans;
-  document.getElementById("m-owner").textContent = car.owner;
-  document.getElementById("m-grade").textContent = car.grade;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  init3D();
+  initShowroom3D();
 
-  // Populate Car Pills dynamically
-  const carPillsContainer = document.getElementById("car-pills-wrap");
-  if (carPillsContainer) {
-    carPillsContainer.innerHTML = "";
+  // Populate Selector Pills
+  const pillsContainer = document.getElementById("car-pills-wrap");
+  if (pillsContainer) {
+    pillsContainer.innerHTML = "";
     carsData.forEach((car) => {
       const btn = document.createElement("button");
-      btn.className = `car-pill ${car.id === 0 ? "active" : ""}`;
-      btn.dataset.carId = car.id;
+      btn.className = "car-pill";
       btn.textContent = car.name.split(" ")[0] + " " + car.name.split(" ")[1];
-      btn.onclick = () => switchCar(car.id);
-      carPillsContainer.appendChild(btn);
+      btn.onclick = () => openInspectorModal(car);
+      pillsContainer.appendChild(btn);
     });
   }
 
-  // Modal Listeners
-  const backdrop = document.getElementById("modal-backdrop");
-  document.getElementById("btn-open-modal").addEventListener("click", () => {
-    updateModalData();
-    backdrop.classList.add("active");
-  });
-  document.getElementById("btn-modal-close").addEventListener("click", () => {
-    backdrop.classList.remove("active");
-  });
-
-  // Floor Pill Listeners
-  document.querySelectorAll(".floor-pill").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      switchFloor(parseInt(btn.dataset.floor));
-    });
-  });
+  // Close Modal Button Listener
+  document.getElementById("inspector-close-btn").addEventListener("click", closeInspectorModal);
 
   // EMI Calculator Calculation
   const rngAmount = document.getElementById("rng-amount");
@@ -547,10 +531,10 @@ document.addEventListener("DOMContentLoaded", () => {
   calcEMI();
 });
 
-// WhatsApp Actions
+// WhatsApp Booking Triggers
 function bookWhatsAppDrive() {
-  const car = carsData[activeCarIndex];
-  const msg = encodeURIComponent(`Hi Aura Motors, I want to schedule a physical test drive for the ${car.name} (${car.price}). Please share available slots!`);
+  if (!activeCar) activeCar = carsData[0];
+  const msg = encodeURIComponent(`Hi Aura Motors, I want to schedule a physical test drive for the ${activeCar.name} (${activeCar.price}). Please share available slots!`);
   window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
