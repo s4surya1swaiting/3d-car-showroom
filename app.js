@@ -82,8 +82,8 @@ const showroomCars = [
     pos: [11, 0.4, -6],
     rotY: -Math.PI / 6,
     color: 0x2b3a2f,
-    glb: "models/toycar.glb",
-    scale: 1.4,
+    glb: "models/classic_car.glb",
+    scale: 0.15,
     stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
 
@@ -126,8 +126,8 @@ const showroomCars = [
     pos: [-3, 5.4, 4],
     rotY: Math.PI / 6,
     color: 0x730d17,
-    glb: "models/ferrari.glb",
-    scale: 0.95,
+    glb: "models/toycar.glb",
+    scale: 1.35,
     stats: { speed: 90, accel: 88, power: 92, handling: 93 }
   },
   {
@@ -411,7 +411,6 @@ function loadReal3DCarFleet() {
       model.position.y = 0.16;
       model.scale.set(car.scale, car.scale, car.scale);
 
-      // Traversal for metallic paint materials & shadows
       model.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = true;
