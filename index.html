@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17.0.0">
+  <link rel="stylesheet" href="style.css?v=18.0.0">
   
   <!-- Three.js & Essential Add-ons (GLTFLoader, DRACOLoader, OrbitControls, RGBELoader, RoomEnvironment) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -103,6 +103,17 @@
 
       <!-- 3D Canvas Target -->
       <div id="showroom-canvas-target"></div>
+
+      <!-- Madhukanta 3D Screen Navigation Control HUD -->
+      <div class="museum-nav-hud">
+        <button class="nav-hud-btn" onclick="navMove('rotateLeft')" title="Rotate Left">↺ ROTATE LEFT</button>
+        <button class="nav-hud-btn" onclick="navMove('rotateRight')" title="Rotate Right">↻ ROTATE RIGHT</button>
+        <button class="nav-hud-btn" onclick="navMove('zoomIn')" title="Zoom In">🔍 ZOOM IN</button>
+        <button class="nav-hud-btn" onclick="navMove('zoomOut')" title="Zoom Out">🔍 ZOOM OUT</button>
+        <button class="nav-hud-btn" onclick="navMove('stepForward')" title="Move Forward">⬆ MOVE FORWARD</button>
+        <button class="nav-hud-btn" onclick="navMove('stepBack')" title="Move Back">⬇ MOVE BACK</button>
+        <button class="nav-hud-btn nav-hud-reset" onclick="resetRoomView()" title="Reset View">↺ RESET VIEW</button>
+      </div>
 
       <!-- Hint Pill -->
       <div class="museum-hint-pill">
@@ -554,6 +565,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=17.0.0"></script>
+  <script src="app.js?v=18.0.0"></script>
 </body>
 </html>
