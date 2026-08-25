@@ -1,27 +1,26 @@
-// AURA MOTORS 2-STORY ARCHITECTURAL 3D SHOWROOM WITH 3D CAR MESHES & FULL COMMERCIAL SECTIONS
+// AURA MOTORS — AAA NEED FOR SPEED (NFS) / ASPHALT 3D SHOWROOM GARAGE STUDIO
 
-const carsData = [
-  // GROUND FLOOR BAYS
+const nfsCars = [
   {
-    id: "car-1",
-    floor: "Ground Floor — Display Bay 1",
+    id: "scorpio",
     name: "Mahindra Scorpio-N Z8L 4x4",
+    tagline: "The Unmissable SUV • 4XPLOR All-Terrain",
     price: "₹ 24,50,000",
     year: "2023",
     km: "12,000 KM",
     fuel: "2.2L mHawk Diesel (172 BHP)",
-    trans: "6-Speed Automatic 4XPLOR",
+    trans: "6-Speed Automatic 4WD",
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 0.4, -6],
-    color: 0x5c6b73,
-    dim: [3.4, 1.45, 1.75]
+    color: 0x3a404a,
+    dim: [3.5, 1.45, 1.75],
+    stats: { speed: 82, accel: 78, power: 85, handling: 80 }
   },
   {
-    id: "car-2",
-    floor: "Ground Floor — Display Bay 2",
+    id: "nexon",
     name: "Tata Nexon EV Dark Edition",
+    tagline: "100% Electric Crossover • #Dark Aesthetics",
     price: "₹ 16,80,000",
     year: "2023",
     km: "8,500 KM",
@@ -30,14 +29,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-    pos: [-3, 0.4, -6],
-    color: 0x0a3641,
-    dim: [2.9, 1.25, 1.6]
+    color: 0x00d2ff,
+    dim: [3.0, 1.25, 1.6],
+    stats: { speed: 75, accel: 88, power: 76, handling: 84 }
   },
   {
-    id: "car-3",
-    floor: "Ground Floor — Display Bay 3",
+    id: "thar",
     name: "Mahindra Thar LX 4x4 Hard Top",
+    tagline: "Iconic Off-Road Legend • Convertible Vibes",
     price: "₹ 15,20,000",
     year: "2022",
     km: "18,400 KM",
@@ -46,14 +45,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "138/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
-    pos: [4, 0.4, -6],
     color: 0x1f2421,
-    dim: [2.8, 1.35, 1.65]
+    dim: [2.9, 1.38, 1.65],
+    stats: { speed: 70, accel: 72, power: 82, handling: 78 }
   },
   {
-    id: "car-4",
-    floor: "Ground Floor — Display Bay 4",
+    id: "bolero",
     name: "Mahindra Bolero Neo N10 Opt",
+    tagline: "Tough Utility Vehicle • Multi-Terrain Select",
     price: "₹ 10,90,000",
     year: "2022",
     km: "24,000 KM",
@@ -62,16 +61,14 @@ const carsData = [
     owner: "1st Owner",
     grade: "135/140 Certified",
     img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
-    pos: [11, 0.4, -6],
-    color: 0x22382b,
-    dim: [3.1, 1.35, 1.6]
+    color: 0x2b3a2f,
+    dim: [3.2, 1.35, 1.6],
+    stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
-
-  // 1ST FLOOR MEZZANINE BALCONY BAYS (Height y = 5.4)
   {
-    id: "car-5",
-    floor: "1st Floor Mezzanine — Bay 5",
+    id: "merc",
     name: "Mercedes-Benz S-Class S450",
+    tagline: "The Pinnacle of Luxury • VIP First-Class Cabin",
     price: "₹ 1,35,00,000",
     year: "2022",
     km: "14,200 KM",
@@ -80,14 +77,14 @@ const carsData = [
     owner: "1st Owner (Individual)",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 5.4, 4],
-    color: 0x0b132b,
-    dim: [3.8, 0.95, 1.75]
+    color: 0x09152a,
+    dim: [3.9, 0.95, 1.78],
+    stats: { speed: 92, accel: 90, power: 94, handling: 92 }
   },
   {
-    id: "car-6",
-    floor: "1st Floor Mezzanine — Bay 6",
+    id: "bmw",
     name: "BMW 7 Series 730Ld M-Sport",
+    tagline: "Sheer Driving Pleasure • Executive Lounge",
     price: "₹ 1,18,00,000",
     year: "2021",
     km: "22,000 KM",
@@ -96,62 +93,62 @@ const carsData = [
     owner: "1st Owner (Corporate)",
     grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    pos: [-3, 5.4, 4],
-    color: 0x6e0d16,
-    dim: [3.7, 0.95, 1.75]
+    color: 0x730d17,
+    dim: [3.8, 0.95, 1.78],
+    stats: { speed: 90, accel: 88, power: 92, handling: 93 }
   },
   {
-    id: "car-7",
-    floor: "1st Floor Mezzanine — Bay 7",
+    id: "jeep",
     name: "Jeep Compass Model S 4x4",
+    tagline: "Premium Urban SUV • Panoramic Sunroof",
     price: "₹ 26,40,000",
     year: "2023",
     km: "11,000 KM",
-    fuel: "2.0L Multijet II Turbo Diesel",
+    fuel: "2.0L Diesel 9-Speed Auto",
     trans: "9-Speed Torque Converter",
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [4, 5.4, 4],
-    color: 0xdedede,
-    dim: [3.2, 1.25, 1.65]
+    color: 0xe0e0e0,
+    dim: [3.3, 1.25, 1.65],
+    stats: { speed: 80, accel: 79, power: 83, handling: 82 }
   },
   {
-    id: "car-8",
-    floor: "1st Floor Mezzanine — Bay 8",
+    id: "audi",
     name: "Audi RS e-tron GT Quattro",
+    tagline: "Electric Supercar • 637 HP Dual Motors",
     price: "₹ 1,62,00,000",
     year: "2023",
     km: "6,500 KM",
-    fuel: "637 HP Dual Electric Motors",
-    trans: "2-Speed Rear Automatic",
+    fuel: "637 HP Dual Electric",
+    trans: "2-Speed Rear Auto",
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    pos: [11, 5.4, 4],
-    color: 0x1c1e24,
-    dim: [3.6, 0.85, 1.8]
+    color: 0x181a20,
+    dim: [3.7, 0.85, 1.82],
+    stats: { speed: 98, accel: 99, power: 97, handling: 96 }
   },
   {
-    id: "car-9",
-    floor: "1st Floor Mezzanine — Bay 9",
+    id: "porsche",
     name: "Porsche 911 Carrera S",
+    tagline: "Pure Performance Icon • Sport Chrono",
     price: "₹ 1,85,00,000",
     year: "2022",
     km: "4,800 KM",
-    fuel: "3.0L Twin-Turbo Flat-6 (450 HP)",
+    fuel: "3.0L Twin-Turbo Flat-6",
     trans: "8-Speed PDK Dual-Clutch",
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
-    pos: [-6, 5.4, 12],
     color: 0xd90429,
-    dim: [3.3, 0.8, 1.7]
+    dim: [3.4, 0.8, 1.72],
+    stats: { speed: 99, accel: 98, power: 96, handling: 99 }
   },
   {
-    id: "car-10",
-    floor: "1st Floor Mezzanine — Bay 10",
+    id: "fortuner",
     name: "Toyota Fortuner Legender 4x4",
+    tagline: "Flagship SUV • Dual Tone Black Roof",
     price: "₹ 44,50,000",
     year: "2023",
     km: "15,800 KM",
@@ -160,80 +157,79 @@ const carsData = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
-    pos: [6, 5.4, 12],
-    color: 0xf8f9fa,
-    dim: [3.6, 1.45, 1.75]
+    pos: [0, 0, 0],
+    color: 0xf4f5f6,
+    dim: [3.7, 1.45, 1.78],
+    stats: { speed: 84, accel: 80, power: 88, handling: 81 }
   }
 ];
 
-let activeCar = null;
+let activeCarIndex = 0;
 let scene, camera, renderer;
-let targetPos = new THREE.Vector3(0, 3.5, 18);
-let targetLookAt = new THREE.Vector3(0, 2.0, 0);
-let currentLookAt = new THREE.Vector3(0, 2.0, 0);
-let carMeshes = [];
+let turntableStage, activeCarGroup;
+let bodyMaterial, cabinMaterial, rimMaterial;
+let isAutoRotate = true;
 
-function initShowroom3D() {
-  const container = document.getElementById("museum-canvas-target");
+function initNFSGarage3D() {
+  const container = document.getElementById("nfs-canvas-target");
   if (!container) return;
 
+  // 1. Scene setup
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x0a0c10);
-  scene.fog = new THREE.FogExp2(0x0a0c10, 0.015);
+  scene.background = new THREE.Color(0x06070a);
+  scene.fog = new THREE.FogExp2(0x06070a, 0.02);
 
-  camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 120);
-  camera.position.set(0, 3.5, 20);
+  // 2. Camera setup (NFS Studio Perspective)
+  camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+  camera.position.set(5.5, 2.2, 7.5);
 
+  // 3. Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
   container.appendChild(renderer.domElement);
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+  // 4. NFS Studio Spotlighting
+  const ambient = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(ambient);
 
-  const sunLight = new THREE.DirectionalLight(0xfff5e6, 1.6);
-  sunLight.position.set(12, 22, 14);
-  sunLight.castShadow = true;
-  scene.add(sunLight);
+  const overheadSpot = new THREE.SpotLight(0xfff5e6, 3.5);
+  overheadSpot.position.set(0, 12, 0);
+  overheadSpot.angle = Math.PI / 4;
+  overheadSpot.penumbra = 0.4;
+  overheadSpot.castShadow = true;
+  scene.add(overheadSpot);
 
-  const fillLight = new THREE.PointLight(0xe2b755, 1.5, 30);
-  fillLight.position.set(0, 10, 0);
-  scene.add(fillLight);
+  const cyanRimLight = new THREE.PointLight(0x00d2ff, 2.2, 20);
+  cyanRimLight.position.set(-6, 4, -5);
+  scene.add(cyanRimLight);
 
-  build2StoryShowroomBuilding();
-  build3DCarModels();
-  setupNavigation(container);
+  const goldRimLight = new THREE.PointLight(0xe2b755, 2.2, 20);
+  goldRimLight.position.set(6, 4, 5);
+  scene.add(goldRimLight);
 
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
+  // 5. Build NFS Turntable Stage Floor
+  buildNFSTurntableStage();
 
-  container.addEventListener("click", (e) => {
-    const rect = container.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / container.clientHeight) * 2 + 1;
+  // 6. Load Initial 3D Car Model
+  loadCarModel3D(0);
 
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(carMeshes, true);
-    if (intersects.length > 0) {
-      let obj = intersects[0].object;
-      while (obj.parent && !obj.userData.carData) {
-        obj = obj.parent;
-      }
-      if (obj.userData.carData) {
-        openInspectorModal(obj.userData.carData);
-      }
-    }
-  });
+  // 7. Touch & Mouse Orbit Controls
+  setupNFSOrbitControls(container);
 
+  // Render Loop
   function animate() {
     requestAnimationFrame(animate);
-    camera.position.lerp(targetPos, 0.06);
-    currentLookAt.lerp(targetLookAt, 0.06);
-    camera.lookAt(currentLookAt);
+
+    if (isAutoRotate && turntableStage) {
+      turntableStage.rotation.y += 0.005;
+    }
+
+    camera.lookAt(0, 0.9, 0);
     renderer.render(scene, camera);
   }
   animate();
@@ -245,148 +241,197 @@ function initShowroom3D() {
   });
 }
 
-function build2StoryShowroomBuilding() {
-  const floorGeo = new THREE.PlaneGeometry(36, 40);
-  const floorMat = new THREE.MeshStandardMaterial({ color: 0x11141d, roughness: 0.15, metalness: 0.85 });
-  const floor = new THREE.Mesh(floorGeo, floorMat);
-  floor.rotation.x = -Math.PI / 2;
-  floor.receiveShadow = true;
-  scene.add(floor);
+// Build NFS Studio Turntable Stage & Cyber Floor
+function buildNFSTurntableStage() {
+  turntableStage = new THREE.Group();
 
-  const grid = new THREE.GridHelper(40, 40, 0xe2b755, 0x232733);
-  grid.position.y = 0.01;
+  // Polished Carbon Fiber Platform
+  const platformGeo = new THREE.CylinderGeometry(4.2, 4.4, 0.3, 64);
+  const platformMat = new THREE.MeshStandardMaterial({
+    color: 0x0f121a,
+    roughness: 0.1,
+    metalness: 0.9
+  });
+  const platform = new THREE.Mesh(platformGeo, platformMat);
+  platform.position.y = -0.15;
+  platform.receiveShadow = true;
+  turntableStage.add(platform);
+
+  // Neon Cyan Outer Ring
+  const neonRingGeo = new THREE.TorusGeometry(4.35, 0.05, 16, 100);
+  const neonRingMat = new THREE.MeshBasicMaterial({ color: 0x00d2ff });
+  const neonRing = new THREE.Mesh(neonRingGeo, neonRingMat);
+  neonRing.rotation.x = Math.PI / 2;
+  neonRing.position.y = 0.01;
+  turntableStage.add(neonRing);
+
+  // Gold Inner Accent Ring
+  const goldRingGeo = new THREE.TorusGeometry(3.6, 0.04, 16, 100);
+  const goldRingMat = new THREE.MeshBasicMaterial({ color: 0xe2b755 });
+  const goldRing = new THREE.Mesh(goldRingGeo, goldRingMat);
+  goldRing.rotation.x = Math.PI / 2;
+  goldRing.position.y = 0.015;
+  turntableStage.add(goldRing);
+
+  // Reflective Floor Grid around stage
+  const grid = new THREE.GridHelper(30, 30, 0x00d2ff, 0x181c28);
+  grid.position.y = -0.3;
   scene.add(grid);
 
-  const mezGeo = new THREE.BoxGeometry(34, 0.4, 20);
-  const mezMat = new THREE.MeshStandardMaterial({ color: 0x181c28, roughness: 0.2, metalness: 0.7 });
-  const mezzanine = new THREE.Mesh(mezGeo, mezMat);
-  mezzanine.position.set(0, 5.0, 7);
-  mezzanine.receiveShadow = true;
-  scene.add(mezzanine);
+  scene.add(turntableStage);
+}
 
-  const mezGrid = new THREE.GridHelper(34, 34, 0xe2b755, 0x2d3345);
-  mezGrid.position.set(0, 5.21, 7);
-  scene.add(mezGrid);
+// Load 3D Car Model on the Turntable Stage
+function loadCarModel3D(index) {
+  activeCarIndex = index;
+  const carData = nfsCars[index];
 
-  const colGeo = new THREE.CylinderGeometry(0.4, 0.4, 5.0, 16);
-  const colMat = new THREE.MeshStandardMaterial({ color: 0x090b0e, metalness: 0.9, roughness: 0.1 });
-  [[-15, -1], [15, -1], [-15, 15], [15, 15]].forEach(([cx, cz]) => {
-    const col = new THREE.Mesh(colGeo, colMat);
-    col.position.set(cx, 2.5, cz);
-    scene.add(col);
-  });
-
-  const glassRailMat = new THREE.MeshPhysicalMaterial({
-    color: 0x88ccff, transparent: true, opacity: 0.25, transmission: 0.9, roughness: 0.05
-  });
-  const railFront = new THREE.Mesh(new THREE.BoxGeometry(34, 1.0, 0.1), glassRailMat);
-  railFront.position.set(0, 5.7, -3);
-  scene.add(railFront);
-
-  const stepCount = 14;
-  const stepHeight = 5.0 / stepCount;
-  const stepDepth = 0.45;
-  const stepWidth = 3.6;
-  const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.7, roughness: 0.2 });
-
-  for (let i = 0; i < stepCount; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(stepWidth, stepHeight, stepDepth), stepMat);
-    step.position.set(14, (i + 0.5) * stepHeight, -2 + i * stepDepth);
-    step.receiveShadow = true;
-    scene.add(step);
+  if (activeCarGroup) {
+    turntableStage.remove(activeCarGroup);
   }
 
-  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(36, 12), new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.95 }));
-  glassWall.position.set(0, 6, -20);
-  scene.add(glassWall);
+  activeCarGroup = new THREE.Group();
+
+  // Metallic Car Body Shell
+  const [len, ht, wd] = carData.dim;
+  const bodyGeo = new THREE.BoxGeometry(len, ht * 0.55, wd);
+  bodyMaterial = new THREE.MeshStandardMaterial({
+    color: carData.color,
+    roughness: 0.12,
+    metalness: 0.88
+  });
+  const body = new THREE.Mesh(bodyGeo, bodyMaterial);
+  body.position.y = (ht * 0.55) / 2 + 0.35;
+  body.castShadow = true;
+  activeCarGroup.add(body);
+
+  // Cabin Glass Roof & Windshield
+  const cabinGeo = new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88);
+  cabinMaterial = new THREE.MeshStandardMaterial({
+    color: 0x07090e,
+    roughness: 0.05,
+    metalness: 0.95,
+    transparent: true,
+    opacity: 0.88
+  });
+  const cabin = new THREE.Mesh(cabinGeo, cabinMaterial);
+  cabin.position.set(-len * 0.08, body.position.y + ht * 0.5, 0);
+  cabin.castShadow = true;
+  activeCarGroup.add(cabin);
+
+  // Front Headlights & Rear LED Taillights
+  const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const tailMat = new THREE.MeshBasicMaterial({ color: 0xff0033 });
+
+  const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), headMat);
+  lightL.position.set(len / 2 + 0.02, body.position.y, wd * 0.32);
+  const lightR = lightL.clone();
+  lightR.position.z = -wd * 0.32;
+  activeCarGroup.add(lightL, lightR);
+
+  const tailL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), tailMat);
+  tailL.position.set(-len / 2 - 0.02, body.position.y, wd * 0.32);
+  const tailR = tailL.clone();
+  tailR.position.z = -wd * 0.32;
+  activeCarGroup.add(tailL, tailR);
+
+  // 4 Wheels with Custom Rim Styling
+  const wRadius = ht * 0.26;
+  const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.24, 32);
+  const wheelMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.5 });
+  rimMaterial = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.95, roughness: 0.1 });
+
+  const wheelOffsetX = len * 0.32;
+  const wheelOffsetZ = wd * 0.52;
+
+  [
+    [wheelOffsetX, wRadius, wheelOffsetZ],
+    [wheelOffsetX, wRadius, -wheelOffsetZ],
+    [-wheelOffsetX, wRadius, wheelOffsetZ],
+    [-wheelOffsetX, wRadius, -wheelOffsetZ]
+  ].forEach(([wx, wy, wz]) => {
+    const wGroup = new THREE.Group();
+    const tire = new THREE.Mesh(wheelGeo, wheelMat);
+    tire.rotation.x = Math.PI / 2;
+    wGroup.add(tire);
+
+    const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.68, wRadius * 0.68, 0.25, 10), rimMaterial);
+    rim.rotation.x = Math.PI / 2;
+    wGroup.add(rim);
+
+    wGroup.position.set(wx, wy, wz);
+    activeCarGroup.add(wGroup);
+  });
+
+  turntableStage.add(activeCarGroup);
+
+  // Update UI Panels
+  updateNFSUI(carData);
 }
 
-function build3DCarModels() {
-  carMeshes = [];
+// Update NFS Specs & Performance Meter UI
+function updateNFSUI(carData) {
+  document.getElementById("nfs-car-title").textContent = carData.name;
+  document.getElementById("nfs-car-tagline").textContent = carData.tagline;
+  document.getElementById("nfs-car-price").textContent = carData.price;
+  document.getElementById("nfs-year").textContent = carData.year;
+  document.getElementById("nfs-km").textContent = carData.km;
+  document.getElementById("nfs-engine").textContent = carData.fuel;
+  document.getElementById("nfs-trans").textContent = carData.trans;
+  document.getElementById("nfs-owner").textContent = carData.owner;
+  document.getElementById("nfs-grade").textContent = carData.grade;
 
-  carsData.forEach((car) => {
-    const carGroup = new THREE.Group();
-    carGroup.userData = { carData: car };
+  // Update Performance Meters
+  document.getElementById("meter-speed").style.width = carData.stats.speed + "%";
+  document.getElementById("meter-accel").style.width = carData.stats.accel + "%";
+  document.getElementById("meter-power").style.width = carData.stats.power + "%";
+  document.getElementById("meter-handling").style.width = carData.stats.handling + "%";
 
-    const pad = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.7, 0.15, 32), new THREE.MeshStandardMaterial({ color: 0x1b1e2a, metalness: 0.85, roughness: 0.25 }));
-    pad.position.y = 0.08;
-    carGroup.add(pad);
+  document.getElementById("val-speed").textContent = carData.stats.speed;
+  document.getElementById("val-accel").textContent = carData.stats.accel;
+  document.getElementById("val-power").textContent = carData.stats.power;
+  document.getElementById("val-handling").textContent = carData.stats.handling;
 
-    const padRing = new THREE.Mesh(new THREE.TorusGeometry(2.55, 0.04, 16, 64), new THREE.MeshBasicMaterial({ color: 0xe2b755 }));
-    padRing.rotation.x = Math.PI / 2;
-    padRing.position.y = 0.16;
-    carGroup.add(padRing);
-
-    const [len, ht, wd] = car.dim;
-    const body = new THREE.Mesh(new THREE.BoxGeometry(len, ht * 0.55, wd), new THREE.MeshStandardMaterial({ color: car.color, roughness: 0.15, metalness: 0.85 }));
-    body.position.y = (ht * 0.55) / 2 + 0.35;
-    body.castShadow = true;
-    carGroup.add(body);
-
-    const cabin = new THREE.Mesh(new THREE.BoxGeometry(len * 0.55, ht * 0.5, wd * 0.88), new THREE.MeshStandardMaterial({ color: 0x090b0e, roughness: 0.05, metalness: 0.95, transparent: true, opacity: 0.85 }));
-    cabin.position.set(-len * 0.08, body.position.y + ht * 0.5, 0);
-    cabin.castShadow = true;
-    carGroup.add(cabin);
-
-    const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.35), headMat);
-    lightL.position.set(len / 2 + 0.02, body.position.y, wd * 0.32);
-    const lightR = lightL.clone();
-    lightR.position.z = -wd * 0.32;
-    carGroup.add(lightL, lightR);
-
-    const wRadius = ht * 0.26;
-    const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.22, 24);
-    const wheelMat = new THREE.MeshStandardMaterial({ color: 0x151515, roughness: 0.6 });
-    const rimMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.1 });
-
-    const wheelOffsetX = len * 0.32;
-    const wheelOffsetZ = wd * 0.52;
-    [
-      [wheelOffsetX, wRadius, wheelOffsetZ],
-      [wheelOffsetX, wRadius, -wheelOffsetZ],
-      [-wheelOffsetX, wRadius, wheelOffsetZ],
-      [-wheelOffsetX, wRadius, -wheelOffsetZ]
-    ].forEach(([wx, wy, wz]) => {
-      const wGroup = new THREE.Group();
-      const tire = new THREE.Mesh(wheelGeo, wheelMat);
-      tire.rotation.x = Math.PI / 2;
-      wGroup.add(tire);
-      const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.65, wRadius * 0.65, 0.23, 8), rimMat);
-      rim.rotation.x = Math.PI / 2;
-      wGroup.add(rim);
-      wGroup.position.set(wx, wy, wz);
-      carGroup.add(wGroup);
-    });
-
-    const [px, py, pz] = car.pos;
-    carGroup.position.set(px, py, pz);
-    scene.add(carGroup);
-    carMeshes.push(carGroup);
+  // Active Carousel Highlight
+  document.querySelectorAll(".nfs-dock-card").forEach((card, idx) => {
+    if (idx === activeCarIndex) card.classList.add("active");
+    else card.classList.remove("active");
   });
 }
 
-function setupNavigation(container) {
+// NFS Real-Time Paint Color Switcher
+function setCarPaintColor(colorHex) {
+  if (bodyMaterial) {
+    bodyMaterial.color.setHex(colorHex);
+  }
+}
+
+// Touch & Mouse Orbit Controls for 360° Drag
+function setupNFSOrbitControls(container) {
   let isDragging = false;
   let previousMousePosition = { x: 0, y: 0 };
 
   container.addEventListener("mousedown", (e) => {
     isDragging = true;
+    isAutoRotate = false;
     previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
   container.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
     const deltaX = e.clientX - previousMousePosition.x;
-    targetLookAt.x += deltaX * 0.02;
+    turntableStage.rotation.y += deltaX * 0.01;
     previousMousePosition = { x: e.clientX, y: e.clientY };
   });
 
-  window.addEventListener("mouseup", () => { isDragging = false; });
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
 
   container.addEventListener("touchstart", (e) => {
     if (e.touches.length === 1) {
       isDragging = true;
+      isAutoRotate = false;
       previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
     }
   });
@@ -394,60 +439,23 @@ function setupNavigation(container) {
   container.addEventListener("touchmove", (e) => {
     if (!isDragging || e.touches.length !== 1) return;
     const deltaX = e.touches[0].clientX - previousMousePosition.x;
-    targetLookAt.x += deltaX * 0.03;
+    turntableStage.rotation.y += deltaX * 0.015;
     previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
   });
 
-  window.addEventListener("touchend", () => { isDragging = false; });
+  window.addEventListener("touchend", () => {
+    isDragging = false;
+  });
 }
 
-function moveCamera(dir) {
-  const step = 3.5;
-  if (dir === 'up') targetPos.z -= step;
-  if (dir === 'down') targetPos.z += step;
-  if (dir === 'left') targetPos.x -= step;
-  if (dir === 'right') targetPos.x += step;
-
-  targetPos.x = Math.max(-14, Math.min(14, targetPos.x));
-  targetPos.z = Math.max(-12, Math.min(22, targetPos.z));
-  targetLookAt.set(targetPos.x, targetPos.y - 1.5, targetPos.z - 5);
+function toggleAutoRotate() {
+  isAutoRotate = !isAutoRotate;
+  const btn = document.getElementById("btn-rotate-toggle");
+  if (btn) btn.textContent = isAutoRotate ? "⏸ PAUSE ROTATION" : "▶ 360° AUTO ROTATE";
 }
 
-function resetShowroomCamera() {
-  targetPos.set(0, 3.5, 20);
-  targetLookAt.set(0, 2.0, 0);
-  closeInspectorModal();
-}
-
-function openInspectorModal(carData) {
-  activeCar = carData;
-
-  const [px, py, pz] = carData.pos;
-  targetPos.set(px, py + 1.8, pz + 5.5);
-  targetLookAt.set(px, py + 0.8, pz);
-
-  document.getElementById("modal-wall-tag").textContent = carData.floor;
-  document.getElementById("modal-car-title").textContent = carData.name;
-  document.getElementById("modal-car-price").textContent = carData.price;
-  document.getElementById("m-year").textContent = carData.year;
-  document.getElementById("m-km").textContent = carData.km;
-  document.getElementById("m-engine").textContent = carData.fuel;
-  document.getElementById("m-trans").textContent = carData.trans;
-  document.getElementById("m-owner").textContent = carData.owner;
-  document.getElementById("m-grade").textContent = carData.grade;
-  document.getElementById("modal-car-img").src = carData.img;
-
-  const modal = document.getElementById("museum-inspector-modal");
-  if (modal) modal.classList.add("active");
-}
-
-function closeInspectorModal() {
-  const modal = document.getElementById("museum-inspector-modal");
-  if (modal) modal.classList.remove("active");
-}
-
-function toggleShowroomFullscreen() {
-  const wrapper = document.getElementById("museum-stage-wrapper");
+function toggleNFSFullscreen() {
+  const wrapper = document.getElementById("nfs-stage-wrapper");
   if (!document.fullscreenElement) {
     if (wrapper.requestFullscreen) wrapper.requestFullscreen();
     else if (wrapper.webkitRequestFullscreen) wrapper.webkitRequestFullscreen();
@@ -456,7 +464,7 @@ function toggleShowroomFullscreen() {
   }
 }
 
-// Inventory Search & Filter Handler
+// Inventory Filtering
 function filterInventory() {
   const typeVal = document.getElementById("filter-type").value;
   const budgetVal = document.getElementById("filter-budget").value;
@@ -484,7 +492,7 @@ function filterInventory() {
   });
 }
 
-// Test Drive Concierge Form Submission
+// Test Drive Concierge Form Handler
 function handleFormBooking(e) {
   e.preventDefault();
   const name = document.getElementById("b-name").value;
@@ -492,26 +500,31 @@ function handleFormBooking(e) {
   const car = document.getElementById("b-car").value;
   const city = document.getElementById("b-city").value;
 
-  const msg = encodeURIComponent(`Hi Aura Motors, my name is ${name} (${phone}). I would like to book a doorstep test drive for ${car} in ${city}. Please confirm my concierge appointment!`);
+  const msg = encodeURIComponent(`Hi Aura Motors, my name is ${name} (${phone}). I would like to book a doorstep test drive for ${car} in ${city}. Please confirm my appointment!`);
   window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initShowroom3D();
+  initNFSGarage3D();
 
-  const pillsContainer = document.getElementById("car-pills-wrap");
-  if (pillsContainer) {
-    pillsContainer.innerHTML = "";
-    carsData.forEach((car) => {
-      const btn = document.createElement("button");
-      btn.className = "car-pill";
-      btn.textContent = car.name.split(" ")[0] + " " + car.name.split(" ")[1];
-      btn.onclick = () => openInspectorModal(car);
-      pillsContainer.appendChild(btn);
+  // Populate NFS Bottom Dock
+  const dockContainer = document.getElementById("nfs-dock-container");
+  if (dockContainer) {
+    dockContainer.innerHTML = "";
+    nfsCars.forEach((car, index) => {
+      const card = document.createElement("div");
+      card.className = `nfs-dock-card ${index === 0 ? 'active' : ''}`;
+      card.onclick = () => loadCarModel3D(index);
+      card.innerHTML = `
+        <div class="dock-img-box"><img src="${car.img}" alt="${car.name}"></div>
+        <div class="dock-info">
+          <span class="dock-name">${car.name.split(" ")[0]} ${car.name.split(" ")[1]}</span>
+          <span class="dock-price">${car.price}</span>
+        </div>
+      `;
+      dockContainer.appendChild(card);
     });
   }
-
-  document.getElementById("inspector-close-btn").addEventListener("click", closeInspectorModal);
 
   const rngAmount = document.getElementById("rng-amount");
   const rngRate = document.getElementById("rng-rate");
@@ -535,8 +548,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function bookWhatsAppDrive() {
-  if (!activeCar) activeCar = carsData[0];
-  const msg = encodeURIComponent(`Hi Aura Motors, I want to schedule a physical test drive for the ${activeCar.name} (${activeCar.price}). Please share available slots!`);
+  const car = nfsCars[activeCarIndex];
+  const msg = encodeURIComponent(`Hi Aura Motors, I want to schedule a physical test drive for the ${car.name} (${car.price}). Please share available slots!`);
   window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 

@@ -6,11 +6,11 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>AURA MOTORS — Luxury 3D Virtual Dealership & Pre-Owned Car Platform</title>
+  <title>AURA MOTORS — AAA Need For Speed (NFS) 3D Car Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3.0.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -20,10 +20,10 @@
     <div class="nav-brand">
       <span class="brand-logo">✦</span>
       <span class="brand-name">AURA <span>MOTORS</span></span>
-      <span class="badge-tag">2-STORY 3D SHOWROOM</span>
+      <span class="badge-tag">NFS 3D STUDIO</span>
     </div>
     <nav class="nav-links">
-      <a href="#3d-showroom">3D Showroom</a>
+      <a href="#nfs-studio">3D Garage Studio</a>
       <a href="#inventory">Fleet Inventory</a>
       <a href="#why-us">Why Us</a>
       <a href="#emi-calculator">EMI Finance</a>
@@ -35,20 +35,20 @@
     </nav>
   </header>
 
-  <!-- 2. Hero Banner Section -->
+  <!-- 2. Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag font-accent">INDIA'S PREMIER 3D VIRTUAL DEALERSHIP PLATFORM</span>
-      <h1 class="hero-title">Experience Certified Cars In <span>Interactive 3D</span></h1>
-      <p class="hero-subtext">Step inside our 2-story glass showroom building, walk through the mezzanine balcony, inspect 10 certified pre-owned luxury vehicles in 3D, and schedule doorstep test drives.</p>
+      <span class="hero-tag font-accent">AAA NEED FOR SPEED / ASPHALT INSPIRED 3D EXPERIENCE</span>
+      <h1 class="hero-title">Experience Certified Cars In <span>NFS 3D Studio</span></h1>
+      <p class="hero-subtext">Step inside our high-tech 3D Garage Studio. Rotate 3D car models in 360°, customize paint finishes in real-time, test performance stats, and book doorstep test drives.</p>
       <div class="hero-actions">
-        <a href="#3d-showroom" class="btn-primary">Walk Through 3D Showroom Building ↓</a>
+        <a href="#nfs-studio" class="btn-primary">Launch 3D Garage Studio ↓</a>
         <a href="#inventory" class="btn-secondary">Browse 10-Car Inventory</a>
       </div>
       <div class="hero-trust-stats">
         <div class="trust-stat-item">
           <span class="stat-num">140+</span>
-          <span class="stat-lbl">Points Technical Inspection</span>
+          <span class="stat-lbl">Points Inspection</span>
         </div>
         <div class="trust-stat-item">
           <span class="stat-num">7 Days</span>
@@ -66,83 +66,88 @@
     </div>
   </section>
 
-  <!-- 3. 3D Architectural Showroom Walkthrough Section -->
-  <section id="3d-showroom" class="museum-3d-section">
-    <div class="museum-header">
-      <span class="museum-sub-tag">ARCHITECTURAL 360° SHOWROOM BUILDING</span>
-      <h2 class="museum-title">Walk Through Our <span>2-Story Showroom</span></h2>
-      <p class="museum-desc">Ground Floor & 1st Floor Mezzanine Balcony connected by architectural stairs. Tap any 3D car to inspect its specifications.</p>
+  <!-- 3. AAA Need For Speed (NFS) / Asphalt 3D Garage Studio Section -->
+  <section id="nfs-studio" class="nfs-studio-section">
+    <div class="nfs-header">
+      <span class="nfs-sub-tag">360° TURNTABLE GARAGE STUDIO</span>
+      <h2 class="nfs-title">3D Garage <span>Customizer & Inspector</span></h2>
     </div>
 
-    <!-- Quick Car Selection Pills -->
-    <div class="car-selector-pills-wrap" id="car-pills-wrap">
-      <!-- Dynamic 10 Car Pills -->
-    </div>
-
-    <!-- 3D Stage Wrapper -->
-    <div class="museum-stage-wrapper" id="museum-stage-wrapper">
+    <!-- NFS Stage Wrapper -->
+    <div class="nfs-stage-wrapper" id="nfs-stage-wrapper">
       
-      <!-- Fullscreen Button -->
-      <button class="museum-fullscreen-btn" onclick="toggleShowroomFullscreen()">
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-        FULLSCREEN 3D VIEW
-      </button>
-
       <!-- 3D Canvas Target -->
-      <div id="museum-canvas-target"></div>
+      <div id="nfs-canvas-target"></div>
 
-      <!-- D-Pad Touch Navigation -->
-      <div class="museum-dpad">
-        <button class="dpad-btn dpad-up" onclick="moveCamera('up')">▲</button>
-        <button class="dpad-btn dpad-left" onclick="moveCamera('left')">◄</button>
-        <button class="dpad-btn dpad-center" onclick="resetShowroomCamera()">RST</button>
-        <button class="dpad-btn dpad-right" onclick="moveCamera('right')">►</button>
-        <button class="dpad-btn dpad-down" onclick="moveCamera('down')">▼</button>
+      <!-- Top Overlay: Car Header Info -->
+      <div class="nfs-top-overlay">
+        <div class="nfs-car-info">
+          <span class="nfs-tagline" id="nfs-car-tagline">The Unmissable SUV • 4XPLOR All-Terrain</span>
+          <h2 class="nfs-car-title" id="nfs-car-title">Mahindra Scorpio-N Z8L 4x4</h2>
+          <div class="nfs-price-tag" id="nfs-car-price">₹ 24,50,000</div>
+        </div>
+        <div class="nfs-controls-group">
+          <button class="nfs-btn-icon" id="btn-rotate-toggle" onclick="toggleAutoRotate()">⏸ PAUSE ROTATION</button>
+          <button class="nfs-btn-icon" onclick="toggleNFSFullscreen()">FULLSCREEN VIEW</button>
+        </div>
       </div>
 
-      <!-- Hint Pill -->
-      <div class="museum-hint-pill">
-        ✨ Click/Tap D-Pad or Drag to Walk Through • Click Any 3D Car to Inspect
-      </div>
+      <!-- Right Overlay: Performance Meter & Specs HUD -->
+      <div class="nfs-right-hud">
+        <div class="hud-title">PERFORMANCE STATS</div>
+        
+        <div class="meter-group">
+          <div class="meter-lbl"><span>TOP SPEED</span><span id="val-speed">82</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill speed-fill" id="meter-speed" style="width: 82%;"></div></div>
+        </div>
 
-      <!-- Floating Inspector Modal -->
-      <div class="museum-inspector-modal" id="museum-inspector-modal">
-        <button class="inspector-close-btn" id="inspector-close-btn">×</button>
-        <span class="modal-wall-tag" id="modal-wall-tag">Ground Floor — Display Bay 1</span>
-        <h3 class="modal-car-title" id="modal-car-title">Mahindra Scorpio-N Z8L 4x4</h3>
-        <div class="modal-car-img-wrap">
-          <img id="modal-car-img" src="" alt="Car Photo">
+        <div class="meter-group">
+          <div class="meter-lbl"><span>ACCELERATION</span><span id="val-accel">78</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill accel-fill" id="meter-accel" style="width: 78%;"></div></div>
         </div>
-        <p class="modal-price" id="modal-car-price">₹ 24,50,000</p>
-        <div class="modal-specs-grid">
-          <div class="modal-spec-item">
-            <span class="spec-key">Year</span>
-            <span class="spec-val" id="m-year">2023</span>
-          </div>
-          <div class="modal-spec-item">
-            <span class="spec-key">Driven</span>
-            <span class="spec-val" id="m-km">12,000 KM</span>
-          </div>
-          <div class="modal-spec-item">
-            <span class="spec-key">Fuel & Engine</span>
-            <span class="spec-val" id="m-engine">2.2L Diesel</span>
-          </div>
-          <div class="modal-spec-item">
-            <span class="spec-key">Transmission</span>
-            <span class="spec-val" id="m-trans">Automatic</span>
-          </div>
-          <div class="modal-spec-item">
-            <span class="spec-key">Ownership</span>
-            <span class="spec-val" id="m-owner">1st Owner</span>
-          </div>
-          <div class="modal-spec-item">
-            <span class="spec-key">Inspection</span>
-            <span class="spec-val" id="m-grade">140/140 Certified</span>
-          </div>
+
+        <div class="meter-group">
+          <div class="meter-lbl"><span>HORSEPOWER</span><span id="val-power">85</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill power-fill" id="meter-power" style="width: 85%;"></div></div>
         </div>
-        <button class="btn-whatsapp-modal" onclick="bookWhatsAppDrive()">
-          🚗 Schedule Physical Test Drive on WhatsApp
+
+        <div class="meter-group">
+          <div class="meter-lbl"><span>HANDLING</span><span id="val-handling">80</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill handling-fill" id="meter-handling" style="width: 80%;"></div></div>
+        </div>
+
+        <div class="hud-divider"></div>
+        <div class="hud-title">PAINT FINISH CUSTOMIZER</div>
+        <div class="paint-swatch-wrap">
+          <button class="paint-swatch" style="background: #3a404a;" onclick="setCarPaintColor(0x3a404a)" title="Graphite Silver"></button>
+          <button class="paint-swatch" style="background: #1f2421;" onclick="setCarPaintColor(0x1f2421)" title="Matte Black"></button>
+          <button class="paint-swatch" style="background: #d90429;" onclick="setCarPaintColor(0xd90429)" title="Guards Red"></button>
+          <button class="paint-swatch" style="background: #00d2ff;" onclick="setCarPaintColor(0x00d2ff)" title="Cyber Cyan"></button>
+          <button class="paint-swatch" style="background: #e2b755;" onclick="setCarPaintColor(0xe2b755)" title="Liquid Gold"></button>
+          <button class="paint-swatch" style="background: #f8f9fa;" onclick="setCarPaintColor(0xf8f9fa)" title="Pearl White"></button>
+        </div>
+
+        <div class="hud-divider"></div>
+        <div class="hud-specs-mini">
+          <div><span class="sk">Year:</span> <span class="sv" id="nfs-year">2023</span></div>
+          <div><span class="sk">Driven:</span> <span class="sv" id="nfs-km">12,000 KM</span></div>
+          <div><span class="sk">Engine:</span> <span class="sv" id="nfs-engine">2.2L Diesel</span></div>
+          <div><span class="sk">Trans:</span> <span class="sv" id="nfs-trans">Automatic</span></div>
+          <div><span class="sk">Owner:</span> <span class="sv" id="nfs-owner">1st Owner</span></div>
+          <div><span class="sk">Certified:</span> <span class="sv" id="nfs-grade">140/140</span></div>
+        </div>
+
+        <button class="btn-whatsapp-nfs" onclick="bookWhatsAppDrive()">
+          🚗 Schedule Doorstep Test Drive
         </button>
+      </div>
+
+      <!-- Bottom Overlay: Need For Speed Dock Carousel -->
+      <div class="nfs-bottom-dock">
+        <div class="dock-title">SELECT 3D VEHICLE (10 CAR FLEET)</div>
+        <div class="nfs-dock-container" id="nfs-dock-container">
+          <!-- Dynamic 10 Cars Dock Cards -->
+        </div>
       </div>
 
     </div>
@@ -192,22 +197,22 @@
     <div class="inventory-grid" id="inventory-grid">
       <!-- 10 Car Cards -->
       <div class="car-card" data-type="SUV" data-price="2450000" data-fuel="Diesel">
-        <div class="card-badge">GROUND FLOOR • SUV</div>
+        <div class="card-badge">SUV • 4XPLOR</div>
         <div class="card-img-placeholder scorpio-bg"></div>
         <div class="card-body">
           <h3>Mahindra Scorpio-N Z8L 4x4</h3>
           <p class="card-price">₹ 24,50,000</p>
           <ul class="card-features">
             <li>✓ 2023 Model • 12,000 KM</li>
-            <li>✓ 2.2L Diesel (172 BHP) • 4XPLOR</li>
+            <li>✓ 2.2L Diesel (172 BHP) • 4WD</li>
             <li>✓ Sunroof & Sony 3D Audio</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[0])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(0); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="EV" data-price="1680000" data-fuel="Electric">
-        <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
+        <div class="card-badge electric-badge">100% ELECTRIC</div>
         <div class="card-img-placeholder nexon-bg"></div>
         <div class="card-body">
           <h3>Tata Nexon EV Dark Edition</h3>
@@ -217,12 +222,12 @@
             <li>✓ Electric (465 KM Range)</li>
             <li>✓ Ventilated Seats & 360 Camera</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[1])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(1); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="SUV" data-price="1520000" data-fuel="Petrol">
-        <div class="card-badge">GROUND FLOOR • 4X4</div>
+        <div class="card-badge">OFF-ROAD 4X4</div>
         <div class="card-img-placeholder thar-bg"></div>
         <div class="card-body">
           <h3>Mahindra Thar LX Hard Top</h3>
@@ -232,12 +237,12 @@
             <li>✓ 2.0L Turbo Petrol 4WD</li>
             <li>✓ Touchscreen & Convertible Vibes</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[2])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(2); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="SUV" data-price="1090000" data-fuel="Diesel">
-        <div class="card-badge">GROUND FLOOR • UTILITY</div>
+        <div class="card-badge">UTILITY SUV</div>
         <div class="card-img-placeholder bolero-bg"></div>
         <div class="card-body">
           <h3>Mahindra Bolero Neo N10 Opt</h3>
@@ -247,12 +252,12 @@
             <li>✓ 1.5L mHawk Diesel MLD</li>
             <li>✓ 7-Seater Tough Body</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[3])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(3); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="Sedan" data-price="13500000" data-fuel="Petrol">
-        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
+        <div class="card-badge gold-badge">LUXURY SALOON</div>
         <div class="card-img-placeholder merc-bg"></div>
         <div class="card-body">
           <h3>Mercedes-Benz S-Class S450</h3>
@@ -262,12 +267,12 @@
             <li>✓ 3.0L V6 Turbo Petrol</li>
             <li>✓ Rear Massage Seats & Burmester</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[4])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(4); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="Sedan" data-price="11800000" data-fuel="Diesel">
-        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
+        <div class="card-badge gold-badge">M-SPORT SEDAN</div>
         <div class="card-img-placeholder bmw-bg"></div>
         <div class="card-body">
           <h3>BMW 7 Series 730Ld M-Sport</h3>
@@ -277,12 +282,12 @@
             <li>✓ 3.0L Straight-6 Diesel</li>
             <li>✓ Executive Lounge Rear Theater</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[5])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(5); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="SUV" data-price="2640000" data-fuel="Diesel">
-        <div class="card-badge">1ST FLOOR • MEZZANINE</div>
+        <div class="card-badge">PREMIUM 4X4</div>
         <div class="card-img-placeholder jeep-bg"></div>
         <div class="card-body">
           <h3>Jeep Compass Model S 4x4</h3>
@@ -292,12 +297,12 @@
             <li>✓ 2.0L Diesel 9-Speed Automatic</li>
             <li>✓ Panoramic Sunroof & 4x4 Select</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[6])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(6); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="EV" data-price="16200000" data-fuel="Electric">
-        <div class="card-badge electric-badge">1ST FLOOR • SUPERCAR</div>
+        <div class="card-badge electric-badge">ELECTRIC SUPERCAR</div>
         <div class="card-img-placeholder audi-bg"></div>
         <div class="card-body">
           <h3>Audi RS e-tron GT Quattro</h3>
@@ -307,12 +312,12 @@
             <li>✓ 637 HP Dual Electric Motors</li>
             <li>✓ 0-100 km/h in 3.3 Seconds</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[7])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(7); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="Supercar" data-price="18500000" data-fuel="Petrol">
-        <div class="card-badge gold-badge">1ST FLOOR • SPORTS</div>
+        <div class="card-badge gold-badge">SPORTS COUPE</div>
         <div class="card-img-placeholder porsche-bg"></div>
         <div class="card-body">
           <h3>Porsche 911 Carrera S</h3>
@@ -322,12 +327,12 @@
             <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
             <li>✓ Sport Chrono Package & Exhaust</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[8])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(8); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
 
       <div class="car-card" data-type="SUV" data-price="4450000" data-fuel="Diesel">
-        <div class="card-badge">1ST FLOOR • FLAGSHIP</div>
+        <div class="card-badge">FLAGSHIP 7-SEATER</div>
         <div class="card-img-placeholder fortuner-bg"></div>
         <div class="card-body">
           <h3>Toyota Fortuner Legender 4x4</h3>
@@ -337,7 +342,7 @@
             <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
             <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
           </ul>
-          <button class="btn-card-action" onclick="openInspectorModal(carsData[9])">Locate 3D Car Model →</button>
+          <button class="btn-card-action" onclick="loadCarModel3D(9); window.location.href='#nfs-studio';">Load in 3D Garage Studio →</button>
         </div>
       </div>
     </div>
@@ -409,12 +414,12 @@
   <section id="testimonials" class="testimonials-section">
     <div class="section-title">
       <h2>What Our Clients Say</h2>
-      <p>Hear from luxury car owners who bought their dream vehicles through Aura Motors 3D Showroom.</p>
+      <p>Hear from luxury car owners who bought their dream vehicles through Aura Motors 3D Studio.</p>
     </div>
     <div class="testimonials-grid">
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">"Exploring the Mercedes S-Class in 3D before booking the physical test drive saved me so much time. The car was delivered in pristine condition!"</p>
+        <p class="testi-text">"Exploring the Mercedes S-Class in 3D studio before booking the physical test drive saved me so much time. Delivered in pristine condition!"</p>
         <div class="testi-user">
           <div class="user-avatar">VK</div>
           <div>
@@ -425,7 +430,7 @@
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">"The 3D showroom walkthrough gave me full confidence in the car's condition. The loan approval on WhatsApp was done within 4 hours!"</p>
+        <p class="testi-text">"The 3D studio customizer gave me full confidence in the car's condition. The loan approval on WhatsApp was done within 4 hours!"</p>
         <div class="testi-user">
           <div class="user-avatar">RS</div>
           <div>
@@ -436,7 +441,7 @@
       </div>
       <div class="testi-card">
         <div class="stars">★★★★★</div>
-        <p class="testi-text">"Buying an Audi RS e-tron GT online seemed crazy until I walked through their virtual showroom. Exceptional transparency and service!"</p>
+        <p class="testi-text">"Buying an Audi RS e-tron GT online seemed crazy until I rotated it in their 3D studio. Exceptional transparency and service!"</p>
         <div class="testi-user">
           <div class="user-avatar">AM</div>
           <div>
@@ -506,12 +511,12 @@
     <div class="footer-top">
       <div class="footer-col">
         <span class="brand-name">AURA <span>MOTORS</span></span>
-        <p>India's premier 3D virtual luxury car showroom & certified pre-owned dealership platform.</p>
+        <p>India's premier Need For Speed (NFS) inspired 3D virtual luxury car studio platform.</p>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#3d-showroom">3D Showroom Building</a></li>
+          <li><a href="#nfs-studio">3D Garage Studio</a></li>
           <li><a href="#inventory">Fleet Inventory</a></li>
           <li><a href="#emi-calculator">EMI Calculator</a></li>
           <li><a href="#why-us">Why Aura Motors</a></li>
@@ -524,10 +529,10 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 AURA MOTORS 3D VIRTUAL SHOWROOM • DEVELOPED BY SANTANU DHALI</p>
+      <p>© 2026 AURA MOTORS 3D STUDIO • DEVELOPED BY SANTANU DHALI</p>
     </div>
   </footer>
 
-  <script src="app.js?v=2.1.0"></script>
+  <script src="app.js?v=3.0.0"></script>
 </body>
 </html>
