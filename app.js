@@ -1,4 +1,4 @@
-// AURA MOTORS — SEQUENTIAL 3-STORY STAIRCASE & MADHUKANTA SCREEN NAV HUD ENGINE (v18.0.0)
+// AURA MOTORS — SEQUENTIAL 3-ROOM STAIRCASE ASCENT/DESCENT & DISTINCT ARCHITECTURAL FLOORS (v20.0.0)
 
 /**
  * FLEET ARCHITECTURE & VEHICLE ASSET MAPPING
@@ -292,7 +292,7 @@ function initShowroom3D() {
   // 5. Madhukanta Studio Lighting Calibration
   setupShowroomLighting();
 
-  // 6. Build Architectural Enclosure & Castle Doors
+  // 6. Build Distinct Architectural Floor Decks & Roof Skylight
   buildPBRArchitecturalBuilding();
 
   // 7. Load Vehicle Fleet
@@ -375,26 +375,66 @@ function setupShowroomLighting() {
   });
 }
 
+// Physical Construction of 3 Distinct Architectural Floor Themes & Skylight
 function buildPBRArchitecturalBuilding() {
   const wallMat = new THREE.MeshStandardMaterial({ color: 0x221a1a, roughness: 0.45 });
-  const floorMat = new THREE.MeshStandardMaterial({ color: 0x120e0b, roughness: 0.08, metalness: 0.92 });
   const pillarMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
   const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 });
 
-  const groundGeo = new THREE.PlaneGeometry(60, 60);
-  const ground = new THREE.Mesh(groundGeo, floorMat);
+  // 1. GROUND FLOOR ROOM 1 — Dark Mahogany Wood Floor (Y = 0)
+  const mahoganyMat = new THREE.MeshStandardMaterial({ color: 0x120e0b, roughness: 0.08, metalness: 0.92 });
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), mahoganyMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), pillarMat);
+  // 2. 1ST FLOOR ROOM 2 — Italian Carrara White Marble Deck with Brass Trim (Y = 6.5)
+  const marbleMat = new THREE.MeshStandardMaterial({ color: 0xf0ede6, roughness: 0.05, metalness: 0.85 });
+  const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), marbleMat);
   floor1.position.set(0, 6.5, 4);
+  floor1.receiveShadow = true;
   scene.add(floor1);
 
-  const floor2 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), pillarMat);
+  // Gold Brass Inlay Trim for 1st Floor Edge
+  const brassBorder = new THREE.Mesh(new THREE.BoxGeometry(50.4, 0.15, 0.2), goldMat);
+  brassBorder.position.set(0, 6.75, 16);
+  scene.add(brassBorder);
+
+  // 3. 2ND FLOOR ROOM 3 — Obsidian Gloss Supercar Deck with Neon Halo Trim (Y = 13.0)
+  const supercarDeckMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0e, roughness: 0.03, metalness: 0.96 });
+  const floor2 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), supercarDeckMat);
   floor2.position.set(0, 13.0, 12);
+  floor2.receiveShadow = true;
   scene.add(floor2);
 
+  // Neon Cyan & Magenta Edge Trim Ribbons on Supercar Deck
+  const neonMat1 = new THREE.MeshBasicMaterial({ color: 0x00d2ff });
+  const neonRibbon1 = new THREE.Mesh(new THREE.BoxGeometry(50.4, 0.1, 0.15), neonMat1);
+  neonRibbon1.position.set(0, 13.25, 24);
+  scene.add(neonRibbon1);
+
+  // 4. ARCHITECTURAL GLASS SKYLIGHT ROOF CEILING (Y = 22.0)
+  const glassRoofMat = new THREE.MeshPhysicalMaterial({
+    color: 0x223344,
+    transparent: true,
+    opacity: 0.35,
+    roughness: 0.1,
+    transmission: 0.9,
+    thickness: 0.5
+  });
+  const glassRoof = new THREE.Mesh(new THREE.PlaneGeometry(54, 46), glassRoofMat);
+  glassRoof.rotation.x = Math.PI / 2;
+  glassRoof.position.set(0, 22.0, 4);
+  scene.add(glassRoof);
+
+  // Roof Beam Support Grids
+  [-15, 0, 15].forEach(x => {
+    const roofBeam = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 46), goldMat);
+    roofBeam.position.set(x, 21.8, 4);
+    scene.add(roofBeam);
+  });
+
+  // Enclosing Walls
   const backWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 22), wallMat);
   backWall.position.set(0, 11, -20);
   scene.add(backWall);
@@ -409,12 +449,14 @@ function buildPBRArchitecturalBuilding() {
   rightWall.position.set(25, 11, 0);
   scene.add(rightWall);
 
+  // Pillars
   [[-18, -4], [18, -4], [-18, 12], [18, 12]].forEach(([px, pz]) => {
     const pil = new THREE.Mesh(new THREE.BoxGeometry(0.8, 20.0, 0.8), pillarMat);
     pil.position.set(px, 10.0, pz);
     scene.add(pil);
   });
 
+  // Interactive 3D Staircases
   stairMesh1 = new THREE.Group();
   for (let i = 0; i < 14; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.45, 0.48), goldMat);
@@ -431,6 +473,7 @@ function buildPBRArchitecturalBuilding() {
   }
   scene.add(stairMesh2);
 
+  // Castle Entrance Gate (z = 20)
   const entWallLeft = new THREE.Mesh(new THREE.BoxGeometry(20, 5.0, 0.4), wallMat);
   entWallLeft.position.set(-15, 2.5, 20);
   scene.add(entWallLeft);
@@ -564,6 +607,7 @@ function createProceduralCarMesh(car) {
   return group;
 }
 
+// RAYCASTING ENGINE (Handles 3D Doors, Cars, and Staircase Ascent/Descent)
 function setupRaycasting(container) {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
@@ -597,22 +641,26 @@ function setupRaycasting(container) {
         }
       }
 
+      // Staircase 1 Interactivity: Ground Floor Room 1 <-> 1st Floor Room 2
       const intersectsStair1 = raycaster.intersectObjects(stairMesh1.children, true);
       if (intersectsStair1.length > 0) {
-        climbToRoom2();
+        if (currentRoomId === 2) enterRoom1Ground(); // Descend to Room 1!
+        else climbToRoom2(); // Ascend to Room 2!
         return;
       }
 
+      // Staircase 2 Interactivity: 1st Floor Room 2 <-> 2nd Floor Room 3
       const intersectsStair2 = raycaster.intersectObjects(stairMesh2.children, true);
       if (intersectsStair2.length > 0) {
-        climbToRoom3();
+        if (currentRoomId === 3) climbToRoom2(); // Descend to Room 2!
+        else climbToRoom3(); // Ascend to Room 3!
         return;
       }
     }
   });
 }
 
-// MADHUKANTA SCREEN NAVIGATION CONTROLS (Rotate, Zoom, Step, Reset)
+// MADHUKANTA SCREEN NAVIGATION CONTROLS
 function navMove(action) {
   if (!camera || !controls) return;
 
@@ -639,7 +687,7 @@ function navMove(action) {
     }
   } else if (action === 'stepForward') {
     const dir = new THREE.Vector3().subVectors(lookTarget, targetCameraPos).normalize();
-    dir.y = 0; // Move parallel to floor
+    dir.y = 0;
     targetCameraPos.addScaledVector(dir, 3.5);
     targetLookAt.addScaledVector(dir, 3.5);
   } else if (action === 'stepBack') {
@@ -647,6 +695,12 @@ function navMove(action) {
     dir.y = 0;
     targetCameraPos.addScaledVector(dir, -3.5);
     targetLookAt.addScaledVector(dir, -3.5);
+  } else if (action === 'ascendStairs') {
+    if (currentRoomId === 1) climbToRoom2();
+    else if (currentRoomId === 2) climbToRoom3();
+  } else if (action === 'descendStairs') {
+    if (currentRoomId === 3) climbToRoom2();
+    else if (currentRoomId === 2) enterRoom1Ground();
   }
 }
 
@@ -783,7 +837,6 @@ function toggleShowroomFullscreen() {
   }
 }
 
-// Commercial Inventory Filtering Engine
 function filterInventory() {
   const typeVal = document.getElementById("filter-type").value;
   const budgetVal = document.getElementById("filter-budget").value;

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19.0.0">
+  <link rel="stylesheet" href="style.css?v=20.0.0">
   
   <!-- Three.js & Essential Add-ons (GLTFLoader, DRACOLoader, OrbitControls, RGBELoader, RoomEnvironment) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -112,7 +112,9 @@
         <button class="nav-hud-btn" onclick="navMove('zoomOut')" title="Zoom Out">🔍 ZOOM OUT</button>
         <button class="nav-hud-btn" onclick="navMove('stepForward')" title="Move Forward">⬆ MOVE FORWARD</button>
         <button class="nav-hud-btn" onclick="navMove('stepBack')" title="Move Back">⬇ MOVE BACK</button>
-        <button class="nav-hud-btn nav-hud-reset" onclick="resetRoomView()" title="Reset View">↺ RESET VIEW</button>
+        <button class="nav-hud-btn nav-hud-stairs" onclick="navMove('ascendStairs')" title="Climb Up Staircase">🪜 ASCEND STAIRS</button>
+        <button class="nav-hud-btn nav-hud-stairs" onclick="navMove('descendStairs')" title="Walk Down Staircase">🪜 DESCEND STAIRS</button>
+        <button class="nav-hud-btn nav-hud-reset" onclick="resetRoomView()" title="Reset Room Eye View">↺ RESET VIEW</button>
       </div>
 
       <!-- Hint Pill -->
@@ -565,6 +567,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=19.0.0"></script>
+  <script src="app.js?v=20.0.0"></script>
 </body>
 </html>
