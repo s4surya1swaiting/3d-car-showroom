@@ -1,11 +1,11 @@
-// AURA MOTORS — SILKY-SMOOTH 3-STORY 3D AUTOMOTIVE SHOWROOM ENGINE (v12.0.0)
+// AURA MOTORS — LUXURY 3-STORY ARCHITECTURAL SHOWROOM ENGINE (v13.0.0)
 
 /**
  * FLEET ARCHITECTURE & 3D ASSET MAPPING
- * 10 Dedicated Vehicles mapped to distinct high-detail 3D GLBs, floor coordinates, & NFS specs.
+ * 10 Dedicated Vehicles mapped across 3 Architectural Floors
  */
 const showroomCars = [
-  // GROUND FLOOR — SUVs & Off-Road (Floor Height y = 0.4)
+  // GROUND FLOOR — SUVs & Off-Road (y = 0.4)
   {
     id: "scorpio",
     index: 0,
@@ -21,8 +21,8 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [-12, 0.4, -4],
-    rotY: Math.PI / 5,
+    pos: [-13, 0.4, -2],
+    rotY: Math.PI / 6,
     color: 0x1c222e,
     glb: "models/groundvehicle.glb",
     targetHeight: 1.85,
@@ -43,8 +43,8 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-    pos: [-4, 0.4, -4],
-    rotY: Math.PI / 6,
+    pos: [-4.5, 0.4, -2],
+    rotY: Math.PI / 8,
     color: 0x00d2ff,
     glb: "models/ferrari.glb",
     targetHeight: 1.3,
@@ -65,8 +65,8 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "138/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
-    pos: [4, 0.4, -4],
-    rotY: -Math.PI / 6,
+    pos: [4.5, 0.4, -2],
+    rotY: -Math.PI / 8,
     color: 0xd9381e,
     glb: "models/buggy.glb",
     targetHeight: 1.7,
@@ -87,15 +87,15 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "135/140 Certified",
     img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
-    pos: [12, 0.4, -4],
-    rotY: -Math.PI / 5,
+    pos: [13, 0.4, -2],
+    rotY: -Math.PI / 6,
     color: 0x243329,
     glb: "models/truck.glb",
     targetHeight: 1.6,
     stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
 
-  // 1ST FLOOR — Executive Luxury Sedans (Floor Height y = 5.4)
+  // 1ST FLOOR — Executive Luxury Sedans (y = 6.4)
   {
     id: "merc",
     index: 4,
@@ -111,7 +111,7 @@ const showroomCars = [
     owner: "1st Owner (Individual)",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 5.4, 6],
+    pos: [-11, 6.4, 6],
     rotY: Math.PI / 6,
     color: 0x09152a,
     glb: "models/toycar.glb",
@@ -133,7 +133,7 @@ const showroomCars = [
     owner: "1st Owner (Corporate)",
     grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    pos: [0, 5.4, 6],
+    pos: [0, 6.4, 6],
     rotY: 0,
     color: 0x730d17,
     glb: "models/toycar.glb",
@@ -155,7 +155,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [10, 5.4, 6],
+    pos: [11, 6.4, 6],
     rotY: -Math.PI / 6,
     color: 0xd4d8e0,
     glb: "models/groundvehicle.glb",
@@ -163,7 +163,7 @@ const showroomCars = [
     stats: { speed: 80, accel: 79, power: 83, handling: 82 }
   },
 
-  // 2ND FLOOR — Supercar Deck (Floor Height y = 10.4)
+  // 2ND FLOOR — Supercar Deck (y = 12.4)
   {
     id: "audi",
     index: 7,
@@ -179,7 +179,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 10.4, 12],
+    pos: [-11, 12.4, 14],
     rotY: Math.PI / 5,
     color: 0x181a20,
     glb: "models/ferrari.glb",
@@ -201,7 +201,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
-    pos: [0, 10.4, 12],
+    pos: [0, 12.4, 14],
     rotY: 0,
     color: 0xd90429,
     glb: "models/ferrari.glb",
@@ -223,7 +223,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
-    pos: [10, 10.4, 12],
+    pos: [11, 12.4, 14],
     rotY: -Math.PI / 5,
     color: 0xf4f5f6,
     glb: "models/groundvehicle.glb",
@@ -234,14 +234,13 @@ const showroomCars = [
 
 // Global Engine Variables
 let scene, camera, renderer, controls;
-let targetCameraPos = new THREE.Vector3(0, 5.2, 25);
-let targetLookAt = new THREE.Vector3(0, 2.5, -4);
-let currentLookAt = new THREE.Vector3(0, 2.5, -4);
+let targetCameraPos = new THREE.Vector3(0, 9.5, 38);
+let targetLookAt = new THREE.Vector3(0, 6.0, 4.0);
+let currentLookAt = new THREE.Vector3(0, 6.0, 4.0);
 let carMeshes = [];
 let stairMeshes = [];
 let rotatingPodiums = [];
 let activeInspectedIndex = 0;
-let isInspecting = false;
 
 function initShowroom3D() {
   const container = document.getElementById("showroom-canvas-target");
@@ -249,12 +248,12 @@ function initShowroom3D() {
 
   // 1. Scene Setup
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x05070d);
-  scene.fog = new THREE.FogExp2(0x05070d, 0.008);
+  scene.background = new THREE.Color(0x06080e);
+  scene.fog = new THREE.FogExp2(0x06080e, 0.006);
 
-  // 2. Camera Setup
-  camera = new THREE.PerspectiveCamera(46, container.clientWidth / container.clientHeight, 0.1, 180);
-  camera.position.set(0, 5.2, 25);
+  // 2. Camera Setup (Elevated Panoramic View showing ALL 3 FLOORS AT ONCE)
+  camera = new THREE.PerspectiveCamera(48, container.clientWidth / container.clientHeight, 0.1, 220);
+  camera.position.set(0, 9.5, 38);
 
   // 3. Renderer Setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -263,11 +262,11 @@ function initShowroom3D() {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.3;
+  renderer.toneMappingExposure = 1.35;
   renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
-  // 4. OrbitControls Setup (Full Drag & Pan Freedom)
+  // 4. OrbitControls Setup
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.04;
@@ -276,19 +275,19 @@ function initShowroom3D() {
   controls.rotateSpeed = 0.6;
   controls.maxPolarAngle = Math.PI / 2 - 0.01;
   controls.minDistance = 2.0;
-  controls.maxDistance = 50;
+  controls.maxDistance = 60;
   controls.target.copy(currentLookAt);
 
   // 5. Studio Lighting Rig
   setupShowroomLighting();
 
-  // 6. Build Physical 3-Story Luxury Architectural Showroom with Interactive Staircases & Foyer Portal
+  // 6. Build Physical 3-Story Luxury Architectural Showroom Building & Foyer
   buildPBRArchitecturalBuilding();
 
   // 7. Load Vehicle Fleet with Draco Decoder
   loadReal3DCarFleet();
 
-  // 8. Raycasting Setup (Cars & 3D Staircases)
+  // 8. Raycasting Setup (Cars & Staircases)
   setupRaycasting(container);
 
   // Animation Loop with Silky-Smooth Camera Lerp & Podiums Rotation
@@ -317,98 +316,117 @@ function initShowroom3D() {
 
 // Studio Lighting Rig
 function setupShowroomLighting() {
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
   scene.add(ambientLight);
 
-  const mainSun = new THREE.DirectionalLight(0xfff5e6, 2.5);
-  mainSun.position.set(20, 36, 20);
+  const mainSun = new THREE.DirectionalLight(0xfff5e6, 2.6);
+  mainSun.position.set(22, 42, 24);
   mainSun.castShadow = true;
   mainSun.shadow.mapSize.width = 2048;
   mainSun.shadow.mapSize.height = 2048;
   scene.add(mainSun);
 
-  const cyanRim = new THREE.PointLight(0x00d2ff, 2.8, 60);
-  cyanRim.position.set(-22, 12, -12);
+  const cyanRim = new THREE.PointLight(0x00d2ff, 3.2, 70);
+  cyanRim.position.set(-25, 14, -15);
   scene.add(cyanRim);
 
-  const goldRim = new THREE.PointLight(0xe2b755, 2.8, 60);
-  goldRim.position.set(22, 16, 12);
+  const goldRim = new THREE.PointLight(0xe2b755, 3.2, 70);
+  goldRim.position.set(25, 18, 15);
   scene.add(goldRim);
 
   // Dedicated Overhead Spotlights
   showroomCars.forEach((car) => {
     const [px, py, pz] = car.pos;
-    const spot = new THREE.SpotLight(0xfffaee, 2.0, 18, Math.PI / 4, 0.5, 1);
-    spot.position.set(px, py + 7.0, pz);
+    const spot = new THREE.SpotLight(0xfffaee, 2.2, 20, Math.PI / 4, 0.5, 1);
+    spot.position.set(px, py + 7.5, pz);
     spot.target.position.set(px, py, pz);
     scene.add(spot);
     scene.add(spot.target);
   });
 }
 
-// Physical 3-Story Luxury Architectural Showroom Construction with Clickable Staircases
+// Physical 3-Story Luxury Architectural Showroom Building Construction
 function buildPBRArchitecturalBuilding() {
   stairMeshes = [];
 
-  // Ground Floor (Polished Obsidian Marble)
-  const groundGeo = new THREE.PlaneGeometry(54, 54);
-  const groundMat = new THREE.MeshStandardMaterial({ color: 0x0c0f17, roughness: 0.08, metalness: 0.92 });
+  // Ground Floor (Polished Obsidian Marble Floor)
+  const groundGeo = new THREE.PlaneGeometry(60, 60);
+  const groundMat = new THREE.MeshStandardMaterial({ color: 0x0a0d14, roughness: 0.08, metalness: 0.92 });
   const ground = new THREE.Mesh(groundGeo, groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  // Floor 1 — Mezzanine Deck (y = 5.0)
-  const floor1Geo = new THREE.BoxGeometry(46, 0.4, 28);
+  // Floor 1 — Executive Mezzanine Deck (y = 6.0)
+  const floor1Geo = new THREE.BoxGeometry(50, 0.45, 30);
   const floor1Mat = new THREE.MeshStandardMaterial({ color: 0x121623, roughness: 0.12, metalness: 0.88 });
   const floor1 = new THREE.Mesh(floor1Geo, floor1Mat);
-  floor1.position.set(0, 5.0, 6);
+  floor1.position.set(0, 6.0, 6);
   floor1.receiveShadow = true;
   scene.add(floor1);
 
-  // Floor 2 — Supercar Deck (y = 10.0)
-  const floor2Geo = new THREE.BoxGeometry(46, 0.4, 28);
+  // Floor 2 — Supercar Deck (y = 12.0)
+  const floor2Geo = new THREE.BoxGeometry(50, 0.45, 30);
   const floor2Mat = new THREE.MeshStandardMaterial({ color: 0x161a2a, roughness: 0.12, metalness: 0.88 });
   const floor2 = new THREE.Mesh(floor2Geo, floor2Mat);
-  floor2.position.set(0, 10.0, 12);
+  floor2.position.set(0, 12.0, 14);
   floor2.receiveShadow = true;
   scene.add(floor2);
 
-  // Structural Columns
-  const colGeo = new THREE.CylinderGeometry(0.48, 0.48, 10.0, 24);
-  const colMat = new THREE.MeshStandardMaterial({ color: 0x0a0c14, metalness: 0.95, roughness: 0.05 });
-  [[-21, -4], [21, -4], [-21, 18], [21, 18]].forEach(([cx, cz]) => {
+  // Grand Roof Structure (y = 18.0)
+  const roofGeo = new THREE.BoxGeometry(54, 0.5, 34);
+  const roofMat = new THREE.MeshStandardMaterial({ color: 0x090c14, roughness: 0.2, metalness: 0.8 });
+  const roof = new THREE.Mesh(roofGeo, roofMat);
+  roof.position.set(0, 18.0, 10);
+  scene.add(roof);
+
+  // Brushed Titanium Structural Columns
+  const colGeo = new THREE.CylinderGeometry(0.55, 0.55, 18.0, 24);
+  const colMat = new THREE.MeshStandardMaterial({ color: 0x090b12, metalness: 0.95, roughness: 0.05 });
+  [[-23, -6], [23, -6], [-23, 20], [23, 20]].forEach(([cx, cz]) => {
     const col = new THREE.Mesh(colGeo, colMat);
-    col.position.set(cx, 5.0, cz);
+    col.position.set(cx, 9.0, cz);
     scene.add(col);
   });
 
-  // Grand Architectural Staircase 1 (Ground -> 1st Floor) — Interactive Clickable
+  // Grand Architectural Staircase 1 (Ground -> 1st Floor) — Interactive
   const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.1 });
-  for (let i = 0; i < 12; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.42, 0.48), stepMat);
-    step.position.set(19, (i + 0.5) * 0.42, -4 + i * 0.48);
+  for (let i = 0; i < 14; i++) {
+    const step = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.42, 0.5), stepMat);
+    step.position.set(20, (i + 0.5) * 0.42, -5 + i * 0.5);
     step.receiveShadow = true;
     step.userData = { targetFloor: 1 };
     scene.add(step);
     stairMeshes.push(step);
   }
 
-  // Grand Architectural Staircase 2 (1st Floor -> 2nd Floor) — Interactive Clickable
-  for (let i = 0; i < 12; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.42, 0.48), stepMat);
-    step.position.set(-19, 5.0 + (i + 0.5) * 0.42, 2 + i * 0.48);
+  // Grand Architectural Staircase 2 (1st Floor -> 2nd Floor) — Interactive
+  for (let i = 0; i < 14; i++) {
+    const step = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.42, 0.5), stepMat);
+    step.position.set(-20, 6.0 + (i + 0.5) * 0.42, 3 + i * 0.5);
     step.receiveShadow = true;
     step.userData = { targetFloor: 2 };
     scene.add(step);
     stairMeshes.push(step);
   }
 
-  // Glass Facade
-  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.94 });
-  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(50, 16), glassMat);
-  glassWall.position.set(0, 8, -24);
+  // Rear Glass Wall Facade
+  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.18, transmission: 0.94 });
+  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 18), glassMat);
+  glassWall.position.set(0, 9, -26);
   scene.add(glassWall);
+
+  // Grand Entrance Foyer Portal Structure (z = 24)
+  const foyerArchMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.1 });
+  const foyerArch = new THREE.Mesh(new THREE.BoxGeometry(14, 0.5, 2.0), foyerArchMat);
+  foyerArch.position.set(0, 5.5, 24);
+  scene.add(foyerArch);
+
+  [-6.5, 6.5].forEach(x => {
+    const foyerPillar = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 5.5, 24), foyerArchMat);
+    foyerPillar.position.set(x, 2.75, 24);
+    scene.add(foyerPillar);
+  });
 }
 
 // Data-Driven Vehicle Asset Loader with Draco Support & Box3 Grounding
@@ -480,7 +498,6 @@ function loadReal3DCarFleet() {
         }
       });
 
-      // Replace Base Mesh with Loaded GLB Model
       carGroup.remove(carBaseMesh);
       carGroup.add(model);
     }, undefined, (err) => {
@@ -496,7 +513,7 @@ function loadReal3DCarFleet() {
   });
 }
 
-// Generates an Aerodynamic Contoured Metallic Car Body Mesh (Fallback & Baseline)
+// Generates an Aerodynamic Contoured Metallic Car Body Mesh
 function createProceduralCarMesh(car) {
   const group = new THREE.Group();
 
@@ -569,7 +586,6 @@ function setupRaycasting(container) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    // 1. Raycast Cars
     const intersectsCars = raycaster.intersectObjects(carMeshes, true);
     if (intersectsCars.length > 0) {
       let obj = intersectsCars[0].object;
@@ -582,7 +598,6 @@ function setupRaycasting(container) {
       }
     }
 
-    // 2. Raycast Interactive Staircases
     const intersectsStairs = raycaster.intersectObjects(stairMeshes, false);
     if (intersectsStairs.length > 0) {
       const targetFloor = intersectsStairs[0].object.userData.targetFloor;
@@ -593,59 +608,52 @@ function setupRaycasting(container) {
   });
 }
 
-// Floor Ascension Controls & Elevator Animation (Silky-Smooth Camera Lerp)
+// Floor Ascension Controls & Elevator Animation
 function switchFloor(floorNum) {
   closeNFSInspector();
 
   if (floorNum === 0) {
-    targetCameraPos.set(0, 5.2, 25);
-    targetLookAt.set(0, 2.5, -4);
+    targetCameraPos.set(0, 5.2, 26);
+    targetLookAt.set(0, 2.5, -2);
   } else if (floorNum === 1) {
-    targetCameraPos.set(0, 10.2, 27);
-    targetLookAt.set(0, 7.5, 6);
+    targetCameraPos.set(0, 11.2, 28);
+    targetLookAt.set(0, 8.5, 6);
   } else if (floorNum === 2) {
-    targetCameraPos.set(0, 15.2, 33);
-    targetLookAt.set(0, 12.5, 12);
+    targetCameraPos.set(0, 17.2, 34);
+    targetLookAt.set(0, 14.5, 14);
   }
 
   document.querySelectorAll(".floor-btn").forEach((btn, idx) => {
-    if (idx === floorNum) btn.classList.add("active");
+    if (idx === floorNum + 1) btn.classList.add("active");
     else btn.classList.remove("active");
   });
 }
 
-// Enter Showroom Portal Foyer Animation
+// Grand Entrance Foyer View (Overview showing ALL 3 FLOORS AT ONCE)
 function enterShowroomFoyer() {
   closeNFSInspector();
-  targetCameraPos.set(0, 3.2, 38);
-  targetLookAt.set(0, 2.5, -4);
-}
+  targetCameraPos.set(0, 9.5, 38);
+  targetLookAt.set(0, 6.0, 4.0);
 
-function moveCamera(dir) {
-  const step = 3.5;
-  if (dir === 'up') targetCameraPos.z -= step;
-  if (dir === 'down') targetCameraPos.z += step;
-  if (dir === 'left') targetCameraPos.x -= step;
-  if (dir === 'right') targetCameraPos.x += step;
-
-  targetLookAt.set(targetCameraPos.x, targetCameraPos.y - 0.5, targetCameraPos.z - 5);
+  document.querySelectorAll(".floor-btn").forEach((btn, idx) => {
+    if (idx === 0) btn.classList.add("active");
+    else btn.classList.remove("active");
+  });
 }
 
 function resetShowroomCamera() {
-  switchFloor(0);
+  enterShowroomFoyer();
 }
 
-// Seamless Car Swiping / Cycling Navigation (Fixing OrbitControls Lock!)
+// Seamless Car Inspection Navigation
 function zoomInspectCarByIndex(index) {
   activeInspectedIndex = (index + showroomCars.length) % showroomCars.length;
   const carData = showroomCars[activeInspectedIndex];
 
-  isInspecting = true;
   const [px, py, pz] = carData.pos;
   targetCameraPos.set(px, py + 1.8, pz + 4.8);
   targetLookAt.set(px, py + 0.9, pz);
 
-  // Update Inspection HUD Overlay
   document.getElementById("nfs-floor-tag").textContent = carData.floor;
   document.getElementById("nfs-car-title").textContent = carData.name;
   document.getElementById("nfs-car-tagline").textContent = carData.tagline;
@@ -670,9 +678,6 @@ function zoomInspectCarByIndex(index) {
 
   const modal = document.getElementById("nfs-inspection-modal");
   if (modal) modal.classList.add("active");
-
-  // Keep OrbitControls operational so user can orbit around active car!
-  controls.enabled = true;
 }
 
 function nextCarInspect() {
@@ -688,7 +693,6 @@ function zoomInspectCar(carData) {
 }
 
 function closeNFSInspector() {
-  isInspecting = false;
   const modal = document.getElementById("nfs-inspection-modal");
   if (modal) modal.classList.remove("active");
 }
