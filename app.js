@@ -268,7 +268,7 @@ function initShowroom3D() {
   // 6. Build Physical 3-Story Luxury Architectural Showroom
   buildPBRArchitecturalBuilding();
 
-  // 7. Load Vehicle Models with Auto-Centering Bounding Box Engine
+  // 7. Load Vehicle Models with Draco Decoder & Auto-Centering Engine
   loadReal3DCarFleet();
 
   // 8. Raycasting Setup
@@ -374,9 +374,17 @@ function buildPBRArchitecturalBuilding() {
   scene.add(glassWall);
 }
 
-// Data-Driven Vehicle Asset Loader with Bounding Box Grounding Engine
+// Data-Driven Vehicle Asset Loader with Draco Decoder & Box3 Bounding Box Grounding
 function loadReal3DCarFleet() {
   const gltfLoader = new THREE.GLTFLoader();
+
+  // Attach Draco Decoder for Compressed 3D GLB Models
+  if (THREE.DRACOLoader) {
+    const dracoLoader = new THREE.DRACOLoader();
+    dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/gltf/');
+    gltfLoader.setDRACOLoader(dracoLoader);
+  }
+
   carMeshes = [];
 
   showroomCars.forEach((car) => {
@@ -403,14 +411,13 @@ function loadReal3DCarFleet() {
     carBaseMesh.position.y = 0.16;
     carGroup.add(carBaseMesh);
 
-    // 3. Load Actual 3D GLB Model Asset with Box3 Bounding Box Grounding
+    // 3. Load Actual 3D GLB Model Asset with Draco Support & Box3 Grounding
     gltfLoader.load(car.glb, (gltf) => {
       const model = gltf.scene;
 
       // Calculate Bounding Box & Scale
       const box = new THREE.Box3().setFromObject(model);
       const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
 
       // Auto-Scale Model to Target Height
       if (size.y > 0) {
