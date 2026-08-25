@@ -1,4 +1,4 @@
-// AURA MOTORS — MADHUKANTA-GRADE 360° FREEMOVE ARCHITECTURAL SHOWROOM ENGINE (v21.0.0)
+// AURA MOTORS — ALL-OBSIDIAN BLACK LUXURY ARCHITECTURAL SHOWROOM ENGINE (v22.0.0)
 
 /**
  * FLEET ARCHITECTURE & VEHICLE ASSET MAPPING
@@ -259,10 +259,10 @@ function initShowroom3D() {
   const container = document.getElementById("showroom-canvas-target");
   if (!container) return;
 
-  // 1. Scene & Fog Setup
+  // 1. Scene & Fog Setup — OBSIDIAN BLACK AESTHETIC
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x100e12);
-  scene.fog = new THREE.FogExp2(0x100e12, 0.008);
+  scene.background = new THREE.Color(0x0a090c);
+  scene.fog = new THREE.FogExp2(0x0a090c, 0.008);
 
   // 2. Camera Setup (Human Eye Level = 1.7m)
   camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 160);
@@ -293,7 +293,7 @@ function initShowroom3D() {
   // 5. Madhukanta Studio Lighting Setup
   setupShowroomLighting();
 
-  // 6. Build High-Fidelity PBR Architectural Showroom Structure
+  // 6. Build High-Fidelity All-Obsidian Architectural Structure
   buildPBRArchitecturalBuilding();
 
   // 7. Load 3D Vehicle Fleet
@@ -336,7 +336,7 @@ function updateCameraConstraints() {
   controls.enableRotate = true;
   controls.minDistance = 1.0;
   controls.maxDistance = 55.0;
-  controls.maxPolarAngle = Math.PI / 2 + 0.05; // Full 360 rotation & view flexibility!
+  controls.maxPolarAngle = Math.PI / 2 + 0.05;
 }
 
 function setupShowroomLighting() {
@@ -373,25 +373,25 @@ function setupShowroomLighting() {
   });
 }
 
-// Procedural Venetian Charcoal Velvet Wall Texture Generator
+// Procedural Venetian Obsidian Charcoal Velvet Wall Texture Generator
 function createWallTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
   canvas.height = 512;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#161314";
+  ctx.fillStyle = "#110f13";
   ctx.fillRect(0, 0, 512, 512);
 
-  for (let i = 0; i < 18000; i++) {
+  for (let i = 0; i < 20000; i++) {
     const x = Math.random() * 512;
     const y = Math.random() * 512;
     const alpha = Math.random() * 0.04;
-    ctx.fillStyle = Math.random() > 0.5 ? `rgba(255, 255, 255, ${alpha})` : `rgba(0, 0, 0, ${alpha * 1.8})`;
+    ctx.fillStyle = Math.random() > 0.5 ? `rgba(255, 255, 255, ${alpha})` : `rgba(0, 0, 0, ${alpha * 2.0})`;
     ctx.fillRect(x, y, 1.5, 1.5);
   }
 
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.018)";
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.015)";
   ctx.lineWidth = 1;
   for (let x = 0; x < 512; x += 6) {
     ctx.beginPath();
@@ -406,25 +406,25 @@ function createWallTexture() {
   return tex;
 }
 
-// Procedural Dark Walnut Wood Parquet Floor Texture Generator
-function createWalnutFloorTexture() {
+// Procedural Obsidian Black Gloss Floor Texture Generator
+function createObsidianFloorTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
   canvas.height = 512;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#1e1610";
+  ctx.fillStyle = "#0a090d";
   ctx.fillRect(0, 0, 512, 512);
 
   const plankH = 64;
   for (let y = 0; y < 512; y += plankH) {
-    ctx.strokeStyle = "rgba(10, 6, 4, 0.75)";
+    ctx.strokeStyle = "rgba(4, 3, 5, 0.85)";
     ctx.lineWidth = 2;
     ctx.strokeRect(0, y, 512, plankH);
 
     for (let i = 0; i < 12; i++) {
       const gy = y + Math.random() * plankH;
-      ctx.strokeStyle = `rgba(45, 32, 22, ${0.15 + Math.random() * 0.22})`;
+      ctx.strokeStyle = `rgba(30, 26, 35, ${0.15 + Math.random() * 0.20})`;
       ctx.lineWidth = 1 + Math.random() * 2;
       ctx.beginPath();
       ctx.moveTo(0, gy); ctx.lineTo(512, gy + (Math.random() - 0.5) * 4);
@@ -439,24 +439,24 @@ function createWalnutFloorTexture() {
   return tex;
 }
 
-// Physical Construction of 3 Distinct Architectural Floor Themes & Glass Roof
+// Physical Construction of All-Obsidian Black Architectural Building
 function buildPBRArchitecturalBuilding() {
   const wallTex = createWallTexture();
-  const wallMat = new THREE.MeshStandardMaterial({ map: wallTex, color: 0x221a1a, roughness: 0.45 });
-  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
+  const wallMat = new THREE.MeshStandardMaterial({ map: wallTex, color: 0x18151a, roughness: 0.45 });
+  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x1c1920, roughness: 0.3, metalness: 0.8 });
   const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 });
 
-  // 1. GROUND FLOOR ROOM 1 — Dark Walnut Wood Parquet Floor (Y = 0)
-  const walnutTex = createWalnutFloorTexture();
-  const mahoganyMat = new THREE.MeshStandardMaterial({ map: walnutTex, roughness: 0.12, metalness: 0.88 });
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), mahoganyMat);
+  // 1. GROUND FLOOR ROOM 1 — Obsidian Mirror Black Floor (Y = 0)
+  const obsidianTex = createObsidianFloorTexture();
+  const obsidianGroundMat = new THREE.MeshStandardMaterial({ map: obsidianTex, color: 0x0c0b0e, roughness: 0.04, metalness: 0.95 });
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), obsidianGroundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  // 2. 1ST FLOOR ROOM 2 — Italian Carrara White Marble Deck with Brass Trim (Y = 6.5)
-  const marbleMat = new THREE.MeshStandardMaterial({ color: 0xf0ede6, roughness: 0.05, metalness: 0.85 });
-  const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), marbleMat);
+  // 2. 1ST FLOOR ROOM 2 — Dark Obsidian Marble Deck with Brass Trim (Y = 6.5)
+  const darkMarbleMat = new THREE.MeshStandardMaterial({ color: 0x121016, roughness: 0.05, metalness: 0.92 });
+  const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), darkMarbleMat);
   floor1.position.set(0, 6.5, 4);
   floor1.receiveShadow = true;
   scene.add(floor1);
@@ -476,8 +476,8 @@ function buildPBRArchitecturalBuilding() {
   topHandrail1.position.set(0, 7.85, 16);
   scene.add(topHandrail1);
 
-  // 3. 2ND FLOOR ROOM 3 — Obsidian Gloss Supercar Deck with Neon Halo Trim (Y = 13.0)
-  const supercarDeckMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0e, roughness: 0.03, metalness: 0.96 });
+  // 3. 2ND FLOOR ROOM 3 — Obsidian Hexagonal Gloss Supercar Deck (Y = 13.0)
+  const supercarDeckMat = new THREE.MeshStandardMaterial({ color: 0x060609, roughness: 0.02, metalness: 0.98 });
   const floor2 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), supercarDeckMat);
   floor2.position.set(0, 13.0, 12);
   floor2.receiveShadow = true;
@@ -498,13 +498,13 @@ function buildPBRArchitecturalBuilding() {
   topHandrail2.position.set(0, 14.35, 24);
   scene.add(topHandrail2);
 
-  // 4. ARCHITECTURAL GLASS SKYLIGHT ROOF CEILING (Y = 22.0)
+  // 4. ARCHITECTURAL OBSIDIAN GLASS SKYLIGHT ROOF CEILING (Y = 22.0)
   const glassRoofMat = new THREE.MeshPhysicalMaterial({
-    color: 0x223344,
+    color: 0x0a0c10,
     transparent: true,
-    opacity: 0.35,
-    roughness: 0.1,
-    transmission: 0.9,
+    opacity: 0.4,
+    roughness: 0.08,
+    transmission: 0.88,
     thickness: 0.5
   });
   const glassRoof = new THREE.Mesh(new THREE.PlaneGeometry(54, 46), glassRoofMat);
@@ -519,7 +519,7 @@ function buildPBRArchitecturalBuilding() {
     scene.add(roofBeam);
   });
 
-  // Enclosing Walls
+  // Enclosing Obsidian Walls (4 Sides)
   const backWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 22), wallMat);
   backWall.position.set(0, 11, -20);
   scene.add(backWall);
@@ -571,7 +571,7 @@ function buildPBRArchitecturalBuilding() {
   archTop.position.set(0, 4.4, 20);
   scene.add(archTop);
 
-  const doorPanelMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
+  const doorPanelMat = new THREE.MeshStandardMaterial({ color: 0x1b181e, roughness: 0.3, metalness: 0.8 });
 
   leftDoorGroup = new THREE.Group();
   leftDoorGroup.position.set(-4.8, 0, 20);
@@ -615,7 +615,7 @@ function loadReal3DCarFleet() {
     const carGroup = new THREE.Group();
     carGroup.userData = { carData: car };
 
-    const padMat = new THREE.MeshStandardMaterial({ color: 0x181c28, metalness: 0.9, roughness: 0.15 });
+    const padMat = new THREE.MeshStandardMaterial({ color: 0x121016, metalness: 0.9, roughness: 0.15 });
     const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.3, 0.16, 36), padMat);
     pad.position.y = 0.08;
     carGroup.add(pad);
