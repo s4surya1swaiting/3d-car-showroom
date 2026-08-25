@@ -1,4 +1,4 @@
-// AURA MOTORS — SEQUENTIAL 3-STORY STAIRCASE & ROOM WALKTHROUGH ENGINE (v16.0.0)
+// AURA MOTORS — SEQUENTIAL 3-STROOM STAIRCASE & RAYCASTED PORTAL DOOR ENGINE (v17.0.0)
 
 /**
  * FLEET ARCHITECTURE & VEHICLE ASSET MAPPING
@@ -252,19 +252,19 @@ let carMeshes = [];
 let stairMesh1, stairMesh2;
 let leftDoorGroup, rightDoorGroup;
 let isPortalOpen = false;
-let currentRoomId = 0; // 0 = Entrance Gate, 1 = Room 1 (Ground), 2 = Room 2 (1st Floor), 3 = Room 3 (2nd Floor)
+let currentRoomId = 0; // 0 = Gate Entrance, 1 = Room 1, 2 = Room 2, 3 = Room 3
 let activeInspectedIndex = 0;
 
 function initShowroom3D() {
   const container = document.getElementById("showroom-canvas-target");
   if (!container) return;
 
-  // 1. Scene Setup — Madhukanta Dark Cocoa-Charcoal Aesthetics
+  // 1. Scene Setup
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x18161d);
   scene.fog = new THREE.FogExp2(0x18161d, 0.009);
 
-  // 2. Camera Setup (First Person Human Eye Level = 1.7m)
+  // 2. Camera Setup (Human Eye Level = 1.7m)
   camera = new THREE.PerspectiveCamera(62, container.clientWidth / container.clientHeight, 0.1, 140);
   camera.position.set(0, 1.7, 24);
 
@@ -279,31 +279,30 @@ function initShowroom3D() {
   renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
-  // 4. OrbitControls Setup (Free First-Person Human Orbit)
+  // 4. OrbitControls Setup with Strict Camera Lock when Doors are Closed
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
-  controls.enablePan = true;
-  controls.panSpeed = 0.8;
   controls.rotateSpeed = 0.6;
   controls.maxPolarAngle = Math.PI / 2 - 0.01;
-  controls.minDistance = 1.2;
-  controls.maxDistance = 45;
   controls.target.copy(currentLookAt);
+
+  // Initial Closed Gate Camera Constraint (Prevents scrolling inside past closed doors!)
+  updateCameraConstraints();
 
   // 5. Madhukanta Studio Lighting Calibration
   setupShowroomLighting();
 
-  // 6. Build 3 Stacked Rooms with Archway Gate, Castle Doors, and Interactive Staircases
+  // 6. Build Architectural Enclosure & Castle Doors
   buildPBRArchitecturalBuilding();
 
   // 7. Load Vehicle Fleet
   loadReal3DCarFleet();
 
-  // 8. Raycasting Setup
+  // 8. Setup Interactive Raycasting (Doors + Cars + Staircases)
   setupRaycasting(container);
 
-  // Animation Loop with Smooth Camera Lerp & Door Opening Animations
+  // Animation Loop
   function animate() {
     requestAnimationFrame(animate);
 
@@ -312,11 +311,11 @@ function initShowroom3D() {
     controls.target.copy(currentLookAt);
     controls.update();
 
-    // Smooth Castle Door Swing Opening Animation
+    // Smooth Castle Door Swing Animation
     if (leftDoorGroup && rightDoorGroup) {
-      const targetRot = isPortalOpen ? -Math.PI / 2.2 : 0;
+      const targetRotL = isPortalOpen ? -Math.PI / 2.2 : 0;
       const targetRotR = isPortalOpen ? Math.PI / 2.2 : 0;
-      leftDoorGroup.rotation.y = THREE.MathUtils.lerp(leftDoorGroup.rotation.y, targetRot, 0.06);
+      leftDoorGroup.rotation.y = THREE.MathUtils.lerp(leftDoorGroup.rotation.y, targetRotL, 0.06);
       rightDoorGroup.rotation.y = THREE.MathUtils.lerp(rightDoorGroup.rotation.y, targetRotR, 0.06);
     }
 
@@ -331,7 +330,22 @@ function initShowroom3D() {
   });
 }
 
-// Madhukanta Lighting Calibration
+// Camera Constraint Manager (Fixes Bug 2: Locks camera outside when doors closed)
+function updateCameraConstraints() {
+  if (!controls) return;
+  if (!isPortalOpen) {
+    // DOORS CLOSED: Lock camera outside the gate! Cannot scroll or pan inside past z = 20!
+    controls.enablePan = false;
+    controls.minDistance = 21.0;
+    controls.maxDistance = 28.0;
+  } else {
+    // DOORS OPEN: Enable full interior panning & movement!
+    controls.enablePan = true;
+    controls.minDistance = 1.2;
+    controls.maxDistance = 45.0;
+  }
+}
+
 function setupShowroomLighting() {
   const ambientLight = new THREE.AmbientLight(0xfff5ea, 0.9);
   scene.add(ambientLight);
@@ -355,7 +369,6 @@ function setupShowroomLighting() {
   goldRim.position.set(20, 12, 8);
   scene.add(goldRim);
 
-  // Dedicated Vehicle Spotlights
   showroomCars.forEach((car) => {
     const [px, py, pz] = car.pos;
     const spot = new THREE.SpotLight(0xfffaee, 2.4, 16, Math.PI / 6, 0.9, 1);
@@ -367,35 +380,29 @@ function setupShowroomLighting() {
   });
 }
 
-// Physical Construction of 3 Stacked Rooms with Staircases
 function buildPBRArchitecturalBuilding() {
   const wallMat = new THREE.MeshStandardMaterial({ color: 0x221a1a, roughness: 0.45 });
   const floorMat = new THREE.MeshStandardMaterial({ color: 0x120e0b, roughness: 0.08, metalness: 0.92 });
   const pillarMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
   const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 });
 
-  // Room 1 Ground Floor Mahogany Floor (y = 0)
+  // Ground Floor Mahogany Floor (y = 0)
   const groundGeo = new THREE.PlaneGeometry(60, 60);
   const ground = new THREE.Mesh(groundGeo, floorMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  // Room 2 Floor Deck (y = 6.5)
-  const floor1Geo = new THREE.BoxGeometry(50, 0.45, 24);
-  const floor1 = new THREE.Mesh(floor1Geo, pillarMat);
+  // Floor Decks
+  const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), pillarMat);
   floor1.position.set(0, 6.5, 4);
-  floor1.receiveShadow = true;
   scene.add(floor1);
 
-  // Room 3 Floor Deck (y = 13.0)
-  const floor2Geo = new THREE.BoxGeometry(50, 0.45, 24);
-  const floor2 = new THREE.Mesh(floor2Geo, pillarMat);
+  const floor2 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), pillarMat);
   floor2.position.set(0, 13.0, 12);
-  floor2.receiveShadow = true;
   scene.add(floor2);
 
-  // Room Wall Enclosures
+  // Enclosing Room Walls
   const backWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 22), wallMat);
   backWall.position.set(0, 11, -20);
   scene.add(backWall);
@@ -410,33 +417,28 @@ function buildPBRArchitecturalBuilding() {
   rightWall.position.set(25, 11, 0);
   scene.add(rightWall);
 
-  // Room Boundary Separator Pillars
+  // Room Pillars
   [[-18, -4], [18, -4], [-18, 12], [18, 12]].forEach(([px, pz]) => {
     const pil = new THREE.Mesh(new THREE.BoxGeometry(0.8, 20.0, 0.8), pillarMat);
     pil.position.set(px, 10.0, pz);
     scene.add(pil);
   });
 
-  // Interactive 3D Staircase 1 (Connects Room 1 -> Room 2)
+  // Interactive 3D Staircases
   stairMesh1 = new THREE.Group();
   for (let i = 0; i < 14; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.45, 0.48), goldMat);
     step.position.set(19, (i + 0.5) * 0.45, -5 + i * 0.48);
-    step.receiveShadow = true;
     stairMesh1.add(step);
   }
-  stairMesh1.userData = { action: "climbToRoom2" };
   scene.add(stairMesh1);
 
-  // Interactive 3D Staircase 2 (Connects Room 2 -> Room 3)
   stairMesh2 = new THREE.Group();
   for (let i = 0; i < 14; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.45, 0.48), goldMat);
     step.position.set(-19, 6.5 + (i + 0.5) * 0.45, 3 + i * 0.48);
-    step.receiveShadow = true;
     stairMesh2.add(step);
   }
-  stairMesh2.userData = { action: "climbToRoom3" };
   scene.add(stairMesh2);
 
   // Castle Entrance Gate (z = 20)
@@ -452,7 +454,7 @@ function buildPBRArchitecturalBuilding() {
   archTop.position.set(0, 4.4, 20);
   scene.add(archTop);
 
-  // Asymmetric Castle Doors
+  // Asymmetric Castle Doors (Raycastable 3D Click Targets!)
   const doorPanelMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
 
   leftDoorGroup = new THREE.Group();
@@ -482,7 +484,6 @@ function buildPBRArchitecturalBuilding() {
   scene.add(rightDoorGroup);
 }
 
-// Data-Driven Vehicle Asset Loader
 function loadReal3DCarFleet() {
   const gltfLoader = new THREE.GLTFLoader();
 
@@ -501,7 +502,6 @@ function loadReal3DCarFleet() {
     const padMat = new THREE.MeshStandardMaterial({ color: 0x181c28, metalness: 0.9, roughness: 0.15 });
     const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.3, 0.16, 36), padMat);
     pad.position.y = 0.08;
-    pad.receiveShadow = true;
     carGroup.add(pad);
 
     const padRingMat = new THREE.MeshBasicMaterial({
@@ -563,22 +563,20 @@ function loadReal3DCarFleet() {
 
 function createProceduralCarMesh(car) {
   const group = new THREE.Group();
-
   const bodyMat = new THREE.MeshStandardMaterial({ color: car.color, metalness: 0.9, roughness: 0.15 });
   const chassis = new THREE.Mesh(new THREE.BoxGeometry(2.15, 0.75, 4.35), bodyMat);
   chassis.position.y = 0.55;
-  chassis.castShadow = true;
   group.add(chassis);
 
   const cabinMat = new THREE.MeshPhysicalMaterial({ color: 0x111622, metalness: 0.9, roughness: 0.05, transparent: true, opacity: 0.85 });
   const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.88, 0.65, 2.2), cabinMat);
   cabin.position.set(0, 1.15, -0.2);
-  cabin.castShadow = true;
   group.add(cabin);
 
   return group;
 }
 
+// RAYCASTING ENGINE (FIXES BUG 1: CLICKING 3D DOORS NOW OPENS PORTAL!)
 function setupRaycasting(container) {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
@@ -590,38 +588,49 @@ function setupRaycasting(container) {
 
     raycaster.setFromCamera(mouse, camera);
 
-    // 1. Raycast Vehicles
-    const intersectsCars = raycaster.intersectObjects(carMeshes, true);
-    if (intersectsCars.length > 0) {
-      let obj = intersectsCars[0].object;
-      while (obj.parent && !obj.userData.carData) {
-        obj = obj.parent;
-      }
-      if (obj.userData.carData) {
-        zoomInspectCarByIndex(obj.userData.carData.index);
+    // 1. Raycast Castle Entrance Doors (Fixes Bug 1!)
+    if (!isPortalOpen && leftDoorGroup && rightDoorGroup) {
+      const doorTargets = [...leftDoorGroup.children, ...rightDoorGroup.children];
+      const intersectsDoors = raycaster.intersectObjects(doorTargets, true);
+      if (intersectsDoors.length > 0) {
+        enterRoom1Ground();
         return;
       }
     }
 
-    // 2. Raycast Staircase 1 (Ground -> Room 2)
-    const intersectsStair1 = raycaster.intersectObjects(stairMesh1.children, true);
-    if (intersectsStair1.length > 0) {
-      climbToRoom2();
-      return;
-    }
+    // 2. Raycast Vehicles
+    if (isPortalOpen) {
+      const intersectsCars = raycaster.intersectObjects(carMeshes, true);
+      if (intersectsCars.length > 0) {
+        let obj = intersectsCars[0].object;
+        while (obj.parent && !obj.userData.carData) {
+          obj = obj.parent;
+        }
+        if (obj.userData.carData) {
+          zoomInspectCarByIndex(obj.userData.carData.index);
+          return;
+        }
+      }
 
-    // 3. Raycast Staircase 2 (Room 2 -> Room 3)
-    const intersectsStair2 = raycaster.intersectObjects(stairMesh2.children, true);
-    if (intersectsStair2.length > 0) {
-      climbToRoom3();
-      return;
+      // 3. Raycast Staircase 1 (Ground -> Room 2)
+      const intersectsStair1 = raycaster.intersectObjects(stairMesh1.children, true);
+      if (intersectsStair1.length > 0) {
+        climbToRoom2();
+        return;
+      }
+
+      // 4. Raycast Staircase 2 (Room 2 -> Room 3)
+      const intersectsStair2 = raycaster.intersectObjects(stairMesh2.children, true);
+      if (intersectsStair2.length > 0) {
+        climbToRoom3();
+        return;
+      }
     }
   });
 }
 
-// SEQUENTIAL STAIRCASE & ROOM NAVIGATION CONTROLS
+// SEQUENTIAL ROOM WALKTHROUGH FUNCTIONS
 
-// Outside Entrance Gate
 function enterShowroomFoyer() {
   isPortalOpen = false;
   currentRoomId = 0;
@@ -630,10 +639,11 @@ function enterShowroomFoyer() {
   targetCameraPos.set(0, 1.7, 24);
   targetLookAt.set(0, 1.8, 0);
 
+  updateCameraConstraints();
   updateActiveFloorBtn(0);
 }
 
-// Step 1: Walk Through Gate into Ground Floor Room 1
+// Swings open 3D castle doors & enters Ground Floor Room 1
 function enterRoom1Ground() {
   isPortalOpen = true;
   currentRoomId = 1;
@@ -642,32 +652,31 @@ function enterRoom1Ground() {
   targetCameraPos.set(0, 1.65, 7.5);
   targetLookAt.set(0, 1.5, -4);
 
+  updateCameraConstraints();
   updateActiveFloorBtn(1);
 }
 
-// Step 2: Climb Staircase 1 into 1st Floor Room 2
 function climbToRoom2() {
   isPortalOpen = true;
   currentRoomId = 2;
   closeNFSInspector();
 
-  // Sequential Staircase Climb Trajectory
   targetCameraPos.set(16.0, 8.15, 10.0);
   targetLookAt.set(0, 7.8, 4.0);
 
+  updateCameraConstraints();
   updateActiveFloorBtn(2);
 }
 
-// Step 3: Climb Staircase 2 into 2nd Floor Room 3
 function climbToRoom3() {
   isPortalOpen = true;
   currentRoomId = 3;
   closeNFSInspector();
 
-  // Sequential Staircase Climb Trajectory
   targetCameraPos.set(-16.0, 14.65, 17.0);
   targetLookAt.set(0, 14.2, 12.0);
 
+  updateCameraConstraints();
   updateActiveFloorBtn(3);
 }
 
@@ -686,7 +695,8 @@ function updateActiveFloorBtn(btnIdx) {
 }
 
 function zoomInspectCarByIndex(index) {
-  isPortalOpen = true;
+  if (!isPortalOpen) enterRoom1Ground();
+
   activeInspectedIndex = (index + showroomCars.length) % showroomCars.length;
   const carData = showroomCars[activeInspectedIndex];
 
