@@ -1,12 +1,11 @@
-// AURA MOTORS — SILKY-SMOOTH 3-STORY 3D AUTOMOTIVE SHOWROOM ENGINE (v10.0.0)
+// AURA MOTORS — HYPER-PREMIUM COMMERCIAL 3D AUTOMOTIVE SHOWROOM & INSPECTION ENGINE (v11.0.0)
 
 /**
- * DEDICATED VEHICLE FLEET CONFIGURATION
- * Each car is mapped to a distinct 3D GLB asset (Buggy, GroundVehicle, Ferrari, ToyCar, Truck),
- * custom PBR chassis color, floor bay placement, and NFS specs.
+ * FLEET ARCHITECTURE & 3D ASSET MAPPING
+ * 10 Dedicated Vehicles mapped to distinct high-detail 3D GLBs, floor coordinates, & NFS specs.
  */
 const showroomCars = [
-  // GROUND FLOOR — SUVs & Off-Road (y = 0.4)
+  // GROUND FLOOR — SUVs & Off-Road (Floor Height y = 0.4)
   {
     id: "scorpio",
     floor: "Ground Floor — SUV Bay 1",
@@ -21,11 +20,11 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [-11, 0.4, -6],
+    pos: [-12, 0.4, -4],
     rotY: Math.PI / 5,
-    color: 0x1e2430,
+    color: 0x1c222e,
     glb: "models/groundvehicle.glb",
-    targetHeight: 1.8,
+    targetHeight: 1.85,
     stats: { speed: 82, accel: 78, power: 85, handling: 80 }
   },
   {
@@ -42,7 +41,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-    pos: [-3.5, 0.4, -6],
+    pos: [-4, 0.4, -4],
     rotY: Math.PI / 6,
     color: 0x00d2ff,
     glb: "models/ferrari.glb",
@@ -63,11 +62,11 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "138/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
-    pos: [4, 0.4, -6],
+    pos: [4, 0.4, -4],
     rotY: -Math.PI / 6,
-    color: 0xc93b2b,
+    color: 0xd9381e,
     glb: "models/buggy.glb",
-    targetHeight: 1.65,
+    targetHeight: 1.7,
     stats: { speed: 70, accel: 72, power: 82, handling: 78 }
   },
   {
@@ -84,15 +83,15 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "135/140 Certified",
     img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
-    pos: [11.5, 0.4, -6],
+    pos: [12, 0.4, -4],
     rotY: -Math.PI / 5,
-    color: 0x2b3a2f,
+    color: 0x243329,
     glb: "models/truck.glb",
     targetHeight: 1.6,
     stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
 
-  // 1ST FLOOR — Executive Luxury Sedans (Height y = 5.4)
+  // 1ST FLOOR — Executive Luxury Sedans (Floor Height y = 5.4)
   {
     id: "merc",
     floor: "1st Floor Mezzanine — Bay 5",
@@ -107,7 +106,7 @@ const showroomCars = [
     owner: "1st Owner (Individual)",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 5.4, 4],
+    pos: [-10, 5.4, 6],
     rotY: Math.PI / 6,
     color: 0x09152a,
     glb: "models/toycar.glb",
@@ -128,8 +127,8 @@ const showroomCars = [
     owner: "1st Owner (Corporate)",
     grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    pos: [-2.5, 5.4, 4],
-    rotY: Math.PI / 6,
+    pos: [0, 5.4, 6],
+    rotY: 0,
     color: 0x730d17,
     glb: "models/toycar.glb",
     targetHeight: 1.35,
@@ -149,7 +148,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [5, 5.4, 4],
+    pos: [10, 5.4, 6],
     rotY: -Math.PI / 6,
     color: 0xd4d8e0,
     glb: "models/groundvehicle.glb",
@@ -157,7 +156,7 @@ const showroomCars = [
     stats: { speed: 80, accel: 79, power: 83, handling: 82 }
   },
 
-  // 2ND FLOOR — Supercar Deck (Height y = 10.4)
+  // 2ND FLOOR — Supercar Deck (Floor Height y = 10.4)
   {
     id: "audi",
     floor: "2nd Floor Supercar Deck — Bay 8",
@@ -172,7 +171,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    pos: [-8.5, 10.4, 10],
+    pos: [-10, 10.4, 12],
     rotY: Math.PI / 5,
     color: 0x181a20,
     glb: "models/ferrari.glb",
@@ -193,7 +192,7 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
-    pos: [0, 10.4, 10],
+    pos: [0, 10.4, 12],
     rotY: 0,
     color: 0xd90429,
     glb: "models/ferrari.glb",
@@ -214,20 +213,20 @@ const showroomCars = [
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
-    pos: [8.5, 10.4, 10],
+    pos: [10, 10.4, 12],
     rotY: -Math.PI / 5,
     color: 0xf4f5f6,
     glb: "models/groundvehicle.glb",
-    targetHeight: 1.8,
+    targetHeight: 1.85,
     stats: { speed: 84, accel: 80, power: 88, handling: 81 }
   }
 ];
 
 // Global Engine Variables
 let scene, camera, renderer, controls;
-let targetCameraPos = new THREE.Vector3(0, 3.5, 22);
-let targetLookAt = new THREE.Vector3(0, 2.5, 0);
-let currentLookAt = new THREE.Vector3(0, 2.5, 0);
+let targetCameraPos = new THREE.Vector3(0, 5.2, 25);
+let targetLookAt = new THREE.Vector3(0, 2.5, -4);
+let currentLookAt = new THREE.Vector3(0, 2.5, -4);
 let carMeshes = [];
 let rotatingPodiums = [];
 let activeInspectedCar = null;
@@ -236,58 +235,56 @@ function initShowroom3D() {
   const container = document.getElementById("showroom-canvas-target");
   if (!container) return;
 
-  // 1. Scene Setup (Rich Dark Luxury Studio Atmosphere)
+  // 1. Scene Setup (Ultra-Clean Luxury Dark Studio)
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x07090f);
-  scene.fog = new THREE.FogExp2(0x07090f, 0.009);
+  scene.background = new THREE.Color(0x06080e);
+  scene.fog = new THREE.FogExp2(0x06080e, 0.008);
 
-  // 2. Camera Setup
-  camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 160);
-  camera.position.set(0, 3.5, 22);
+  // 2. Camera Setup (Wide Angle for Panoramic Viewing)
+  camera = new THREE.PerspectiveCamera(46, container.clientWidth / container.clientHeight, 0.1, 180);
+  camera.position.set(0, 5.2, 25);
 
-  // 3. Renderer Setup with sRGB & ACES Film Mapping
+  // 3. Renderer Setup
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = 1.3;
   renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
-  // 4. OrbitControls Setup with Smooth Damping
+  // 4. OrbitControls Setup
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
-  controls.dampingFactor = 0.04; // Smooth interpolation
+  controls.dampingFactor = 0.04;
   controls.maxPolarAngle = Math.PI / 2 - 0.01;
   controls.minDistance = 2.5;
-  controls.maxDistance = 45;
+  controls.maxDistance = 50;
   controls.target.copy(currentLookAt);
 
-  // 5. Lighting Setup
+  // 5. Studio Lighting Rig & Spotlights
   setupShowroomLighting();
 
   // 6. Build Physical 3-Story Luxury Architectural Showroom
   buildPBRArchitecturalBuilding();
 
-  // 7. Load Vehicle Models with Draco Decoder & Auto-Centering Engine
+  // 7. Load Vehicle Fleet with Draco Decoder & Auto-Centering Engine
   loadReal3DCarFleet();
 
   // 8. Raycasting Setup
   setupRaycasting(container);
 
-  // Animation Loop with Silky-Smooth Camera Tweening
+  // Animation Loop with Silky-Smooth Camera Lerp & Podiums Rotation
   function animate() {
     requestAnimationFrame(animate);
 
-    // Silky smooth camera & controls target interpolation
-    camera.position.lerp(targetCameraPos, 0.04);
-    currentLookAt.lerp(targetLookAt, 0.04);
+    camera.position.lerp(targetCameraPos, 0.045);
+    currentLookAt.lerp(targetLookAt, 0.045);
     controls.target.copy(currentLookAt);
     controls.update();
 
-    // Gentle rotation for illuminated turntable podium rings
     rotatingPodiums.forEach(ring => {
       ring.rotation.z += 0.005;
     });
@@ -303,93 +300,102 @@ function initShowroom3D() {
   });
 }
 
-// Studio Lighting Rig
+// Studio Lighting Rig with Overhead Spotlights above Every Podium
 function setupShowroomLighting() {
-  const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
   scene.add(ambientLight);
 
-  const mainSun = new THREE.DirectionalLight(0xfff5e6, 2.4);
-  mainSun.position.set(18, 35, 18);
+  const mainSun = new THREE.DirectionalLight(0xfff5e6, 2.5);
+  mainSun.position.set(20, 36, 20);
   mainSun.castShadow = true;
   mainSun.shadow.mapSize.width = 2048;
   mainSun.shadow.mapSize.height = 2048;
   scene.add(mainSun);
 
-  const cyanRim = new THREE.PointLight(0x00d2ff, 2.8, 55);
-  cyanRim.position.set(-20, 10, -10);
+  const cyanRim = new THREE.PointLight(0x00d2ff, 2.8, 60);
+  cyanRim.position.set(-22, 12, -12);
   scene.add(cyanRim);
 
-  const goldRim = new THREE.PointLight(0xe2b755, 2.8, 55);
-  goldRim.position.set(20, 14, 10);
+  const goldRim = new THREE.PointLight(0xe2b755, 2.8, 60);
+  goldRim.position.set(22, 16, 12);
   scene.add(goldRim);
+
+  // Dedicated Overhead Spotlights for Each Bay
+  showroomCars.forEach((car) => {
+    const [px, py, pz] = car.pos;
+    const spot = new THREE.SpotLight(0xfffaee, 2.0, 18, Math.PI / 4, 0.5, 1);
+    spot.position.set(px, py + 7.0, pz);
+    spot.target.position.set(px, py, pz);
+    scene.add(spot);
+    scene.add(spot.target);
+  });
 }
 
 // Physical 3-Story Luxury Architectural Showroom Construction
 function buildPBRArchitecturalBuilding() {
-  // Ground Floor (Polished Dark Marble / Terrazzo)
-  const groundGeo = new THREE.PlaneGeometry(48, 48);
+  // Ground Floor (Polished Obsidian Marble Floor)
+  const groundGeo = new THREE.PlaneGeometry(54, 54);
   const groundMat = new THREE.MeshStandardMaterial({
-    color: 0x0d1017,
-    roughness: 0.1,
-    metalness: 0.9
+    color: 0x0c0f17,
+    roughness: 0.08,
+    metalness: 0.92
   });
   const ground = new THREE.Mesh(groundGeo, groundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  // Floor 1 — Mezzanine Deck (y = 5.0)
-  const floor1Geo = new THREE.BoxGeometry(40, 0.4, 26);
-  const floor1Mat = new THREE.MeshStandardMaterial({ color: 0x141824, roughness: 0.15, metalness: 0.85 });
+  // Floor 1 — Executive Mezzanine Deck (y = 5.0)
+  const floor1Geo = new THREE.BoxGeometry(46, 0.4, 28);
+  const floor1Mat = new THREE.MeshStandardMaterial({ color: 0x121623, roughness: 0.12, metalness: 0.88 });
   const floor1 = new THREE.Mesh(floor1Geo, floor1Mat);
-  floor1.position.set(0, 5.0, 4);
+  floor1.position.set(0, 5.0, 6);
   floor1.receiveShadow = true;
   scene.add(floor1);
 
   // Floor 2 — Supercar Deck (y = 10.0)
-  const floor2Geo = new THREE.BoxGeometry(40, 0.4, 26);
-  const floor2Mat = new THREE.MeshStandardMaterial({ color: 0x181d2a, roughness: 0.15, metalness: 0.85 });
+  const floor2Geo = new THREE.BoxGeometry(46, 0.4, 28);
+  const floor2Mat = new THREE.MeshStandardMaterial({ color: 0x161a2a, roughness: 0.12, metalness: 0.88 });
   const floor2 = new THREE.Mesh(floor2Geo, floor2Mat);
-  floor2.position.set(0, 10.0, 10);
+  floor2.position.set(0, 10.0, 12);
   floor2.receiveShadow = true;
   scene.add(floor2);
 
-  // Structural Pillars
-  const colGeo = new THREE.CylinderGeometry(0.45, 0.45, 10.0, 24);
-  const colMat = new THREE.MeshStandardMaterial({ color: 0x090b12, metalness: 0.95, roughness: 0.08 });
-  [[-18, -2], [18, -2], [-18, 16], [18, 16]].forEach(([cx, cz]) => {
+  // Brushed Titanium Structural Columns
+  const colGeo = new THREE.CylinderGeometry(0.48, 0.48, 10.0, 24);
+  const colMat = new THREE.MeshStandardMaterial({ color: 0x0a0c14, metalness: 0.95, roughness: 0.05 });
+  [[-21, -4], [21, -4], [-21, 18], [21, 18]].forEach(([cx, cz]) => {
     const col = new THREE.Mesh(colGeo, colMat);
     col.position.set(cx, 5.0, cz);
     scene.add(col);
   });
 
-  // Staircases & Railings
-  const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.12 });
+  // Grand Architectural Staircases & Gold Handrails
+  const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.9, roughness: 0.1 });
   for (let i = 0; i < 12; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.42, 0.48), stepMat);
-    step.position.set(16, (i + 0.5) * 0.42, -4 + i * 0.48);
+    const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.42, 0.48), stepMat);
+    step.position.set(19, (i + 0.5) * 0.42, -4 + i * 0.48);
     step.receiveShadow = true;
     scene.add(step);
   }
   for (let i = 0; i < 12; i++) {
-    const step = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.42, 0.48), stepMat);
-    step.position.set(-16, 5.0 + (i + 0.5) * 0.42, 2 + i * 0.48);
+    const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.42, 0.48), stepMat);
+    step.position.set(-19, 5.0 + (i + 0.5) * 0.42, 2 + i * 0.48);
     step.receiveShadow = true;
     scene.add(step);
   }
 
-  // Glass Facade
-  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.18, transmission: 0.92 });
-  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 16), glassMat);
-  glassWall.position.set(0, 8, -22);
+  // Frameless Glass Facade
+  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x88ccff, transparent: true, opacity: 0.15, transmission: 0.94 });
+  const glassWall = new THREE.Mesh(new THREE.PlaneGeometry(50, 16), glassMat);
+  glassWall.position.set(0, 8, -24);
   scene.add(glassWall);
 }
 
-// Data-Driven Vehicle Asset Loader with Draco Decoder & Box3 Bounding Box Grounding
+// Data-Driven Vehicle Asset Loader with Draco Support & Box3 Grounding
 function loadReal3DCarFleet() {
   const gltfLoader = new THREE.GLTFLoader();
 
-  // Attach Draco Decoder for Compressed 3D GLB Models
   if (THREE.DRACOLoader) {
     const dracoLoader = new THREE.DRACOLoader();
     dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/gltf/');
@@ -403,9 +409,9 @@ function loadReal3DCarFleet() {
     const carGroup = new THREE.Group();
     carGroup.userData = { carData: car };
 
-    // 1. Illuminated Turntable Podium
-    const padMat = new THREE.MeshStandardMaterial({ color: 0x191d2b, metalness: 0.85, roughness: 0.2 });
-    const pad = new THREE.Mesh(new THREE.CylinderGeometry(2.85, 3.05, 0.16, 36), padMat);
+    // 1. Illuminated Circular Turntable Podium
+    const padMat = new THREE.MeshStandardMaterial({ color: 0x181c28, metalness: 0.9, roughness: 0.15 });
+    const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.3, 0.16, 36), padMat);
     pad.position.y = 0.08;
     pad.receiveShadow = true;
     carGroup.add(pad);
@@ -413,13 +419,13 @@ function loadReal3DCarFleet() {
     const padRingMat = new THREE.MeshBasicMaterial({
       color: car.floorId === 0 ? 0x00d2ff : (car.floorId === 1 ? 0xe2b755 : 0xff0054)
     });
-    const padRing = new THREE.Mesh(new THREE.TorusGeometry(2.9, 0.045, 16, 64), padRingMat);
+    const padRing = new THREE.Mesh(new THREE.TorusGeometry(3.15, 0.05, 16, 64), padRingMat);
     padRing.rotation.x = Math.PI / 2;
     padRing.position.y = 0.16;
     carGroup.add(padRing);
     rotatingPodiums.push(padRing);
 
-    // 2. High-Detail Procedural Vehicle Mesh Base (Fallback & Baseline Mesh)
+    // 2. High-Detail Procedural Vehicle Mesh Base (Guarantees Podium is Never Empty)
     const carBaseMesh = createProceduralCarMesh(car);
     carBaseMesh.position.y = 0.16;
     carGroup.add(carBaseMesh);
@@ -428,21 +434,17 @@ function loadReal3DCarFleet() {
     gltfLoader.load(car.glb, (gltf) => {
       const model = gltf.scene;
 
-      // Calculate Bounding Box & Scale
       const box = new THREE.Box3().setFromObject(model);
       const size = box.getSize(new THREE.Vector3());
 
-      // Auto-Scale Model to Target Height
       if (size.y > 0) {
         const autoScale = car.targetHeight / size.y;
         model.scale.set(autoScale, autoScale, autoScale);
       }
 
-      // Re-calculate Box after Scaling
       const scaledBox = new THREE.Box3().setFromObject(model);
       const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
 
-      // Center horizontally and align bottom to podium surface (y = 0.16)
       model.position.x -= scaledCenter.x;
       model.position.z -= scaledCenter.z;
       model.position.y = 0.16 - scaledBox.min.y;
@@ -459,7 +461,7 @@ function loadReal3DCarFleet() {
         }
       });
 
-      // Replace Base Mesh with High-Poly GLB Model once Loaded
+      // Replace Base Mesh with Loaded GLB Model
       carGroup.remove(carBaseMesh);
       carGroup.add(model);
     }, undefined, (err) => {
@@ -479,19 +481,17 @@ function loadReal3DCarFleet() {
 function createProceduralCarMesh(car) {
   const group = new THREE.Group();
 
-  // Chassis Body
   const bodyMat = new THREE.MeshStandardMaterial({
     color: car.color,
     metalness: 0.9,
     roughness: 0.15
   });
 
-  const chassis = new THREE.Mesh(new THREE.BoxGeometry(2.1, 0.75, 4.3), bodyMat);
+  const chassis = new THREE.Mesh(new THREE.BoxGeometry(2.15, 0.75, 4.35), bodyMat);
   chassis.position.y = 0.55;
   chassis.castShadow = true;
   group.add(chassis);
 
-  // Cabin & Glass Roof
   const cabinMat = new THREE.MeshPhysicalMaterial({
     color: 0x111622,
     metalness: 0.9,
@@ -499,28 +499,25 @@ function createProceduralCarMesh(car) {
     transparent: true,
     opacity: 0.85
   });
-  const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.85, 0.65, 2.2), cabinMat);
+  const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.88, 0.65, 2.2), cabinMat);
   cabin.position.set(0, 1.15, -0.2);
   cabin.castShadow = true;
   group.add(cabin);
 
-  // Glowing LED Headlights
   const lightMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
   [-0.75, 0.75].forEach(x => {
     const headlight = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.1), lightMat);
-    headlight.position.set(x, 0.6, 2.16);
+    headlight.position.set(x, 0.6, 2.18);
     group.add(headlight);
   });
 
-  // Glowing Red Taillights
   const tailMat = new THREE.MeshBasicMaterial({ color: 0xff0033 });
   [-0.75, 0.75].forEach(x => {
     const taillight = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.1), tailMat);
-    taillight.position.set(x, 0.6, -2.16);
+    taillight.position.set(x, 0.6, -2.18);
     group.add(taillight);
   });
 
-  // Alloy Wheels & Rubber Tires
   const tireMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.8 });
   const rimMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.95, roughness: 0.1 });
   const wheelGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.3, 24);
@@ -565,19 +562,19 @@ function setupRaycasting(container) {
   });
 }
 
-// Floor Ascension Controls & Elevator Animation (Silky-Smooth Camera Tweening)
+// Floor Ascension Controls & Elevator Animation (Silky-Smooth Camera Lerp)
 function switchFloor(floorNum) {
   closeNFSInspector();
 
   if (floorNum === 0) {
-    targetCameraPos.set(0, 3.5, 22);
-    targetLookAt.set(0, 2.5, 0);
+    targetCameraPos.set(0, 5.2, 25);
+    targetLookAt.set(0, 2.5, -4);
   } else if (floorNum === 1) {
-    targetCameraPos.set(0, 8.5, 20);
-    targetLookAt.set(0, 7.5, 0);
+    targetCameraPos.set(0, 10.2, 27);
+    targetLookAt.set(0, 7.5, 6);
   } else if (floorNum === 2) {
-    targetCameraPos.set(0, 13.5, 24);
-    targetLookAt.set(0, 12.5, 0);
+    targetCameraPos.set(0, 15.2, 33);
+    targetLookAt.set(0, 12.5, 12);
   }
 
   document.querySelectorAll(".floor-btn").forEach((btn, idx) => {
