@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4.0.0">
+  <link rel="stylesheet" href="style.css?v=5.0.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
       <a href="#emi-calculator">EMI Finance</a>
       <a href="#testimonials">Reviews</a>
       <a href="#book-test-drive" class="btn-nav-whatsapp" onclick="bookWhatsAppDrive()">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.51 1.036 3.534l-.678 2.473 2.539-.665c.983.551 2.115.864 3.314.865 3.18 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.768-5.767-5.768zm4.186 8.083c-.174.489-.861.94-1.393.993-.532.054-1.077.165-3.571-.853-2.127-.869-3.486-3.037-3.593-3.178-.106-.142-.862-1.149-.862-2.19 0-1.042.545-1.554.739-1.767.194-.213.424-.266.565-.266.142 0 .283.002.407.008.132.006.31-.05.485.37.177.424.602 1.469.655 1.575.053.106.088.23.018.371-.071.142-.106.23-.212.355-.106.124-.223.277-.319.371-.106.106-.217.221-.093.434.124.213.552.911 1.186 1.476.815.726 1.503.951 1.716 1.057.213.106.337.088.461-.053.124-.142.532-.619.674-.831.142-.213.283-.177.478-.106.195.071 1.241.585 1.454.691.213.106.355.159.407.248.053.089.053.514-.121 1.003z"/></svg>
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.51 1.036 3.534l-.678 2.473 2.539-.665c.983.551 2.115.864 3.314.865 3.18 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.768-5.767-5.768zm4.186 8.083c-.174.489-.861.94-1.393.993-.532.054-1.077.165-3.571-.853-2.127-.869-3.486-3.037-3.593-3.178-.106-.142-.862-1.149-.862-2.19 0-1.042.545-1.554.739-1.767.194-.213.424-.266.565-.266.142 0 .283.002.407.008.132.006.31-.05.485.37.177.424.602 1.469.655 1.575.053.106.088.23.018.371-.071.142-.106.23-.212.355-.106.124-.223.277-.319.371-.106.106-.217.221-.093.434.124.213.552.911 1.186 1.476.815.726 1.503.951 1.716 1.057.213.106.355.159.407.248.053.089.053.514-.121 1.003z"/></svg>
         Book Test Drive
       </a>
     </nav>
@@ -38,9 +38,9 @@
   <!-- 2. Hero Section -->
   <section class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag font-accent">3-STORY GLASS SHOWROOM • NFS INSPECTION ZOOM</span>
+      <span class="hero-tag font-accent">3-STORY GLASS SHOWROOM • REAL 3D CAR MODELS • NFS INSPECTION</span>
       <h1 class="hero-title">Step Inside Our <span>3-Story Showroom</span></h1>
-      <p class="hero-subtext">Walk through the Ground Floor, 1st Floor Mezzanine, and 2nd Floor Supercar Deck. Click any vehicle to zoom in and launch the Need For Speed (NFS) performance inspection HUD.</p>
+      <p class="hero-subtext">Walk through the Ground Floor, 1st Floor Mezzanine, and 2nd Floor Supercar Deck. Click any 3D car to zoom in and launch the Need For Speed (NFS) performance inspection HUD.</p>
       <div class="hero-actions">
         <a href="#3d-showroom" class="btn-primary">Enter 3-Story Showroom Building ↓</a>
         <a href="#inventory" class="btn-secondary">Browse 10-Car Fleet</a>
@@ -70,7 +70,7 @@
   <section id="3d-showroom" class="museum-3d-section">
     <div class="museum-header">
       <span class="museum-sub-tag">ARCHITECTURAL 3-STORY GLASS BUILDING</span>
-      <h2 class="museum-title">Walk Through Floors <span>& Click Any Car</span></h2>
+      <h2 class="museum-title">Walk Through Floors <span>& Click Any 3D Car</span></h2>
     </div>
 
     <!-- Floor Navigation Bar -->
@@ -107,7 +107,7 @@
 
       <!-- Hint Pill -->
       <div class="museum-hint-pill">
-        ✨ Drag to Walk Through Floors • Click Any Vehicle Display to Zoom In & Inspect
+        ✨ Drag to Walk Through Floors • Click Any 3D Car Model to Zoom In & Inspect
       </div>
 
       <!-- Need For Speed (NFS) Zoom Inspection Overlay Modal -->
@@ -222,7 +222,7 @@
             <li>✓ 2.2L Diesel (172 BHP) • 4WD</li>
             <li>✓ Sunroof & Sony 3D Audio</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[0]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[0]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -237,7 +237,7 @@
             <li>✓ Electric (465 KM Range)</li>
             <li>✓ Ventilated Seats & 360 Camera</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[1]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[1]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -252,7 +252,7 @@
             <li>✓ 2.0L Turbo Petrol 4WD</li>
             <li>✓ Touchscreen & Convertible Vibes</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[2]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[2]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -267,7 +267,7 @@
             <li>✓ 1.5L mHawk Diesel MLD</li>
             <li>✓ 7-Seater Tough Body</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[3]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[3]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -282,7 +282,7 @@
             <li>✓ 3.0L V6 Turbo Petrol</li>
             <li>✓ Rear Massage Seats & Burmester</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[4]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[4]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -297,7 +297,7 @@
             <li>✓ 3.0L Straight-6 Diesel</li>
             <li>✓ Executive Lounge Rear Theater</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[5]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[5]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -312,7 +312,7 @@
             <li>✓ 2.0L Diesel 9-Speed Automatic</li>
             <li>✓ Panoramic Sunroof & 4x4 Select</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[6]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[6]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -327,7 +327,7 @@
             <li>✓ 637 HP Dual Electric Motors</li>
             <li>✓ 0-100 km/h in 3.3 Seconds</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[7]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[7]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -342,7 +342,7 @@
             <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
             <li>✓ Sport Chrono Package & Exhaust</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[8]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[8]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
 
@@ -357,7 +357,7 @@
             <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
             <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
           </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[9]); window.location.href='#3d-showroom';">Zoom & Inspect Car →</button>
+          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[9]); window.location.href='#3d-showroom';">Locate 3D Car Model →</button>
         </div>
       </div>
     </div>
@@ -548,6 +548,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=4.0.0"></script>
+  <script src="app.js?v=5.0.0"></script>
 </body>
 </html>
