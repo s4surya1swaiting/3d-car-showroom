@@ -1,4 +1,4 @@
-// AURA MOTORS — ULTRA-HIGH-FIDELITY 3D SHOWROOM WITH FLOOR ELEVATION & NFS CAR MODELS
+// AURA MOTORS — 3-STORY ARCHITECTURAL SHOWROOM WITH REAL 3D GLB CAR MODELS & NFS INSPECTION
 
 const showroomCars = [
   // GROUND FLOOR (SUVs & Off-Road)
@@ -19,8 +19,8 @@ const showroomCars = [
     pos: [-10, 0.4, -6],
     rotY: Math.PI / 6,
     color: 0x3a404a,
-    dim: [3.6, 1.45, 1.75],
-    bodyStyle: "SUV",
+    glb: "models/toycar.glb",
+    scale: 1.4,
     stats: { speed: 82, accel: 78, power: 85, handling: 80 }
   },
   {
@@ -40,8 +40,8 @@ const showroomCars = [
     pos: [-3, 0.4, -6],
     rotY: Math.PI / 6,
     color: 0x00d2ff,
-    dim: [3.1, 1.25, 1.6],
-    bodyStyle: "EV",
+    glb: "models/ferrari.glb",
+    scale: 0.9,
     stats: { speed: 75, accel: 88, power: 76, handling: 84 }
   },
   {
@@ -61,8 +61,8 @@ const showroomCars = [
     pos: [4, 0.4, -6],
     rotY: -Math.PI / 6,
     color: 0x1f2421,
-    dim: [3.0, 1.38, 1.65],
-    bodyStyle: "OFFROAD",
+    glb: "models/toycar.glb",
+    scale: 1.4,
     stats: { speed: 70, accel: 72, power: 82, handling: 78 }
   },
   {
@@ -82,8 +82,8 @@ const showroomCars = [
     pos: [11, 0.4, -6],
     rotY: -Math.PI / 6,
     color: 0x2b3a2f,
-    dim: [3.3, 1.35, 1.6],
-    bodyStyle: "SUV",
+    glb: "models/toycar.glb",
+    scale: 1.4,
     stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
 
@@ -105,8 +105,8 @@ const showroomCars = [
     pos: [-10, 5.4, 4],
     rotY: Math.PI / 6,
     color: 0x09152a,
-    dim: [4.0, 0.95, 1.78],
-    bodyStyle: "SEDAN",
+    glb: "models/ferrari.glb",
+    scale: 0.95,
     stats: { speed: 92, accel: 90, power: 94, handling: 92 }
   },
   {
@@ -126,8 +126,8 @@ const showroomCars = [
     pos: [-3, 5.4, 4],
     rotY: Math.PI / 6,
     color: 0x730d17,
-    dim: [3.9, 0.95, 1.78],
-    bodyStyle: "SEDAN",
+    glb: "models/ferrari.glb",
+    scale: 0.95,
     stats: { speed: 90, accel: 88, power: 92, handling: 93 }
   },
   {
@@ -147,8 +147,8 @@ const showroomCars = [
     pos: [4, 5.4, 4],
     rotY: -Math.PI / 6,
     color: 0xe0e0e0,
-    dim: [3.4, 1.25, 1.65],
-    bodyStyle: "SUV",
+    glb: "models/toycar.glb",
+    scale: 1.4,
     stats: { speed: 80, accel: 79, power: 83, handling: 82 }
   },
 
@@ -170,8 +170,8 @@ const showroomCars = [
     pos: [-8, 10.4, 10],
     rotY: Math.PI / 6,
     color: 0x181a20,
-    dim: [3.8, 0.85, 1.82],
-    bodyStyle: "SUPERCAR",
+    glb: "models/ferrari.glb",
+    scale: 1.0,
     stats: { speed: 98, accel: 99, power: 97, handling: 96 }
   },
   {
@@ -191,8 +191,8 @@ const showroomCars = [
     pos: [0, 10.4, 10],
     rotY: 0,
     color: 0xd90429,
-    dim: [3.5, 0.8, 1.72],
-    bodyStyle: "SUPERCAR",
+    glb: "models/ferrari.glb",
+    scale: 1.0,
     stats: { speed: 99, accel: 98, power: 96, handling: 99 }
   },
   {
@@ -212,8 +212,8 @@ const showroomCars = [
     pos: [8, 10.4, 10],
     rotY: -Math.PI / 6,
     color: 0xf4f5f6,
-    dim: [3.8, 1.45, 1.78],
-    bodyStyle: "SUV",
+    glb: "models/toycar.glb",
+    scale: 1.4,
     stats: { speed: 84, accel: 80, power: 88, handling: 81 }
   }
 ];
@@ -249,29 +249,29 @@ function initShowroom3D() {
   container.appendChild(renderer.domElement);
 
   // 4. Lighting setup
-  const ambient = new THREE.AmbientLight(0xffffff, 0.95);
+  const ambient = new THREE.AmbientLight(0xffffff, 1.2);
   scene.add(ambient);
 
-  const mainSun = new THREE.DirectionalLight(0xfff5e6, 1.8);
+  const mainSun = new THREE.DirectionalLight(0xfff5e6, 2.0);
   mainSun.position.set(15, 30, 15);
   mainSun.castShadow = true;
   scene.add(mainSun);
 
-  const cyanRimLight = new THREE.PointLight(0x00d2ff, 2.2, 50);
+  const cyanRimLight = new THREE.PointLight(0x00d2ff, 2.5, 50);
   cyanRimLight.position.set(-18, 8, -10);
   scene.add(cyanRimLight);
 
-  const goldRimLight = new THREE.PointLight(0xe2b755, 2.2, 50);
+  const goldRimLight = new THREE.PointLight(0xe2b755, 2.5, 50);
   goldRimLight.position.set(18, 14, 10);
   scene.add(goldRimLight);
 
   // 5. Build 3-Story Architectural Building
   build3StoryBuilding();
 
-  // 6. Generate 10 Ultra-High-Fidelity 3D Car Models
-  generate3DCarFleet();
+  // 6. Load Real 3D GLB Car Models
+  loadReal3DCarFleet();
 
-  // 7. Controls & Raycasting
+  // 7. Navigation Controls & Raycasting
   setupNavigation(container);
 
   const raycaster = new THREE.Raycaster();
@@ -314,7 +314,7 @@ function initShowroom3D() {
   });
 }
 
-// Build 3-Story Architectural Building (Ground Floor, 1st Floor, 2nd Floor, Grand Stairs, Glass Walls)
+// Build 3-Story Glass Architectural Showroom
 function build3StoryBuilding() {
   // Ground Floor
   const groundGeo = new THREE.PlaneGeometry(40, 44);
@@ -363,15 +363,11 @@ function build3StoryBuilding() {
 
   // Grand Stairs
   const stepMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.8, roughness: 0.2 });
-
-  // Ground -> 1st Floor
   for (let i = 0; i < 12; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.42, 0.45), stepMat);
     step.position.set(15, (i + 0.5) * 0.42, -4 + i * 0.45);
     scene.add(step);
   }
-
-  // 1st Floor -> 2nd Floor
   for (let i = 0; i < 12; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(3.5, 0.42, 0.45), stepMat);
     step.position.set(-15, 5.0 + (i + 0.5) * 0.42, 2 + i * 0.45);
@@ -384,15 +380,16 @@ function build3StoryBuilding() {
   scene.add(glassWall);
 }
 
-// Generate 10 High-Fidelity 3D Car Models Standing On Floor
-function generate3DCarFleet() {
+// Load Real 3D GLB Car Models Using THREE.GLTFLoader
+function loadReal3DCarFleet() {
+  const gltfLoader = new THREE.GLTFLoader();
   carMeshes = [];
 
   showroomCars.forEach((car) => {
     const carGroup = new THREE.Group();
     carGroup.userData = { carData: car };
 
-    // 1. Illuminated Turntable Display Pad
+    // 1. Illuminated Turntable Podium
     const pad = new THREE.Mesh(
       new THREE.CylinderGeometry(2.7, 2.9, 0.15, 32),
       new THREE.MeshStandardMaterial({ color: 0x1b1e2a, metalness: 0.85, roughness: 0.25 })
@@ -408,89 +405,26 @@ function generate3DCarFleet() {
     padRing.position.y = 0.16;
     carGroup.add(padRing);
 
-    // 2. Realistic 3D Aerodynamic Car Body Mesh
-    const [len, ht, wd] = car.dim;
-    const bodyMat = new THREE.MeshStandardMaterial({
-      color: car.color,
-      roughness: 0.12,
-      metalness: 0.88
-    });
+    // 2. Load Actual 3D GLB Car Model
+    gltfLoader.load(car.glb, (gltf) => {
+      const model = gltf.scene;
+      model.position.y = 0.16;
+      model.scale.set(car.scale, car.scale, car.scale);
 
-    // Lower Chassis
-    const lowerBody = new THREE.Mesh(new THREE.BoxGeometry(len, ht * 0.45, wd), bodyMat);
-    lowerBody.position.y = (ht * 0.45) / 2 + 0.35;
-    lowerBody.castShadow = true;
-    carGroup.add(lowerBody);
+      // Traversal for metallic paint materials & shadows
+      model.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          if (child.material) {
+            child.material.envMapIntensity = 1.5;
+          }
+        }
+      });
 
-    // Aerodynamic Hood & Bumper slope
-    const hoodGeo = new THREE.BoxGeometry(len * 0.35, ht * 0.3, wd * 0.95);
-    const hood = new THREE.Mesh(hoodGeo, bodyMat);
-    hood.position.set(len * 0.3, lowerBody.position.y + ht * 0.1, 0);
-    carGroup.add(hood);
-
-    // Cabin Roof & Glass Windows
-    const cabinGeo = new THREE.BoxGeometry(len * 0.5, ht * 0.48, wd * 0.88);
-    const cabinMat = new THREE.MeshStandardMaterial({
-      color: 0x080a0e,
-      roughness: 0.05,
-      metalness: 0.95,
-      transparent: true,
-      opacity: 0.85
-    });
-    const cabin = new THREE.Mesh(cabinGeo, cabinMat);
-    cabin.position.set(-len * 0.08, lowerBody.position.y + ht * 0.45, 0);
-    cabin.castShadow = true;
-    carGroup.add(cabin);
-
-    // Supercar Spoiler (For Porsche & Audi)
-    if (car.bodyStyle === "SUPERCAR") {
-      const spoiler = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.08, wd * 0.95), bodyMat);
-      spoiler.position.set(-len * 0.48, cabin.position.y + 0.25, 0);
-      carGroup.add(spoiler);
-    }
-
-    // Glowing Dual LED Headlights & Taillights
-    const headMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    const tailMat = new THREE.MeshBasicMaterial({ color: 0xff0033 });
-
-    const lightL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.32), headMat);
-    lightL.position.set(len / 2 + 0.02, lowerBody.position.y, wd * 0.32);
-    const lightR = lightL.clone();
-    lightR.position.z = -wd * 0.32;
-    carGroup.add(lightL, lightR);
-
-    const tailL = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.12, 0.32), tailMat);
-    tailL.position.set(-len / 2 - 0.02, lowerBody.position.y, wd * 0.32);
-    const tailR = tailL.clone();
-    tailR.position.z = -wd * 0.32;
-    carGroup.add(tailL, tailR);
-
-    // 4 Wheels with Gold Alloy Rims
-    const wRadius = ht * 0.26;
-    const wheelGeo = new THREE.CylinderGeometry(wRadius, wRadius, 0.24, 32);
-    const wheelMat = new THREE.MeshStandardMaterial({ color: 0x121212, roughness: 0.5 });
-    const rimMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.95, roughness: 0.1 });
-
-    const wheelOffsetX = len * 0.32;
-    const wheelOffsetZ = wd * 0.52;
-
-    [
-      [wheelOffsetX, wRadius, wheelOffsetZ],
-      [wheelOffsetX, wRadius, -wheelOffsetZ],
-      [-wheelOffsetX, wRadius, wheelOffsetZ],
-      [-wheelOffsetX, wRadius, -wheelOffsetZ]
-    ].forEach(([wx, wy, wz]) => {
-      const wGroup = new THREE.Group();
-      const tire = new THREE.Mesh(wheelGeo, wheelMat);
-      tire.rotation.x = Math.PI / 2;
-      wGroup.add(tire);
-
-      const rim = new THREE.Mesh(new THREE.CylinderGeometry(wRadius * 0.68, wRadius * 0.68, 0.25, 10), rimMat);
-      rim.rotation.x = Math.PI / 2;
-      wGroup.add(rim);
-
-      wGroup.position.set(wx, wy, wz);
-      carGroup.add(wGroup);
+      carGroup.add(model);
+    }, undefined, (err) => {
+      console.warn("GLB Model load fallback:", car.name, err);
     });
 
     const [px, py, pz] = car.pos;
@@ -537,7 +471,7 @@ function setupNavigation(container) {
   window.addEventListener("touchend", () => { isDragging = false; });
 }
 
-// Elevate Camera Floor-by-Floor
+// Floor Ascension Controls
 function switchFloor(floorNum) {
   closeNFSInspector();
   if (floorNum === 0) {
