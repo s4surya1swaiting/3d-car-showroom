@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11.0.0">
+  <link rel="stylesheet" href="style.css?v=12.0.0">
   
   <!-- Three.js & Essential Add-ons (GLTFLoader, DRACOLoader, OrbitControls, RGBELoader, RoomEnvironment) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -82,6 +82,7 @@
 
     <!-- Floor Navigation Bar -->
     <div class="floor-selector-bar">
+      <button class="floor-btn" onclick="enterShowroomFoyer()">✦ GRAND ENTRANCE FOYER</button>
       <button class="floor-btn active" onclick="switchFloor(0)">GROUND FLOOR (SUVs & Off-Road)</button>
       <button class="floor-btn" onclick="switchFloor(1)">1ST FLOOR (Luxury Sedans)</button>
       <button class="floor-btn" onclick="switchFloor(2)">2ND FLOOR (Supercar Deck)</button>
@@ -100,6 +101,10 @@
         FULLSCREEN 3D VIEW
       </button>
 
+      <!-- Stage Prev / Next Car Swipe Arrows -->
+      <button class="stage-nav-arrow stage-nav-prev" onclick="prevCarInspect()" title="Previous Vehicle">◄</button>
+      <button class="stage-nav-arrow stage-nav-next" onclick="nextCarInspect()" title="Next Vehicle">►</button>
+
       <!-- 3D Canvas Target -->
       <div id="showroom-canvas-target"></div>
 
@@ -114,7 +119,7 @@
 
       <!-- Hint Pill -->
       <div class="museum-hint-pill">
-        ✨ Drag to Walk Through Floors • Click Any 3D Car Model to Zoom In & Inspect
+        ✨ Drag to Walk Through Floors • Click Staircases or Use ◄ / ► to Cycle Vehicles
       </div>
 
       <!-- Need For Speed (NFS) Zoom Inspection Overlay Modal -->
@@ -122,6 +127,13 @@
         <button class="nfs-close-btn" onclick="closeNFSInspector()">×</button>
         
         <div class="nfs-modal-content">
+          <!-- Car Carousel Nav Row -->
+          <div class="nfs-carousel-row">
+            <button class="btn-nfs-swipe" onclick="prevCarInspect()">◄ PREV CAR</button>
+            <span class="nfs-swipe-label">FLEET CYCLING</span>
+            <button class="btn-nfs-swipe" onclick="nextCarInspect()">NEXT CAR ►</button>
+          </div>
+
           <div class="nfs-modal-header">
             <span class="nfs-wall-tag" id="nfs-floor-tag">Ground Floor — SUV Bay 1</span>
             <h2 class="nfs-modal-car-title" id="nfs-car-title">Mahindra Scorpio-N Z8L 4x4</h2>
@@ -555,6 +567,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=11.0.0"></script>
+  <script src="app.js?v=12.0.0"></script>
 </body>
 </html>
