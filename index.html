@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=15.0.0">
+  <link rel="stylesheet" href="style.css?v=16.0.0">
   
   <!-- Three.js & Essential Add-ons (GLTFLoader, DRACOLoader, OrbitControls, RGBELoader, RoomEnvironment) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -80,12 +80,12 @@
       <h2 class="museum-title">Walk Through Floors <span>& Click Any 3D Car Model</span></h2>
     </div>
 
-    <!-- Floor Navigation Bar -->
+    <!-- Floor Navigation Bar (Sequential 3-Room Journey) -->
     <div class="floor-selector-bar">
-      <button class="floor-btn active" onclick="enterShowroomFoyer()">✦ GRAND ENTRANCE FOYER</button>
-      <button class="floor-btn" onclick="switchFloor(0)">GROUND FLOOR (SUVs & Off-Road)</button>
-      <button class="floor-btn" onclick="switchFloor(1)">1ST FLOOR (Luxury Sedans)</button>
-      <button class="floor-btn" onclick="switchFloor(2)">2ND FLOOR (Supercar Deck)</button>
+      <button class="floor-btn active" onclick="switchFloor(0)">✦ 01. ENTRANCE GATE</button>
+      <button class="floor-btn" onclick="switchFloor(1)">🚪 02. GROUND FLOOR ROOM</button>
+      <button class="floor-btn" onclick="switchFloor(2)">🪜 03. 1ST FLOOR MEZZANINE</button>
+      <button class="floor-btn" onclick="switchFloor(3)">🏎️ 04. 2ND FLOOR SUPERCAR DECK</button>
     </div>
 
     <!-- Quick Car Pills -->
@@ -554,6 +554,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=15.0.0"></script>
+  <script src="app.js?v=16.0.0"></script>
 </body>
 </html>

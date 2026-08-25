@@ -1,15 +1,15 @@
-// AURA MOTORS — MADHUKANTA-GRADE 3D LUXURY ARCHITECTURAL ENGINE (v15.0.0)
+// AURA MOTORS — SEQUENTIAL 3-STORY STAIRCASE & ROOM WALKTHROUGH ENGINE (v16.0.0)
 
 /**
  * FLEET ARCHITECTURE & VEHICLE ASSET MAPPING
- * 10 Dedicated Vehicles placed across 3 Private Luxury Exhibition Bays
+ * 10 Vehicles placed across 3 Enclosed Exhibition Rooms (Ground, 1st Floor, 2nd Floor)
  */
 const showroomCars = [
-  // GROUND FLOOR — SUVs & Off-Road (Floor Y = 0, Eye Level Y = 1.65)
+  // GROUND FLOOR ROOM 1 — SUVs & Off-Road (Floor Y = 0, Eye Level Y = 1.65)
   {
     id: "scorpio",
     index: 0,
-    floor: "Ground Floor — SUV Gallery Bay 1",
+    floor: "Ground Floor Room 1 — SUV Bay",
     floorId: 0,
     name: "Mahindra Scorpio-N Z8L 4x4",
     tagline: "The Unmissable SUV • 4XPLOR All-Terrain",
@@ -32,7 +32,7 @@ const showroomCars = [
   {
     id: "nexon",
     index: 1,
-    floor: "Ground Floor — EV Gallery Bay 2",
+    floor: "Ground Floor Room 1 — EV Bay",
     floorId: 0,
     name: "Tata Nexon EV Dark Edition",
     tagline: "100% Electric Crossover • #Dark Aesthetics",
@@ -55,7 +55,7 @@ const showroomCars = [
   {
     id: "thar",
     index: 2,
-    floor: "Ground Floor — 4x4 Gallery Bay 3",
+    floor: "Ground Floor Room 1 — 4x4 Bay",
     floorId: 0,
     name: "Mahindra Thar LX 4x4 Hard Top",
     tagline: "Iconic Off-Road Legend • Convertible Vibes",
@@ -78,7 +78,7 @@ const showroomCars = [
   {
     id: "bolero",
     index: 3,
-    floor: "Ground Floor — Utility Bay 4",
+    floor: "Ground Floor Room 1 — Utility Bay",
     floorId: 0,
     name: "Mahindra Bolero Neo N10 Opt",
     tagline: "Tough Utility Vehicle • Multi-Terrain Select",
@@ -99,11 +99,11 @@ const showroomCars = [
     stats: { speed: 65, accel: 62, power: 74, handling: 70 }
   },
 
-  // 1ST FLOOR — Executive Luxury Sedans (Floor Y = 6.5, Eye Level Y = 8.15)
+  // 1ST FLOOR ROOM 2 — Executive Luxury Sedans (Floor Y = 6.5, Eye Level Y = 8.15)
   {
     id: "merc",
     index: 4,
-    floor: "1st Floor Mezzanine — Bay 5",
+    floor: "1st Floor Room 2 — Bay 5",
     floorId: 1,
     name: "Mercedes-Benz S-Class S450",
     tagline: "The Pinnacle of Luxury • VIP First-Class Cabin",
@@ -126,7 +126,7 @@ const showroomCars = [
   {
     id: "bmw",
     index: 5,
-    floor: "1st Floor Mezzanine — Bay 6",
+    floor: "1st Floor Room 2 — Bay 6",
     floorId: 1,
     name: "BMW 7 Series 730Ld M-Sport",
     tagline: "Sheer Driving Pleasure • Executive Lounge",
@@ -149,7 +149,7 @@ const showroomCars = [
   {
     id: "jeep",
     index: 6,
-    floor: "1st Floor Mezzanine — Bay 7",
+    floor: "1st Floor Room 2 — Bay 7",
     floorId: 1,
     name: "Jeep Compass Model S 4x4",
     tagline: "Premium Urban SUV • Panoramic Sunroof",
@@ -170,11 +170,11 @@ const showroomCars = [
     stats: { speed: 80, accel: 79, power: 83, handling: 82 }
   },
 
-  // 2ND FLOOR — Supercar Deck (Floor Y = 13.0, Eye Level Y = 14.65)
+  // 2ND FLOOR ROOM 3 — Supercar Deck (Floor Y = 13.0, Eye Level Y = 14.65)
   {
     id: "audi",
     index: 7,
-    floor: "2nd Floor Supercar Deck — Bay 8",
+    floor: "2nd Floor Room 3 — Bay 8",
     floorId: 2,
     name: "Audi RS e-tron GT Quattro",
     tagline: "Electric Supercar • 637 HP Dual Motors",
@@ -197,7 +197,7 @@ const showroomCars = [
   {
     id: "porsche",
     index: 8,
-    floor: "2nd Floor Supercar Deck — Bay 9",
+    floor: "2nd Floor Room 3 — Bay 9",
     floorId: 2,
     name: "Porsche 911 Carrera S",
     tagline: "Pure Performance Icon • Sport Chrono",
@@ -220,7 +220,7 @@ const showroomCars = [
   {
     id: "fortuner",
     index: 9,
-    floor: "2nd Floor Supercar Deck — Bay 10",
+    floor: "2nd Floor Room 3 — Bay 10",
     floorId: 2,
     name: "Toyota Fortuner Legender 4x4",
     tagline: "Flagship SUV • Dual Tone Black Roof",
@@ -242,16 +242,17 @@ const showroomCars = [
   }
 ];
 
-// Global Engine Variables (First-Person Human Eye-Level Physics)
+// Global Engine Variables
 let scene, camera, renderer, controls;
-// Default Camera standing in front of Closed Castle Entrance Doors at Human Eye Height (y = 1.7m)
 let targetCameraPos = new THREE.Vector3(0, 1.7, 24);
 let targetLookAt = new THREE.Vector3(0, 1.8, 0);
 let currentLookAt = new THREE.Vector3(0, 1.8, 0);
 
 let carMeshes = [];
+let stairMesh1, stairMesh2;
 let leftDoorGroup, rightDoorGroup;
 let isPortalOpen = false;
+let currentRoomId = 0; // 0 = Entrance Gate, 1 = Room 1 (Ground), 2 = Room 2 (1st Floor), 3 = Room 3 (2nd Floor)
 let activeInspectedIndex = 0;
 
 function initShowroom3D() {
@@ -263,7 +264,7 @@ function initShowroom3D() {
   scene.background = new THREE.Color(0x18161d);
   scene.fog = new THREE.FogExp2(0x18161d, 0.009);
 
-  // 2. Camera Setup (First Person Eye Height = 1.7m)
+  // 2. Camera Setup (First Person Human Eye Level = 1.7m)
   camera = new THREE.PerspectiveCamera(62, container.clientWidth / container.clientHeight, 0.1, 140);
   camera.position.set(0, 1.7, 24);
 
@@ -293,13 +294,13 @@ function initShowroom3D() {
   // 5. Madhukanta Studio Lighting Calibration
   setupShowroomLighting();
 
-  // 6. Build Physical Madhukanta Architecture with Archway Portal, Castle Doors & Room Separator Pillars
+  // 6. Build 3 Stacked Rooms with Archway Gate, Castle Doors, and Interactive Staircases
   buildPBRArchitecturalBuilding();
 
   // 7. Load Vehicle Fleet
   loadReal3DCarFleet();
 
-  // 8. 3D Interactive Hotspot Raycasting
+  // 8. Raycasting Setup
   setupRaycasting(container);
 
   // Animation Loop with Smooth Camera Lerp & Door Opening Animations
@@ -330,7 +331,7 @@ function initShowroom3D() {
   });
 }
 
-// Madhukanta Lighting Calibration (Warm, Moody, High Contrast Museum Atmosphere)
+// Madhukanta Lighting Calibration
 function setupShowroomLighting() {
   const ambientLight = new THREE.AmbientLight(0xfff5ea, 0.9);
   scene.add(ambientLight);
@@ -354,7 +355,7 @@ function setupShowroomLighting() {
   goldRim.position.set(20, 12, 8);
   scene.add(goldRim);
 
-  // Narrow Spotlight Cones targeting vehicles directly without lighting ceiling
+  // Dedicated Vehicle Spotlights
   showroomCars.forEach((car) => {
     const [px, py, pz] = car.pos;
     const spot = new THREE.SpotLight(0xfffaee, 2.4, 16, Math.PI / 6, 0.9, 1);
@@ -366,36 +367,35 @@ function setupShowroomLighting() {
   });
 }
 
-// Physical Madhukanta Architectural Construction with Castle Doors & Room Separator Pillars
+// Physical Construction of 3 Stacked Rooms with Staircases
 function buildPBRArchitecturalBuilding() {
-  // Material Palette (Exact Madhukanta Spec)
-  const wallMat = new THREE.MeshStandardMaterial({ color: 0x221a1a, roughness: 0.45 }); // Deep dark cocoa plaster
-  const floorMat = new THREE.MeshStandardMaterial({ color: 0x120e0b, roughness: 0.08, metalness: 0.92 }); // Polished dark mahogany floor
-  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 }); // Deep walnut pillars
-  const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 }); // 24k antique gold trim
+  const wallMat = new THREE.MeshStandardMaterial({ color: 0x221a1a, roughness: 0.45 });
+  const floorMat = new THREE.MeshStandardMaterial({ color: 0x120e0b, roughness: 0.08, metalness: 0.92 });
+  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
+  const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 });
 
-  // Ground Floor Mahogany Floor (y = 0)
+  // Room 1 Ground Floor Mahogany Floor (y = 0)
   const groundGeo = new THREE.PlaneGeometry(60, 60);
   const ground = new THREE.Mesh(groundGeo, floorMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
-  // Floor 1 — Mezzanine Deck (y = 6.5)
+  // Room 2 Floor Deck (y = 6.5)
   const floor1Geo = new THREE.BoxGeometry(50, 0.45, 24);
   const floor1 = new THREE.Mesh(floor1Geo, pillarMat);
   floor1.position.set(0, 6.5, 4);
   floor1.receiveShadow = true;
   scene.add(floor1);
 
-  // Floor 2 — Supercar Deck (y = 13.0)
+  // Room 3 Floor Deck (y = 13.0)
   const floor2Geo = new THREE.BoxGeometry(50, 0.45, 24);
   const floor2 = new THREE.Mesh(floor2Geo, pillarMat);
   floor2.position.set(0, 13.0, 12);
   floor2.receiveShadow = true;
   scene.add(floor2);
 
-  // Enclosed Room Wall Blockages (No raw background view gaps!)
+  // Room Wall Enclosures
   const backWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 22), wallMat);
   backWall.position.set(0, 11, -20);
   scene.add(backWall);
@@ -410,35 +410,36 @@ function buildPBRArchitecturalBuilding() {
   rightWall.position.set(25, 11, 0);
   scene.add(rightWall);
 
-  // Room Boundary Separator Pillars (Madhukanta Section Boundaries)
+  // Room Boundary Separator Pillars
   [[-18, -4], [18, -4], [-18, 12], [18, 12]].forEach(([px, pz]) => {
     const pil = new THREE.Mesh(new THREE.BoxGeometry(0.8, 20.0, 0.8), pillarMat);
     pil.position.set(px, 10.0, pz);
     scene.add(pil);
-
-    // Gold Trim Accents
-    const trim = new THREE.Mesh(new THREE.BoxGeometry(0.86, 0.2, 0.86), goldMat);
-    trim.position.set(px, 6.5, pz);
-    scene.add(trim);
   });
 
-  // Grand Architectural Staircase 1 (Ground -> Floor 1)
+  // Interactive 3D Staircase 1 (Connects Room 1 -> Room 2)
+  stairMesh1 = new THREE.Group();
   for (let i = 0; i < 14; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.45, 0.48), goldMat);
     step.position.set(19, (i + 0.5) * 0.45, -5 + i * 0.48);
     step.receiveShadow = true;
-    scene.add(step);
+    stairMesh1.add(step);
   }
+  stairMesh1.userData = { action: "climbToRoom2" };
+  scene.add(stairMesh1);
 
-  // Grand Architectural Staircase 2 (Floor 1 -> Floor 2)
+  // Interactive 3D Staircase 2 (Connects Room 2 -> Room 3)
+  stairMesh2 = new THREE.Group();
   for (let i = 0; i < 14; i++) {
     const step = new THREE.Mesh(new THREE.BoxGeometry(4.0, 0.45, 0.48), goldMat);
     step.position.set(-19, 6.5 + (i + 0.5) * 0.45, 3 + i * 0.48);
     step.receiveShadow = true;
-    scene.add(step);
+    stairMesh2.add(step);
   }
+  stairMesh2.userData = { action: "climbToRoom3" };
+  scene.add(stairMesh2);
 
-  // Entrance Wall Barrier & Grand Archway Gate (z = 20)
+  // Castle Entrance Gate (z = 20)
   const entWallLeft = new THREE.Mesh(new THREE.BoxGeometry(20, 5.0, 0.4), wallMat);
   entWallLeft.position.set(-15, 2.5, 20);
   scene.add(entWallLeft);
@@ -451,18 +452,15 @@ function buildPBRArchitecturalBuilding() {
   archTop.position.set(0, 4.4, 20);
   scene.add(archTop);
 
-  // Asymmetric Madhukanta Castle Entrance Doors (Left = 3 Panel Slices, Right = 2 Panel Slices)
+  // Asymmetric Castle Doors
   const doorPanelMat = new THREE.MeshStandardMaterial({ color: 0x2b201a, roughness: 0.3, metalness: 0.7 });
 
-  // Left Castle Door Pivot Group (x = -4.8, z = 20)
   leftDoorGroup = new THREE.Group();
   leftDoorGroup.position.set(-4.8, 0, 20);
-
   const leftDoorMesh = new THREE.Mesh(new THREE.BoxGeometry(4.7, 3.8, 0.2), doorPanelMat);
   leftDoorMesh.position.set(2.35, 1.9, 0);
   leftDoorGroup.add(leftDoorMesh);
 
-  // 3 Decorative Gold Trim Frames on Left Door
   [-1.2, 0, 1.2].forEach(dx => {
     const f = new THREE.Mesh(new THREE.BoxGeometry(1.0, 2.8, 0.24), goldMat);
     f.position.set(2.35 + dx, 1.9, 0);
@@ -470,15 +468,12 @@ function buildPBRArchitecturalBuilding() {
   });
   scene.add(leftDoorGroup);
 
-  // Right Castle Door Pivot Group (x = 4.8, z = 20)
   rightDoorGroup = new THREE.Group();
   rightDoorGroup.position.set(4.8, 0, 20);
-
   const rightDoorMesh = new THREE.Mesh(new THREE.BoxGeometry(4.7, 3.8, 0.2), doorPanelMat);
   rightDoorMesh.position.set(-2.35, 1.9, 0);
   rightDoorGroup.add(rightDoorMesh);
 
-  // 2 Decorative Gold Trim Frames on Right Door
   [-0.9, 0.9].forEach(dx => {
     const f = new THREE.Mesh(new THREE.BoxGeometry(1.2, 2.8, 0.24), goldMat);
     f.position.set(-2.35 + dx, 1.9, 0);
@@ -487,7 +482,7 @@ function buildPBRArchitecturalBuilding() {
   scene.add(rightDoorGroup);
 }
 
-// Data-Driven Vehicle Asset Loader with Draco Support & Box3 Grounding
+// Data-Driven Vehicle Asset Loader
 function loadReal3DCarFleet() {
   const gltfLoader = new THREE.GLTFLoader();
 
@@ -503,7 +498,6 @@ function loadReal3DCarFleet() {
     const carGroup = new THREE.Group();
     carGroup.userData = { carData: car };
 
-    // 1. Illuminated Circular Turntable Podium
     const padMat = new THREE.MeshStandardMaterial({ color: 0x181c28, metalness: 0.9, roughness: 0.15 });
     const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.3, 0.16, 36), padMat);
     pad.position.y = 0.08;
@@ -518,12 +512,10 @@ function loadReal3DCarFleet() {
     padRing.position.y = 0.16;
     carGroup.add(padRing);
 
-    // 2. High-Detail Procedural Vehicle Mesh Base
     const carBaseMesh = createProceduralCarMesh(car);
     carBaseMesh.position.y = 0.16;
     carGroup.add(carBaseMesh);
 
-    // 3. Load Actual 3D GLB Model Asset
     gltfLoader.load(car.glb, (gltf) => {
       const model = gltf.scene;
 
@@ -569,64 +561,20 @@ function loadReal3DCarFleet() {
   });
 }
 
-// Generates an Aerodynamic Contoured Metallic Car Body Mesh
 function createProceduralCarMesh(car) {
   const group = new THREE.Group();
 
-  const bodyMat = new THREE.MeshStandardMaterial({
-    color: car.color,
-    metalness: 0.9,
-    roughness: 0.15
-  });
-
+  const bodyMat = new THREE.MeshStandardMaterial({ color: car.color, metalness: 0.9, roughness: 0.15 });
   const chassis = new THREE.Mesh(new THREE.BoxGeometry(2.15, 0.75, 4.35), bodyMat);
   chassis.position.y = 0.55;
   chassis.castShadow = true;
   group.add(chassis);
 
-  const cabinMat = new THREE.MeshPhysicalMaterial({
-    color: 0x111622,
-    metalness: 0.9,
-    roughness: 0.05,
-    transparent: true,
-    opacity: 0.85
-  });
+  const cabinMat = new THREE.MeshPhysicalMaterial({ color: 0x111622, metalness: 0.9, roughness: 0.05, transparent: true, opacity: 0.85 });
   const cabin = new THREE.Mesh(new THREE.BoxGeometry(1.88, 0.65, 2.2), cabinMat);
   cabin.position.set(0, 1.15, -0.2);
   cabin.castShadow = true;
   group.add(cabin);
-
-  const lightMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-  [-0.75, 0.75].forEach(x => {
-    const headlight = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.1), lightMat);
-    headlight.position.set(x, 0.6, 2.18);
-    group.add(headlight);
-  });
-
-  const tailMat = new THREE.MeshBasicMaterial({ color: 0xff0033 });
-  [-0.75, 0.75].forEach(x => {
-    const taillight = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.12, 0.1), tailMat);
-    taillight.position.set(x, 0.6, -2.18);
-    group.add(taillight);
-  });
-
-  const tireMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.8 });
-  const rimMat = new THREE.MeshStandardMaterial({ color: 0xe2b755, metalness: 0.95, roughness: 0.1 });
-  const wheelGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.3, 24);
-  wheelGeo.rotateZ(Math.PI / 2);
-
-  [[-1.0, 0.42, 1.3], [1.0, 0.42, 1.3], [-1.0, 0.42, -1.3], [1.0, 0.42, -1.3]].forEach(([wx, wy, wz]) => {
-    const tire = new THREE.Mesh(wheelGeo, tireMat);
-    tire.position.set(wx, wy, wz);
-    tire.castShadow = true;
-
-    const rim = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.31, 16), rimMat);
-    rim.rotateZ(Math.PI / 2);
-    rim.position.set(wx, wy, wz);
-
-    group.add(tire);
-    group.add(rim);
-  });
 
   return group;
 }
@@ -642,6 +590,7 @@ function setupRaycasting(container) {
 
     raycaster.setFromCamera(mouse, camera);
 
+    // 1. Raycast Vehicles
     const intersectsCars = raycaster.intersectObjects(carMeshes, true);
     if (intersectsCars.length > 0) {
       let obj = intersectsCars[0].object;
@@ -653,55 +602,80 @@ function setupRaycasting(container) {
         return;
       }
     }
+
+    // 2. Raycast Staircase 1 (Ground -> Room 2)
+    const intersectsStair1 = raycaster.intersectObjects(stairMesh1.children, true);
+    if (intersectsStair1.length > 0) {
+      climbToRoom2();
+      return;
+    }
+
+    // 3. Raycast Staircase 2 (Room 2 -> Room 3)
+    const intersectsStair2 = raycaster.intersectObjects(stairMesh2.children, true);
+    if (intersectsStair2.length > 0) {
+      climbToRoom3();
+      return;
+    }
   });
 }
 
-// MADHUKANTA PORTAL DOOR OPENING & FLOOR ASCENSION
-function openCastlePortal() {
-  isPortalOpen = true;
-  closeNFSInspector();
+// SEQUENTIAL STAIRCASE & ROOM NAVIGATION CONTROLS
 
-  // Glide Camera smoothly through the open castle doors into Ground Floor Atrium (Human Height y = 1.65m)
-  targetCameraPos.set(0, 1.65, 7.5);
-  targetLookAt.set(0, 1.5, -4);
-
-  updateActiveFloorBtn(1);
-}
-
+// Outside Entrance Gate
 function enterShowroomFoyer() {
   isPortalOpen = false;
+  currentRoomId = 0;
   closeNFSInspector();
 
-  // Stand outside Closed Castle Doors at Human Height (y = 1.7m)
   targetCameraPos.set(0, 1.7, 24);
   targetLookAt.set(0, 1.8, 0);
 
   updateActiveFloorBtn(0);
 }
 
-function switchFloor(floorNum) {
+// Step 1: Walk Through Gate into Ground Floor Room 1
+function enterRoom1Ground() {
+  isPortalOpen = true;
+  currentRoomId = 1;
   closeNFSInspector();
 
-  if (floorNum === 0) {
-    if (!isPortalOpen) openCastlePortal();
-    else {
-      targetCameraPos.set(0, 1.65, 7.5);
-      targetLookAt.set(0, 1.5, -4);
-      updateActiveFloorBtn(1);
-    }
-  } else if (floorNum === 1) {
-    isPortalOpen = true;
-    // Teleport/Glide Camera up to 1st Floor Mezzanine Deck at Human Height (y = 8.15m)
-    targetCameraPos.set(0, 8.15, 12.0);
-    targetLookAt.set(0, 7.8, 4.0);
-    updateActiveFloorBtn(2);
-  } else if (floorNum === 2) {
-    isPortalOpen = true;
-    // Teleport/Glide Camera up to 2nd Floor Supercar Deck at Human Height (y = 14.65m)
-    targetCameraPos.set(0, 14.65, 19.0);
-    targetLookAt.set(0, 14.2, 12.0);
-    updateActiveFloorBtn(3);
-  }
+  targetCameraPos.set(0, 1.65, 7.5);
+  targetLookAt.set(0, 1.5, -4);
+
+  updateActiveFloorBtn(1);
+}
+
+// Step 2: Climb Staircase 1 into 1st Floor Room 2
+function climbToRoom2() {
+  isPortalOpen = true;
+  currentRoomId = 2;
+  closeNFSInspector();
+
+  // Sequential Staircase Climb Trajectory
+  targetCameraPos.set(16.0, 8.15, 10.0);
+  targetLookAt.set(0, 7.8, 4.0);
+
+  updateActiveFloorBtn(2);
+}
+
+// Step 3: Climb Staircase 2 into 2nd Floor Room 3
+function climbToRoom3() {
+  isPortalOpen = true;
+  currentRoomId = 3;
+  closeNFSInspector();
+
+  // Sequential Staircase Climb Trajectory
+  targetCameraPos.set(-16.0, 14.65, 17.0);
+  targetLookAt.set(0, 14.2, 12.0);
+
+  updateActiveFloorBtn(3);
+}
+
+function switchFloor(floorNum) {
+  if (floorNum === 0) enterShowroomFoyer();
+  else if (floorNum === 1) enterRoom1Ground();
+  else if (floorNum === 2) climbToRoom2();
+  else if (floorNum === 3) climbToRoom3();
 }
 
 function updateActiveFloorBtn(btnIdx) {
@@ -711,7 +685,6 @@ function updateActiveFloorBtn(btnIdx) {
   });
 }
 
-// FIRST-PERSON EYE-LEVEL CAR INSPECTION
 function zoomInspectCarByIndex(index) {
   isPortalOpen = true;
   activeInspectedIndex = (index + showroomCars.length) % showroomCars.length;
