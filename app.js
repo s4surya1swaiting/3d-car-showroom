@@ -1,244 +1,153 @@
-// AURA MOTORS — ALL-OBSIDIAN BLACK LUXURY ARCHITECTURAL SHOWROOM ENGINE (v22.0.0)
+// AURA MOTORS — ALL-OBSIDIAN BLACK LUXURY ARCHITECTURAL SHOWROOM ENGINE (v23.0.0)
+// Architectural 3-Story Glass Atrium with Real-Time PBR Paint Customizer & Studio Lighting
 
 /**
  * FLEET ARCHITECTURE & VEHICLE ASSET MAPPING
- * 10 Vehicles placed across 3 Enclosed Exhibition Rooms (Ground, 1st Floor, 2nd Floor)
+ * 6 Authentic Flagship Vehicles mapped 1:1 to Physical 3D GLB Assets
  */
 const showroomCars = [
-  // GROUND FLOOR ROOM 1 — SUVs & Off-Road (Floor Y = 0, Eye Level Y = 1.65)
+  // GROUND FLOOR ROOM 1 — Extreme Terrain & Tactical Engineering (Floor Y = 0)
   {
-    id: "scorpio",
+    id: "apex_raider",
     index: 0,
-    floor: "Ground Floor Room 1 — SUV Bay",
+    floor: "Ground Floor Room 1 — Tactical Heavy Bay",
     floorId: 0,
-    name: "Mahindra Scorpio-N Z8L 4x4",
-    tagline: "The Unmissable SUV • 4XPLOR All-Terrain",
-    price: "₹ 24,50,000",
-    year: "2023",
-    km: "12,000 KM",
-    fuel: "2.2L mHawk Diesel (172 BHP)",
-    trans: "6-Speed Automatic 4WD",
-    owner: "1st Owner",
+    name: "Apex Raider Tactical Cyber-SUV",
+    tagline: "Tri-Motor Electric AWD • Ballistic Armor Concept",
+    price: "₹ 88,00,000",
+    year: "2024",
+    km: "1,200 KM",
+    fuel: "800 BHP Tri-Motor Electric AWD",
+    trans: "Direct-Drive Dual-Range AWD",
+    owner: "DevNx R&D Prototype",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [-12, 0.4, -4],
-    eyePos: [-12, 1.65, 1.5],
-    rotY: Math.PI / 6,
-    color: 0x1c222e,
+    pos: [0, 0.4, -6],
+    cameraOffset: [-3.8, 1.4, 4.6],
+    rotY: 0,
+    color: 0x1a1e24,
     glb: "models/groundvehicle.glb",
     targetHeight: 1.85,
-    stats: { speed: 82, accel: 78, power: 85, handling: 80 }
+    stats: { speed: 85, accel: 89, power: 94, handling: 82 }
   },
   {
-    id: "nexon",
+    id: "dune_stormer",
     index: 1,
-    floor: "Ground Floor Room 1 — EV Bay",
+    floor: "Ground Floor Room 1 — Dakar Rally Bay",
     floorId: 0,
-    name: "Tata Nexon EV Dark Edition",
-    tagline: "100% Electric Crossover • #Dark Aesthetics",
-    price: "₹ 16,80,000",
+    name: "Baja Dune Stormer 4x4 Trophy Buggy",
+    tagline: "Chromoly Tubular Spaceframe • Long-Travel Fox Suspension",
+    price: "₹ 42,00,000",
     year: "2023",
-    km: "8,500 KM",
-    fuel: "Electric (465 KM Range)",
-    trans: "Single-Speed Automatic",
-    owner: "1st Owner",
-    grade: "140/140 Certified",
-    img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop",
-    pos: [-4, 0.4, -4],
-    eyePos: [-4, 1.5, 1.5],
-    rotY: Math.PI / 8,
-    color: 0x00d2ff,
-    glb: "models/ferrari.glb",
-    targetHeight: 1.3,
-    stats: { speed: 75, accel: 88, power: 76, handling: 84 }
-  },
-  {
-    id: "thar",
-    index: 2,
-    floor: "Ground Floor Room 1 — 4x4 Bay",
-    floorId: 0,
-    name: "Mahindra Thar LX 4x4 Hard Top",
-    tagline: "Iconic Off-Road Legend • Convertible Vibes",
-    price: "₹ 15,20,000",
-    year: "2022",
-    km: "18,400 KM",
-    fuel: "2.0L mStallion Turbo Petrol",
-    trans: "6-Speed Automatic 4WD",
-    owner: "1st Owner",
-    grade: "138/140 Certified",
+    km: "3,800 KM",
+    fuel: "2.5L Turbo Charged Boxer (450 BHP)",
+    trans: "6-Speed Sequential Manual",
+    owner: "1st Owner (Motorsport Spec)",
+    grade: "139/140 Certified",
     img: "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop",
-    pos: [4, 0.4, -4],
-    eyePos: [4, 1.65, 1.5],
-    rotY: -Math.PI / 8,
+    pos: [-12, 0.4, -4],
+    cameraOffset: [-3.6, 1.4, 4.4],
+    rotY: Math.PI / 6,
     color: 0xd9381e,
     glb: "models/buggy.glb",
-    targetHeight: 1.7,
-    stats: { speed: 70, accel: 72, power: 82, handling: 78 }
+    targetHeight: 1.70,
+    stats: { speed: 78, accel: 92, power: 84, handling: 95 }
   },
   {
-    id: "bolero",
-    index: 3,
-    floor: "Ground Floor Room 1 — Utility Bay",
+    id: "titan_hauler",
+    index: 2,
+    floor: "Ground Floor Room 1 — Cyber Utility Bay",
     floorId: 0,
-    name: "Mahindra Bolero Neo N10 Opt",
-    tagline: "Tough Utility Vehicle • Multi-Terrain Select",
-    price: "₹ 10,90,000",
-    year: "2022",
-    km: "24,000 KM",
-    fuel: "1.5L mHawk75 Diesel",
-    trans: "5-Speed Manual MLD",
-    owner: "1st Owner",
-    grade: "135/140 Certified",
-    img: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop",
+    name: "Titan Hauler Autonomous Electric Transport",
+    tagline: "Heavy Cybernetic Freight Hauler • Solid-State Megawatt Power",
+    price: "₹ 75,00,000",
+    year: "2024",
+    km: "900 KM",
+    fuel: "Quad-Motor Electric (1200 Nm)",
+    trans: "Single-Speed Heavy Duty",
+    owner: "1st Owner (Commercial Fleet)",
+    grade: "140/140 Certified",
+    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop",
     pos: [12, 0.4, -4],
-    eyePos: [12, 1.65, 1.5],
+    cameraOffset: [-4.2, 1.8, 5.0],
     rotY: -Math.PI / 6,
-    color: 0x243329,
+    color: 0x22262e,
     glb: "models/truck.glb",
-    targetHeight: 1.6,
-    stats: { speed: 65, accel: 62, power: 74, handling: 70 }
+    targetHeight: 2.10,
+    stats: { speed: 68, accel: 64, power: 98, handling: 70 }
   },
 
-  // 1ST FLOOR ROOM 2 — Executive Luxury Sedans (Floor Y = 6.5, Eye Level Y = 8.15)
+  // 1ST FLOOR ROOM 2 — Grand Heritage & Gran Turismo Salon (Floor Y = 6.5)
   {
-    id: "merc",
-    index: 4,
-    floor: "1st Floor Room 2 — Bay 5",
+    id: "heritage_classic",
+    index: 3,
+    floor: "1st Floor Room 2 — Royal Collector Salon",
     floorId: 1,
-    name: "Mercedes-Benz S-Class S450",
-    tagline: "The Pinnacle of Luxury • VIP First-Class Cabin",
-    price: "₹ 1,35,00,000",
-    year: "2022",
-    km: "14,200 KM",
-    fuel: "3.0L V6 Turbo Petrol",
-    trans: "9G-TRONIC Automatic",
-    owner: "1st Owner (Individual)",
-    grade: "140/140 Certified",
-    img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 6.9, 4],
-    eyePos: [-10, 8.0, 9.5],
-    rotY: Math.PI / 6,
-    color: 0x09152a,
-    glb: "models/toycar.glb",
-    targetHeight: 1.35,
-    stats: { speed: 92, accel: 90, power: 94, handling: 92 }
-  },
-  {
-    id: "bmw",
-    index: 5,
-    floor: "1st Floor Room 2 — Bay 6",
-    floorId: 1,
-    name: "BMW 7 Series 730Ld M-Sport",
-    tagline: "Sheer Driving Pleasure • Executive Lounge",
-    price: "₹ 1,18,00,000",
-    year: "2021",
-    km: "22,000 KM",
-    fuel: "3.0L Straight-6 Diesel",
-    trans: "8-Speed Steptronic",
-    owner: "1st Owner (Corporate)",
-    grade: "139/140 Certified",
-    img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop",
-    pos: [0, 6.9, 4],
-    eyePos: [0, 8.0, 9.5],
-    rotY: 0,
-    color: 0x730d17,
-    glb: "models/toycar.glb",
-    targetHeight: 1.35,
-    stats: { speed: 90, accel: 88, power: 92, handling: 93 }
-  },
-  {
-    id: "jeep",
-    index: 6,
-    floor: "1st Floor Room 2 — Bay 7",
-    floorId: 1,
-    name: "Jeep Compass Model S 4x4",
-    tagline: "Premium Urban SUV • Panoramic Sunroof",
-    price: "₹ 26,40,000",
-    year: "2023",
-    km: "11,000 KM",
-    fuel: "2.0L Diesel 9-Speed Auto",
-    trans: "9-Speed Torque Converter",
-    owner: "1st Owner",
-    grade: "140/140 Certified",
-    img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop",
-    pos: [10, 6.9, 4],
-    eyePos: [10, 8.15, 9.5],
-    rotY: -Math.PI / 6,
-    color: 0xd4d8e0,
-    glb: "models/groundvehicle.glb",
-    targetHeight: 1.75,
-    stats: { speed: 80, accel: 79, power: 83, handling: 82 }
-  },
-
-  // 2ND FLOOR ROOM 3 — Supercar Deck (Floor Y = 13.0, Eye Level Y = 14.65)
-  {
-    id: "audi",
-    index: 7,
-    floor: "2nd Floor Room 3 — Bay 8",
-    floorId: 2,
-    name: "Audi RS e-tron GT Quattro",
-    tagline: "Electric Supercar • 637 HP Dual Motors",
-    price: "₹ 1,62,00,000",
-    year: "2023",
-    km: "6,500 KM",
-    fuel: "637 HP Dual Electric",
-    trans: "2-Speed Rear Auto",
-    owner: "1st Owner",
-    grade: "140/140 Certified",
-    img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop",
-    pos: [-10, 13.4, 12],
-    eyePos: [-10, 14.5, 17.5],
-    rotY: Math.PI / 5,
-    color: 0x181a20,
-    glb: "models/ferrari.glb",
-    targetHeight: 1.25,
-    stats: { speed: 98, accel: 99, power: 97, handling: 96 }
-  },
-  {
-    id: "porsche",
-    index: 8,
-    floor: "2nd Floor Room 3 — Bay 9",
-    floorId: 2,
-    name: "Porsche 911 Carrera S",
-    tagline: "Pure Performance Icon • Sport Chrono",
+    name: "1967 Grand Heritage Classic Coupe",
+    tagline: "Hand-Crafted Coachwork • Concours d'Elegance 100-Point Restoration",
     price: "₹ 1,85,00,000",
-    year: "2022",
-    km: "4,800 KM",
-    fuel: "3.0L Twin-Turbo Flat-6",
-    trans: "8-Speed PDK Dual-Clutch",
+    year: "1967",
+    km: "14,200 KM",
+    fuel: "4.2L Naturally Aspirated Inline-6",
+    trans: "4-Speed Synchromesh Manual",
+    owner: "Private Royal Collector",
+    grade: "140/140 Certified",
+    img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop",
+    pos: [-9, 6.9, 4],
+    cameraOffset: [-3.6, 1.4, 4.4],
+    rotY: Math.PI / 6,
+    color: 0x0d3b2e,
+    glb: "models/classic_car.glb",
+    targetHeight: 1.35,
+    stats: { speed: 76, accel: 72, power: 78, handling: 82 }
+  },
+  {
+    id: "aura_gt",
+    index: 4,
+    floor: "1st Floor Room 2 — Gran Turismo Salon",
+    floorId: 1,
+    name: "Aura GT Velocity Trackday Coupe",
+    tagline: "Twin-Turbo Aerodynamic Coupe • Pure Driver's Track Weapon",
+    price: "₹ 1,35,00,000",
+    year: "2023",
+    km: "6,800 KM",
+    fuel: "3.0L Twin-Turbo V6 (520 BHP)",
+    trans: "8-Speed Paddle-Shift Dual-Clutch",
     owner: "1st Owner",
     grade: "140/140 Certified",
     img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+    pos: [9, 6.9, 4],
+    cameraOffset: [-3.6, 1.4, 4.4],
+    rotY: -Math.PI / 6,
+    color: 0x092347,
+    glb: "models/toycar.glb",
+    targetHeight: 1.35,
+    stats: { speed: 94, accel: 93, power: 91, handling: 96 }
+  },
+
+  // 2ND FLOOR ROOM 3 — The Crown Exotic Supercar Deck (Floor Y = 13.0)
+  {
+    id: "ferrari_f8",
+    index: 5,
+    floor: "2nd Floor Room 3 — Exotic Supercar Deck",
+    floorId: 2,
+    name: "Ferrari F8 Tributo V8 Bi-Turbo",
+    tagline: "710 BHP Twin-Turbo 3.9L V8 • 0-100 in 2.9s • Italian Purebred Exotic",
+    price: "₹ 4,02,00,000",
+    year: "2023",
+    km: "3,200 KM",
+    fuel: "3.9L Twin-Turbo V8 (710 BHP)",
+    trans: "7-Speed F1 Dual-Clutch",
+    owner: "1st Owner (Certified Exotic)",
+    grade: "140/140 Certified",
+    img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop",
     pos: [0, 13.4, 12],
-    eyePos: [0, 14.5, 17.5],
+    cameraOffset: [-3.8, 1.4, 4.4],
     rotY: 0,
     color: 0xd90429,
     glb: "models/ferrari.glb",
     targetHeight: 1.25,
-    stats: { speed: 99, accel: 98, power: 96, handling: 99 }
-  },
-  {
-    id: "fortuner",
-    index: 9,
-    floor: "2nd Floor Room 3 — Bay 10",
-    floorId: 2,
-    name: "Toyota Fortuner Legender 4x4",
-    tagline: "Flagship SUV • Dual Tone Black Roof",
-    price: "₹ 44,50,000",
-    year: "2023",
-    km: "15,800 KM",
-    fuel: "2.8L Turbo Diesel (204 BHP)",
-    trans: "6-Speed Automatic",
-    owner: "1st Owner",
-    grade: "140/140 Certified",
-    img: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop",
-    pos: [10, 13.4, 12],
-    eyePos: [10, 14.65, 17.5],
-    rotY: -Math.PI / 5,
-    color: 0xf4f5f6,
-    glb: "models/groundvehicle.glb",
-    targetHeight: 1.85,
-    stats: { speed: 84, accel: 80, power: 88, handling: 81 }
+    stats: { speed: 99, accel: 99, power: 98, handling: 99 }
   }
 ];
 
@@ -255,31 +164,36 @@ let isPortalOpen = false;
 let currentRoomId = 0; // 0 = Gate Entrance, 1 = Room 1, 2 = Room 2, 3 = Room 3
 let activeInspectedIndex = 0;
 
+// VFX State
+let isHeadlightsOn = false;
+let isTurntableRotating = false;
+let neonRings = [];
+
 function initShowroom3D() {
   const container = document.getElementById("showroom-canvas-target");
   if (!container) return;
 
-  // 1. Scene & Fog Setup — OBSIDIAN BLACK AESTHETIC
+  // 1. Scene & Fog Setup — OBSIDIAN BLACK LUXURY AESTHETIC
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0x0a090c);
-  scene.fog = new THREE.FogExp2(0x0a090c, 0.008);
+  scene.fog = new THREE.FogExp2(0x0a090c, 0.007);
 
   // 2. Camera Setup (Human Eye Level = 1.7m)
-  camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 160);
+  camera = new THREE.PerspectiveCamera(58, container.clientWidth / container.clientHeight, 0.1, 180);
   camera.position.set(0, 1.7, 24);
 
-  // 3. Renderer Setup
+  // 3. High-Performance PBR Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
   renderer.setSize(container.clientWidth, container.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = 1.35;
   renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
-  // 4. OrbitControls Setup — FULL 360° UNCONSTRAINED DRAG & ROTATION
+  // 4. OrbitControls Setup — Smooth 360° Unconstrained Freedom
   controls = new THREE.OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
   controls.dampingFactor = 0.05;
@@ -290,32 +204,45 @@ function initShowroom3D() {
 
   updateCameraConstraints();
 
-  // 5. Madhukanta Studio Lighting Setup
+  // 5. Studio Automotive Lighting & Linear Ceiling Tubes
   setupShowroomLighting();
 
   // 6. Build High-Fidelity All-Obsidian Architectural Structure
   buildPBRArchitecturalBuilding();
 
-  // 7. Load 3D Vehicle Fleet
+  // 7. Load 3D Vehicle Fleet with Dynamic Materials & Headlights
   loadReal3DCarFleet();
 
   // 8. Setup Interactive Raycasting & Door Triggering
   setupRaycasting(container);
 
-  // Animation Loop with Smooth Camera Lerp
+  // Animation Loop with Smooth Camera Lerp & Turntable VFX
   function animate() {
     requestAnimationFrame(animate);
 
-    camera.position.lerp(targetCameraPos, 0.045);
-    currentLookAt.lerp(targetLookAt, 0.045);
+    camera.position.lerp(targetCameraPos, 0.05);
+    currentLookAt.lerp(targetLookAt, 0.05);
     controls.target.copy(currentLookAt);
     controls.update();
 
+    // Smooth Entrance Door Opening Animation
     if (leftDoorGroup && rightDoorGroup) {
       const targetRotL = isPortalOpen ? -Math.PI / 2.2 : 0;
       const targetRotR = isPortalOpen ? Math.PI / 2.2 : 0;
       leftDoorGroup.rotation.y = THREE.MathUtils.lerp(leftDoorGroup.rotation.y, targetRotL, 0.06);
       rightDoorGroup.rotation.y = THREE.MathUtils.lerp(rightDoorGroup.rotation.y, targetRotR, 0.06);
+    }
+
+    // Sinusoidal Breathing Pulse on Pedestal Neon Rings
+    const time = Date.now() * 0.003;
+    const pulseOpacity = 0.65 + Math.sin(time) * 0.35;
+    neonRings.forEach(ring => {
+      if (ring.material) ring.material.opacity = pulseOpacity;
+    });
+
+    // Turntable 360° Rotation VFX for Active Inspected Vehicle
+    if (isTurntableRotating && carMeshes[activeInspectedIndex]) {
+      carMeshes[activeInspectedIndex].rotation.y += 0.006;
     }
 
     renderer.render(scene, camera);
@@ -335,37 +262,43 @@ function updateCameraConstraints() {
   controls.enableZoom = true;
   controls.enableRotate = true;
   controls.minDistance = 1.0;
-  controls.maxDistance = 55.0;
+  controls.maxDistance = 60.0;
   controls.maxPolarAngle = Math.PI / 2 + 0.05;
 }
 
 function setupShowroomLighting() {
-  const ambientLight = new THREE.AmbientLight(0xfff5ea, 0.85);
+  // Ambient Soft Fill
+  const ambientLight = new THREE.AmbientLight(0xfff5ea, 0.95);
   scene.add(ambientLight);
 
-  const mainSun = new THREE.DirectionalLight(0xffe8d6, 2.2);
-  mainSun.position.set(18, 32, 18);
+  // Main Overhead Studio Sun
+  const mainSun = new THREE.DirectionalLight(0xfffaee, 2.4);
+  mainSun.position.set(15, 30, 15);
   mainSun.castShadow = true;
   mainSun.shadow.mapSize.width = 2048;
   mainSun.shadow.mapSize.height = 2048;
   scene.add(mainSun);
 
-  const portalPointLight = new THREE.PointLight(0xe2b755, 2.0, 32);
+  // Entrance Warm Gold Welcome Light
+  const portalPointLight = new THREE.PointLight(0xe2b755, 2.2, 35);
   portalPointLight.position.set(0, 3.8, 20);
   scene.add(portalPointLight);
 
-  const cyanRim = new THREE.PointLight(0x00d2ff, 2.4, 55);
-  cyanRim.position.set(-20, 8, -8);
+  // Cool Cyan Architectural Rim Light (Left)
+  const cyanRim = new THREE.PointLight(0x00d2ff, 2.2, 55);
+  cyanRim.position.set(-22, 10, -6);
   scene.add(cyanRim);
 
+  // Royal Gold Accent Rim Light (Right)
   const goldRim = new THREE.PointLight(0xe2b755, 2.4, 55);
-  goldRim.position.set(20, 12, 8);
+  goldRim.position.set(22, 14, 8);
   scene.add(goldRim);
 
+  // Individual Dramatic Spotlights on Each Vehicle Bay
   showroomCars.forEach((car) => {
     const [px, py, pz] = car.pos;
-    const spot = new THREE.SpotLight(0xfffaee, 2.5, 16, Math.PI / 6, 0.9, 1);
-    spot.position.set(px, py + 5.0, pz);
+    const spot = new THREE.SpotLight(0xfffaee, 2.8, 18, Math.PI / 5.5, 0.85, 1);
+    spot.position.set(px, py + 5.2, pz);
     spot.target.position.set(px, py, pz);
     spot.castShadow = true;
     scene.add(spot);
@@ -373,7 +306,7 @@ function setupShowroomLighting() {
   });
 }
 
-// Procedural Venetian Obsidian Charcoal Velvet Wall Texture Generator
+// Procedural Obsidian Black Velvet Wall Texture Generator
 function createWallTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
@@ -391,14 +324,6 @@ function createWallTexture() {
     ctx.fillRect(x, y, 1.5, 1.5);
   }
 
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.015)";
-  ctx.lineWidth = 1;
-  for (let x = 0; x < 512; x += 6) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0); ctx.lineTo(x, 512);
-    ctx.stroke();
-  }
-
   const tex = new THREE.CanvasTexture(canvas);
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
@@ -406,36 +331,34 @@ function createWallTexture() {
   return tex;
 }
 
-// Procedural Obsidian Black Gloss Floor Texture Generator
+// Procedural Obsidian Mirror Tile Floor Texture Generator
 function createObsidianFloorTexture() {
   const canvas = document.createElement("canvas");
   canvas.width = 512;
   canvas.height = 512;
   const ctx = canvas.getContext("2d");
 
-  ctx.fillStyle = "#0a090d";
+  ctx.fillStyle = "#09080c";
   ctx.fillRect(0, 0, 512, 512);
 
-  const plankH = 64;
-  for (let y = 0; y < 512; y += plankH) {
-    ctx.strokeStyle = "rgba(4, 3, 5, 0.85)";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(0, y, 512, plankH);
-
-    for (let i = 0; i < 12; i++) {
-      const gy = y + Math.random() * plankH;
-      ctx.strokeStyle = `rgba(30, 26, 35, ${0.15 + Math.random() * 0.20})`;
-      ctx.lineWidth = 1 + Math.random() * 2;
-      ctx.beginPath();
-      ctx.moveTo(0, gy); ctx.lineTo(512, gy + (Math.random() - 0.5) * 4);
-      ctx.stroke();
-    }
+  // Subtle luxury floor grid lines
+  ctx.strokeStyle = "rgba(226, 183, 85, 0.08)";
+  ctx.lineWidth = 1.5;
+  for (let x = 0; x < 512; x += 128) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0); ctx.lineTo(x, 512);
+    ctx.stroke();
+  }
+  for (let y = 0; y < 512; y += 128) {
+    ctx.beginPath();
+    ctx.moveTo(0, y); ctx.lineTo(512, y);
+    ctx.stroke();
   }
 
   const tex = new THREE.CanvasTexture(canvas);
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
-  tex.repeat.set(4, 8);
+  tex.repeat.set(6, 6);
   return tex;
 }
 
@@ -443,25 +366,30 @@ function createObsidianFloorTexture() {
 function buildPBRArchitecturalBuilding() {
   const wallTex = createWallTexture();
   const wallMat = new THREE.MeshStandardMaterial({ map: wallTex, color: 0x18151a, roughness: 0.45 });
-  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x1c1920, roughness: 0.3, metalness: 0.8 });
-  const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.1 });
+  const pillarMat = new THREE.MeshStandardMaterial({ color: 0x1c1920, roughness: 0.25, metalness: 0.85 });
+  const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.12 });
 
   // 1. GROUND FLOOR ROOM 1 — Obsidian Mirror Black Floor (Y = 0)
   const obsidianTex = createObsidianFloorTexture();
-  const obsidianGroundMat = new THREE.MeshStandardMaterial({ map: obsidianTex, color: 0x0c0b0e, roughness: 0.04, metalness: 0.95 });
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), obsidianGroundMat);
+  const obsidianGroundMat = new THREE.MeshStandardMaterial({
+    map: obsidianTex,
+    color: 0x09080c,
+    roughness: 0.06,
+    metalness: 0.94
+  });
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(64, 64), obsidianGroundMat);
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
 
   // 2. 1ST FLOOR ROOM 2 — Dark Obsidian Marble Deck with Brass Trim (Y = 6.5)
-  const darkMarbleMat = new THREE.MeshStandardMaterial({ color: 0x121016, roughness: 0.05, metalness: 0.92 });
+  const darkMarbleMat = new THREE.MeshStandardMaterial({ color: 0x100e14, roughness: 0.06, metalness: 0.92 });
   const floor1 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), darkMarbleMat);
   floor1.position.set(0, 6.5, 4);
   floor1.receiveShadow = true;
   scene.add(floor1);
 
-  // Gold Brass Inlay Trim for 1st Floor Edge
+  // Gold Brass Trim for 1st Floor Edge
   const brassBorder = new THREE.Mesh(new THREE.BoxGeometry(50.4, 0.15, 0.2), goldMat);
   brassBorder.position.set(0, 6.75, 16);
   scene.add(brassBorder);
@@ -477,7 +405,7 @@ function buildPBRArchitecturalBuilding() {
   scene.add(topHandrail1);
 
   // 3. 2ND FLOOR ROOM 3 — Obsidian Hexagonal Gloss Supercar Deck (Y = 13.0)
-  const supercarDeckMat = new THREE.MeshStandardMaterial({ color: 0x060609, roughness: 0.02, metalness: 0.98 });
+  const supercarDeckMat = new THREE.MeshStandardMaterial({ color: 0x07060a, roughness: 0.04, metalness: 0.96 });
   const floor2 = new THREE.Mesh(new THREE.BoxGeometry(50, 0.45, 24), supercarDeckMat);
   floor2.position.set(0, 13.0, 12);
   floor2.receiveShadow = true;
@@ -498,7 +426,7 @@ function buildPBRArchitecturalBuilding() {
   topHandrail2.position.set(0, 14.35, 24);
   scene.add(topHandrail2);
 
-  // 4. ARCHITECTURAL OBSIDIAN GLASS SKYLIGHT ROOF CEILING (Y = 22.0)
+  // 4. ARCHITECTURAL OBSIDIAN GLASS SKYLIGHT CEILING (Y = 22.0)
   const glassRoofMat = new THREE.MeshPhysicalMaterial({
     color: 0x0a0c10,
     transparent: true,
@@ -507,34 +435,42 @@ function buildPBRArchitecturalBuilding() {
     transmission: 0.88,
     thickness: 0.5
   });
-  const glassRoof = new THREE.Mesh(new THREE.PlaneGeometry(54, 46), glassRoofMat);
+  const glassRoof = new THREE.Mesh(new THREE.PlaneGeometry(56, 48), glassRoofMat);
   glassRoof.rotation.x = Math.PI / 2;
   glassRoof.position.set(0, 22.0, 4);
   scene.add(glassRoof);
 
   // Roof Beam Support Grids
   [-15, 0, 15].forEach(x => {
-    const roofBeam = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 46), goldMat);
+    const roofBeam = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.6, 48), goldMat);
     roofBeam.position.set(x, 21.8, 4);
     scene.add(roofBeam);
   });
 
-  // Enclosing Obsidian Walls (4 Sides)
-  const backWall = new THREE.Mesh(new THREE.PlaneGeometry(54, 22), wallMat);
+  // 5. STUDIO AUTOMOTIVE OVERHEAD LINEAR LIGHTBARS (High-End Automotive Studio Reflections)
+  const lightBarMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  [-10, -3.5, 3.5, 10].forEach(x => {
+    const tube = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.1, 42), lightBarMat);
+    tube.position.set(x, 21.75, 4);
+    scene.add(tube);
+  });
+
+  // Enclosing Obsidian Walls
+  const backWall = new THREE.Mesh(new THREE.PlaneGeometry(56, 22), wallMat);
   backWall.position.set(0, 11, -20);
   scene.add(backWall);
 
-  const leftWall = new THREE.Mesh(new THREE.PlaneGeometry(42, 22), wallMat);
+  const leftWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 22), wallMat);
   leftWall.rotation.y = Math.PI / 2;
-  leftWall.position.set(-25, 11, 0);
+  leftWall.position.set(-26, 11, 0);
   scene.add(leftWall);
 
-  const rightWall = new THREE.Mesh(new THREE.PlaneGeometry(42, 22), wallMat);
+  const rightWall = new THREE.Mesh(new THREE.PlaneGeometry(44, 22), wallMat);
   rightWall.rotation.y = -Math.PI / 2;
-  rightWall.position.set(25, 11, 0);
+  rightWall.position.set(26, 11, 0);
   scene.add(rightWall);
 
-  // Structural Pillars
+  // Structural Support Pillars
   [[-18, -4], [18, -4], [-18, 12], [18, 12]].forEach(([px, pz]) => {
     const pil = new THREE.Mesh(new THREE.BoxGeometry(0.8, 20.0, 0.8), pillarMat);
     pil.position.set(px, 10.0, pz);
@@ -610,28 +546,59 @@ function loadReal3DCarFleet() {
   }
 
   carMeshes = [];
+  neonRings = [];
 
   showroomCars.forEach((car) => {
     const carGroup = new THREE.Group();
-    carGroup.userData = { carData: car };
+    carGroup.userData = { carData: car, bodyMeshes: [], headlights: [] };
 
-    const padMat = new THREE.MeshStandardMaterial({ color: 0x121016, metalness: 0.9, roughness: 0.15 });
-    const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.1, 3.3, 0.16, 36), padMat);
+    // Exhibition Turntable Platform
+    const padMat = new THREE.MeshStandardMaterial({ color: 0x121016, metalness: 0.92, roughness: 0.12 });
+    const pad = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 3.4, 0.16, 40), padMat);
     pad.position.y = 0.08;
     carGroup.add(pad);
 
-    const padRingMat = new THREE.MeshBasicMaterial({
-      color: car.floorId === 0 ? 0x00d2ff : (car.floorId === 1 ? 0xe2b755 : 0xff0054)
-    });
-    const padRing = new THREE.Mesh(new THREE.TorusGeometry(3.15, 0.05, 16, 64), padRingMat);
-    padRing.rotation.x = Math.PI / 2;
-    padRing.position.y = 0.16;
-    carGroup.add(padRing);
+    // Beveled Brass Gold Rim on Platform
+    const goldMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.95, roughness: 0.15 });
+    const padBrass = new THREE.Mesh(new THREE.TorusGeometry(3.3, 0.04, 16, 64), goldMat);
+    padBrass.rotation.x = Math.PI / 2;
+    padBrass.position.y = 0.16;
+    carGroup.add(padBrass);
 
+    // Dynamic Pulsing Neon Ring
+    const ringColor = car.floorId === 0 ? 0x00d2ff : (car.floorId === 1 ? 0xe2b755 : 0xff0054);
+    const padRingMat = new THREE.MeshBasicMaterial({
+      color: ringColor,
+      transparent: true,
+      opacity: 0.8
+    });
+    const padRing = new THREE.Mesh(new THREE.TorusGeometry(3.38, 0.05, 16, 64), padRingMat);
+    padRing.rotation.x = Math.PI / 2;
+    padRing.position.y = 0.17;
+    carGroup.add(padRing);
+    neonRings.push(padRing);
+
+    // Procedural Fallback Mesh while GLB loads
     const carBaseMesh = createProceduralCarMesh(car);
     carBaseMesh.position.y = 0.16;
     carGroup.add(carBaseMesh);
 
+    // Dual Headlight VFX Spotlights (projecting forward)
+    const hlLeft = new THREE.SpotLight(0xffffff, 0, 16, Math.PI / 7, 0.6, 1);
+    hlLeft.position.set(-0.7, 0.65, 1.8);
+    hlLeft.target.position.set(-0.7, 0.1, 8.0);
+    carGroup.add(hlLeft);
+    carGroup.add(hlLeft.target);
+
+    const hlRight = new THREE.SpotLight(0xffffff, 0, 16, Math.PI / 7, 0.6, 1);
+    hlRight.position.set(0.7, 0.65, 1.8);
+    hlRight.target.position.set(0.7, 0.1, 8.0);
+    carGroup.add(hlRight);
+    carGroup.add(hlRight.target);
+
+    carGroup.userData.headlights = [hlLeft, hlRight];
+
+    // Load Physical 3D Model
     gltfLoader.load(car.glb, (gltf) => {
       const model = gltf.scene;
 
@@ -650,13 +617,35 @@ function loadReal3DCarFleet() {
       model.position.z -= scaledCenter.z;
       model.position.y = 0.16 - scaledBox.min.y;
 
+      // Identify & Tag Paintable Body Meshes + Enhance PBR Materials
       model.traverse((child) => {
         if (child.isMesh) {
           child.castShadow = true;
           child.receiveShadow = true;
+
           if (child.material) {
-            child.material.metalness = 0.85;
-            child.material.roughness = 0.15;
+            // Clone material so color modifications are isolated to this specific car
+            child.material = child.material.clone();
+            const matName = child.material.name || "";
+
+            // Tag paintable body components
+            const isBody = matName.includes("Body") ||
+                           matName.includes("ToyCar") ||
+                           matName.includes("CougarOne") ||
+                           matName.includes("truck") ||
+                           matName.includes("Material_27") ||
+                           matName === "Leather_red";
+
+            if (isBody) {
+              child.userData.isCarBody = true;
+              child.material.metalness = 0.88;
+              child.material.roughness = 0.14;
+              child.material.color.setHex(car.color);
+              carGroup.userData.bodyMeshes.push(child);
+            } else {
+              child.material.metalness = 0.85;
+              child.material.roughness = 0.2;
+            }
             child.material.needsUpdate = true;
           }
         }
@@ -692,7 +681,7 @@ function createProceduralCarMesh(car) {
   return group;
 }
 
-// RAYCASTING ENGINE (Handles 3D Doors, Cars, and Staircase Ascent/Descent)
+// RAYCASTING ENGINE (Handles 3D Doors, Cars, and Staircases)
 function setupRaycasting(container) {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
@@ -726,7 +715,7 @@ function setupRaycasting(container) {
         }
       }
 
-      // Staircase 1 Interactivity: Ground Floor Room 1 <-> 1st Floor Room 2
+      // Staircase 1: Ground Floor <-> 1st Floor
       const intersectsStair1 = raycaster.intersectObjects(stairMesh1.children, true);
       if (intersectsStair1.length > 0) {
         if (currentRoomId === 2) enterRoom1Ground();
@@ -734,7 +723,7 @@ function setupRaycasting(container) {
         return;
       }
 
-      // Staircase 2 Interactivity: 1st Floor Room 2 <-> 2nd Floor Room 3
+      // Staircase 2: 1st Floor <-> 2nd Floor
       const intersectsStair2 = raycaster.intersectObjects(stairMesh2.children, true);
       if (intersectsStair2.length > 0) {
         if (currentRoomId === 3) climbToRoom2();
@@ -745,7 +734,7 @@ function setupRaycasting(container) {
   });
 }
 
-// MADHUKANTA UNCONSTRAINED 360° SCREEN NAVIGATION CONTROLS
+// SCREEN NAVIGATION CONTROLS
 function navMove(action) {
   if (!camera || !controls) return;
 
@@ -766,7 +755,7 @@ function navMove(action) {
       targetCameraPos.copy(lookTarget).add(offset);
     }
   } else if (action === 'zoomOut') {
-    if (offset.length() < 50.0) {
+    if (offset.length() < 55.0) {
       offset.multiplyScalar(1.25);
       targetCameraPos.copy(lookTarget).add(offset);
     }
@@ -813,8 +802,8 @@ function enterRoom1Ground() {
   currentRoomId = 1;
   closeNFSInspector();
 
-  targetCameraPos.set(0, 1.65, 7.5);
-  targetLookAt.set(0, 1.5, -4);
+  targetCameraPos.set(0, 1.65, 8.0);
+  targetLookAt.set(0, 1.5, -4.5);
 
   updateCameraConstraints();
   updateActiveFloorBtn(1);
@@ -825,7 +814,7 @@ function climbToRoom2() {
   currentRoomId = 2;
   closeNFSInspector();
 
-  targetCameraPos.set(16.0, 8.15, 10.0);
+  targetCameraPos.set(14.0, 8.15, 11.0);
   targetLookAt.set(0, 7.8, 4.0);
 
   updateCameraConstraints();
@@ -837,7 +826,7 @@ function climbToRoom3() {
   currentRoomId = 3;
   closeNFSInspector();
 
-  targetCameraPos.set(-16.0, 14.65, 17.0);
+  targetCameraPos.set(-14.0, 14.65, 18.0);
   targetLookAt.set(0, 14.2, 12.0);
 
   updateCameraConstraints();
@@ -858,17 +847,24 @@ function updateActiveFloorBtn(btnIdx) {
   });
 }
 
+// ZOOM INSPECTION & PERFORMANCE METERS
 function zoomInspectCarByIndex(index) {
-  if (!isPortalOpen) enterRoom1Ground();
+  if (!isPortalOpen) isPortalOpen = true;
 
   activeInspectedIndex = (index + showroomCars.length) % showroomCars.length;
   const carData = showroomCars[activeInspectedIndex];
 
-  const [ex, ey, ez] = carData.eyePos;
-  const [px, py, pz] = carData.pos;
-  targetCameraPos.set(ex, ey, ez);
-  targetLookAt.set(px, py + 0.8, pz);
+  // Auto-sync current floor indicator
+  currentRoomId = carData.floorId + 1;
+  updateActiveFloorBtn(currentRoomId);
 
+  // Set camera to an optimal 3/4 heroic beauty perspective
+  const [px, py, pz] = carData.pos;
+  const [ox, oy, oz] = carData.cameraOffset || [-3.8, 1.4, 4.4];
+  targetCameraPos.set(px + ox, py + oy, pz + oz);
+  targetLookAt.set(px, py + 0.6, pz);
+
+  // Update NFS Inspection Modal Header & Details
   document.getElementById("nfs-floor-tag").textContent = carData.floor;
   document.getElementById("nfs-car-title").textContent = carData.name;
   document.getElementById("nfs-car-tagline").textContent = carData.tagline;
@@ -881,6 +877,7 @@ function zoomInspectCarByIndex(index) {
   document.getElementById("nfs-grade").textContent = carData.grade;
   document.getElementById("nfs-car-img").src = carData.img;
 
+  // Performance Meters
   document.getElementById("meter-speed").style.width = carData.stats.speed + "%";
   document.getElementById("meter-accel").style.width = carData.stats.accel + "%";
   document.getElementById("meter-power").style.width = carData.stats.power + "%";
@@ -890,6 +887,12 @@ function zoomInspectCarByIndex(index) {
   document.getElementById("val-accel").textContent = carData.stats.accel;
   document.getElementById("val-power").textContent = carData.stats.power;
   document.getElementById("val-handling").textContent = carData.stats.handling;
+
+  // Sync Paint Color Swatches with Active Vehicle Color
+  syncPaintSwatches(carData.color);
+
+  // Sync Headlight and Turntable Buttons
+  updateVFXButtonsUI();
 
   const modal = document.getElementById("nfs-inspection-modal");
   if (modal) modal.classList.add("active");
@@ -910,6 +913,75 @@ function zoomInspectCar(carData) {
 function closeNFSInspector() {
   const modal = document.getElementById("nfs-inspection-modal");
   if (modal) modal.classList.remove("active");
+  isTurntableRotating = false;
+  updateVFXButtonsUI();
+}
+
+// REAL-TIME BESPOKE PAINT CUSTOMIZER
+function setCarColor(hexColor, colorName, btnEl) {
+  const carGroup = carMeshes[activeInspectedIndex];
+  if (!carGroup) return;
+
+  const carData = showroomCars[activeInspectedIndex];
+  carData.color = hexColor;
+
+  // Recolor all tagged body meshes for this vehicle
+  if (carGroup.userData.bodyMeshes && carGroup.userData.bodyMeshes.length > 0) {
+    carGroup.userData.bodyMeshes.forEach(mesh => {
+      mesh.material.color.setHex(hexColor);
+      mesh.material.needsUpdate = true;
+    });
+  }
+
+  // Update tooltip and active class
+  document.getElementById("nfs-active-color-name").textContent = colorName;
+  document.querySelectorAll(".paint-swatch").forEach(btn => btn.classList.remove("active"));
+  if (btnEl) btnEl.classList.add("active");
+}
+
+function syncPaintSwatches(activeHex) {
+  const swatches = document.querySelectorAll(".paint-swatch");
+  swatches.forEach(btn => {
+    btn.classList.remove("active");
+  });
+  // Default to first swatch if not matched
+  if (swatches[0]) swatches[0].classList.add("active");
+}
+
+// TOGGLE HEADLIGHTS VFX
+function toggleHeadlights() {
+  isHeadlightsOn = !isHeadlightsOn;
+  const carGroup = carMeshes[activeInspectedIndex];
+  if (carGroup && carGroup.userData.headlights) {
+    carGroup.userData.headlights.forEach(hl => {
+      hl.intensity = isHeadlightsOn ? 4.5 : 0;
+    });
+  }
+  updateVFXButtonsUI();
+}
+
+// TOGGLE 360° TURNTABLE ROTATION
+function toggleTurntable() {
+  isTurntableRotating = !isTurntableRotating;
+  updateVFXButtonsUI();
+}
+
+function updateVFXButtonsUI() {
+  const btnHl = document.getElementById("btn-toggle-headlights");
+  const lblHl = document.getElementById("lbl-headlights");
+  if (btnHl && lblHl) {
+    lblHl.textContent = isHeadlightsOn ? "ON" : "OFF";
+    if (isHeadlightsOn) btnHl.classList.add("active");
+    else btnHl.classList.remove("active");
+  }
+
+  const btnTt = document.getElementById("btn-toggle-turntable");
+  const lblTt = document.getElementById("lbl-turntable");
+  if (btnTt && lblTt) {
+    lblTt.textContent = isTurntableRotating ? "ON" : "OFF";
+    if (isTurntableRotating) btnTt.classList.add("active");
+    else btnTt.classList.remove("active");
+  }
 }
 
 function toggleShowroomFullscreen() {
@@ -922,6 +994,7 @@ function toggleShowroomFullscreen() {
   }
 }
 
+// FLEET INVENTORY FILTER
 function filterInventory() {
   const typeVal = document.getElementById("filter-type").value;
   const budgetVal = document.getElementById("filter-budget").value;
@@ -937,9 +1010,9 @@ function filterInventory() {
     let matchFuel = (fuelVal === "all" || cFuel === fuelVal);
     let matchBudget = true;
 
-    if (budgetVal === "under20") matchBudget = (cPrice < 2000000);
-    if (budgetVal === "20to50") matchBudget = (cPrice >= 2000000 && cPrice <= 5000000);
-    if (budgetVal === "above1cr") matchBudget = (cPrice > 10000000);
+    if (budgetVal === "under50") matchBudget = (cPrice < 5000000);
+    if (budgetVal === "50to150") matchBudget = (cPrice >= 5000000 && cPrice <= 15000000);
+    if (budgetVal === "above150") matchBudget = (cPrice > 15000000);
 
     if (matchType && matchFuel && matchBudget) {
       card.style.display = "block";
@@ -956,7 +1029,7 @@ function handleFormBooking(e) {
   const car = document.getElementById("b-car").value;
   const city = document.getElementById("b-city").value;
 
-  const msg = encodeURIComponent(`Hi Aura Motors, my name is ${name} (${phone}). I would like to book a doorstep test drive for ${car} in ${city}. Please confirm my appointment!`);
+  const msg = encodeURIComponent(`Hi Aura Motors, my name is ${name} (${phone}). I would like to schedule a doorstep test drive for the ${car} in ${city}. Please confirm my appointment!`);
   window.open(`https://wa.me/?text=${msg}`, '_blank');
 }
 
@@ -969,7 +1042,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showroomCars.forEach((car) => {
       const btn = document.createElement("button");
       btn.className = "car-pill";
-      btn.textContent = car.name.split(" ")[0] + " " + car.name.split(" ")[1];
+      btn.textContent = car.name.split(" ")[0] + " " + (car.name.split(" ")[1] || "");
       btn.onclick = () => zoomInspectCar(car);
       pillsContainer.appendChild(btn);
     });
@@ -980,6 +1053,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rngTenure = document.getElementById("rng-tenure");
 
   function calcEMI() {
+    if (!rngAmount || !rngRate || !rngTenure) return;
     const P = parseFloat(rngAmount.value);
     const r = parseFloat(rngRate.value) / 12 / 100;
     const n = parseFloat(rngTenure.value) * 12;
@@ -992,8 +1066,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("emi-output").textContent = `₹ ${Math.round(emi).toLocaleString('en-IN')} / mo`;
   }
 
-  [rngAmount, rngRate, rngTenure].forEach(el => el.addEventListener("input", calcEMI));
-  calcEMI();
+  if (rngAmount && rngRate && rngTenure) {
+    [rngAmount, rngRate, rngTenure].forEach(el => el.addEventListener("input", calcEMI));
+    calcEMI();
+  }
 });
 
 function bookWhatsAppDrive() {
@@ -1005,6 +1081,6 @@ function bookWhatsAppDrive() {
 function bookWhatsAppEMI() {
   const amount = document.getElementById("lbl-amount").textContent;
   const emi = document.getElementById("emi-output").textContent;
-  const msg = encodeURIComponent(`Hi Aura Motors, I am interested in financing a car with Loan Amount ${amount} (Estimated EMI: ${emi}). Please share loan partners!`);
+  const msg = encodeURIComponent(`Hi Aura Motors, I am interested in financing a vehicle with Loan Amount ${amount} (Estimated EMI: ${emi}). Please share loan partners!`);
   window.open(`https://wa.me/?text=${msg}`, '_blank');
 }

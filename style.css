@@ -582,6 +582,101 @@ body {
 .sk { color: var(--text-muted); }
 .sv { font-weight: 700; color: #fff; margin-left: 4px; }
 
+/* VFX Luxury Customizer Section */
+.nfs-vfx-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(226, 183, 85, 0.4);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.nfs-vfx-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paint-swatches-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.paint-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  outline: none;
+  position: relative;
+}
+
+.paint-swatch:hover {
+  transform: scale(1.2);
+  border-color: #fff;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.paint-swatch.active {
+  border-color: var(--accent-gold);
+  transform: scale(1.15);
+  box-shadow: 0 0 16px var(--accent-gold-glow);
+}
+
+.paint-swatch-tooltip {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.nfs-vfx-btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.btn-vfx-toggle {
+  background: rgba(18, 15, 22, 0.85);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-vfx-toggle:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(0, 210, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-vfx-toggle.active {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(226, 183, 85, 0.2);
+  box-shadow: 0 0 15px var(--accent-gold-glow);
+}
+
 .btn-whatsapp-nfs {
   width: 100%;
   background: #25d366;
@@ -691,16 +786,12 @@ body {
   background-position: center;
 }
 
-.scorpio-bg { background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop'); }
-.nexon-bg { background-image: url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=800&auto=format&fit=crop'); }
-.thar-bg { background-image: url('https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop'); }
-.bolero-bg { background-image: url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=800&auto=format&fit=crop'); }
-.merc-bg { background-image: url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=800&auto=format&fit=crop'); }
-.bmw-bg { background-image: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=800&auto=format&fit=crop'); }
-.jeep-bg { background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop'); }
-.audi-bg { background-image: url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=800&auto=format&fit=crop'); }
-.porsche-bg { background-image: url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop'); }
-.fortuner-bg { background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=800&auto=format&fit=crop'); }
+.apex-bg { background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800&auto=format&fit=crop'); }
+.dune-bg { background-image: url('https://images.unsplash.com/photo-1506015391300-4802dc74de2e?q=80&w=800&auto=format&fit=crop'); }
+.titan-bg { background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop'); }
+.heritage-bg { background-image: url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop'); }
+.auragt-bg { background-image: url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop'); }
+.ferrari-bg { background-image: url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=800&auto=format&fit=crop'); }
 
 .card-body {
   padding: 20px;

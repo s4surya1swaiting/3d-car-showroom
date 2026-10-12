@@ -47,10 +47,10 @@
     <div class="hero-content">
       <span class="hero-tag font-accent">3-STORY GLASS SHOWROOM • PBR STUDIO REFLECTIONS • NFS INSPECTION</span>
       <h1 class="hero-title">Step Inside Our <span>3-Story Showroom</span></h1>
-      <p class="hero-subtext">Walk through the Ground Floor, 1st Floor Mezzanine, and 2nd Floor Supercar Deck. Click any 3D car model to zoom in, orbit 360°, and launch performance inspection.</p>
+      <p class="hero-subtext">Walk through the Ground Floor, 1st Floor Mezzanine, and 2nd Floor Supercar Deck. Click any 3D car model to zoom in, orbit 360°, customize paint finishes in real time, and launch performance inspection.</p>
       <div class="hero-actions">
         <a href="#3d-showroom" class="btn-primary">Enter 3-Story Showroom Building ↓</a>
-        <a href="#inventory" class="btn-secondary">Browse 10-Car Fleet</a>
+        <a href="#inventory" class="btn-secondary">Browse 6-Car Flagship Fleet</a>
       </div>
       <div class="hero-trust-stats">
         <div class="trust-stat-item">
@@ -63,7 +63,7 @@
         </div>
         <div class="trust-stat-item">
           <span class="stat-num">1 Year</span>
-          <span class="stat-lbl">Comprehensive Warranty</span>
+          <span class="stat-lbl">Detailed Certified Warranty</span>
         </div>
         <div class="trust-stat-item">
           <span class="stat-num">100%</span>
@@ -76,21 +76,21 @@
   <!-- 3. 3-Story Architectural Showroom Walkthrough & NFS Zoom Inspection Section -->
   <section id="3d-showroom" class="museum-3d-section">
     <div class="museum-header">
-      <span class="museum-sub-tag">ARCHITECTURAL 3-STORY GLASS BUILDING</span>
+      <span class="museum-sub-tag">ARCHITECTURAL 3-STORY GLASS ATRIUM</span>
       <h2 class="museum-title">Walk Through Floors <span>& Click Any 3D Car Model</span></h2>
     </div>
 
     <!-- Floor Navigation Bar (Sequential 3-Room Journey) -->
     <div class="floor-selector-bar">
-      <button class="floor-btn active" onclick="switchFloor(0)">✦ 01. ENTRANCE GATE</button>
-      <button class="floor-btn" onclick="switchFloor(1)">🚪 02. GROUND FLOOR ROOM</button>
-      <button class="floor-btn" onclick="switchFloor(2)">🪜 03. 1ST FLOOR MEZZANINE</button>
-      <button class="floor-btn" onclick="switchFloor(3)">🏎️ 04. 2ND FLOOR SUPERCAR DECK</button>
+      <button class="floor-btn active" onclick="switchFloor(0)">✦ 01. ATRIUM ENTRANCE</button>
+      <button class="floor-btn" onclick="switchFloor(1)">🚪 02. GROUND FLOOR (EXTREME TERRAIN)</button>
+      <button class="floor-btn" onclick="switchFloor(2)">🪜 03. 1ST FLOOR (CONCOURS & GT)</button>
+      <button class="floor-btn" onclick="switchFloor(3)">🏎️ 04. 2ND FLOOR (SUPERCAR CROWN DECK)</button>
     </div>
 
     <!-- Quick Car Pills -->
     <div class="car-selector-pills-wrap" id="car-pills-wrap">
-      <!-- Dynamic 10 Car Pills -->
+      <!-- Dynamic 6 Car Pills -->
     </div>
 
     <!-- 3D Stage Wrapper -->
@@ -178,6 +178,31 @@
             <div class="spec-item"><span class="sk">Certified:</span> <span class="sv" id="nfs-grade">140/140</span></div>
           </div>
 
+          <!-- VFX Real-time Paint Customizer & Studio Controls -->
+          <div class="nfs-vfx-section">
+            <div class="nfs-vfx-title">
+              <span>BESPOKE PAINT FINISH (REAL-TIME PBR)</span>
+              <span class="paint-swatch-tooltip" id="nfs-active-color-name">Rosso Corsa Red</span>
+            </div>
+            <div class="paint-swatches-wrap" id="paint-swatches-container">
+              <button class="paint-swatch active" style="background: #d90429;" onclick="setCarColor(0xd90429, 'Rosso Corsa Red', this)" title="Rosso Corsa Red"></button>
+              <button class="paint-swatch" style="background: #0f1115;" onclick="setCarColor(0x0f1115, 'Obsidian Metallic Black', this)" title="Obsidian Metallic Black"></button>
+              <button class="paint-swatch" style="background: #0077b6;" onclick="setCarColor(0x0077b6, 'Monaco Sapphire Blue', this)" title="Monaco Sapphire Blue"></button>
+              <button class="paint-swatch" style="background: #e0e1dd;" onclick="setCarColor(0xe0e1dd, 'Titanium Glacier Silver', this)" title="Titanium Glacier Silver"></button>
+              <button class="paint-swatch" style="background: #d4af37;" onclick="setCarColor(0xd4af37, 'Champagne Liquid Gold', this)" title="Champagne Liquid Gold"></button>
+              <button class="paint-swatch" style="background: #0d3b2e;" onclick="setCarColor(0x0d3b2e, 'British Racing Emerald', this)" title="British Racing Emerald"></button>
+            </div>
+            
+            <div class="nfs-vfx-btn-grid">
+              <button class="btn-vfx-toggle" id="btn-toggle-headlights" onclick="toggleHeadlights()">
+                💡 Headlights: <span id="lbl-headlights">OFF</span>
+              </button>
+              <button class="btn-vfx-toggle" id="btn-toggle-turntable" onclick="toggleTurntable()">
+                🔄 Turntable: <span id="lbl-turntable">OFF</span>
+              </button>
+            </div>
+          </div>
+
           <button class="btn-whatsapp-nfs" onclick="bookWhatsAppDrive()">
             🚗 Schedule Doorstep Test Drive on WhatsApp
           </button>
@@ -193,190 +218,135 @@
       <div class="filter-group">
         <label>Body Type</label>
         <select id="filter-type" onchange="filterInventory()">
-          <option value="all">All Body Types (10 Cars)</option>
-          <option value="SUV">SUVs & Off-Road</option>
-          <option value="Sedan">Luxury Sedans</option>
-          <option value="EV">Electric Vehicles (EV)</option>
-          <option value="Supercar">Supercars & Sports</option>
+          <option value="all">All Fleet Categories (6 Flagship Vehicles)</option>
+          <option value="Supercar">Exotic Supercars</option>
+          <option value="Classic">Royal Heritage & Classic</option>
+          <option value="GT">Gran Turismo Sports</option>
+          <option value="SUV">Tactical SUVs & Off-Road</option>
+          <option value="Utility">Heavy Cyber Utility</option>
         </select>
       </div>
       <div class="filter-group">
         <label>Budget Range</label>
         <select id="filter-budget" onchange="filterInventory()">
           <option value="all">All Prices</option>
-          <option value="under20">Under ₹ 20 Lakhs</option>
-          <option value="20to50">₹ 20 Lakhs - ₹ 50 Lakhs</option>
-          <option value="above1cr">Above ₹ 1 Crore</option>
+          <option value="under50">Under ₹ 50 Lakhs</option>
+          <option value="50to150">₹ 50 Lakhs - ₹ 1.50 Crore</option>
+          <option value="above150">Above ₹ 1.50 Crore</option>
         </select>
       </div>
       <div class="filter-group">
-        <label>Fuel Type</label>
+        <label>Powerplant</label>
         <select id="filter-fuel" onchange="filterInventory()">
-          <option value="all">All Fuel Types</option>
-          <option value="Diesel">Diesel</option>
-          <option value="Petrol">Petrol</option>
-          <option value="Electric">100% Electric</option>
+          <option value="all">All Powerplants</option>
+          <option value="Petrol">Twin-Turbo / NA Petrol</option>
+          <option value="Electric">High-Torque Electric AWD</option>
         </select>
       </div>
     </div>
   </section>
 
-  <!-- 5. 10-Car Inventory Fleet Section -->
+  <!-- 5. 6-Vehicle Inventory Fleet Section -->
   <section id="inventory" class="inventory-section">
     <div class="section-title">
-      <h2>Curated 10-Vehicle Pre-Owned Fleet</h2>
-      <p>Every vehicle undergoes a 140-point technical inspection & non-accident certification.</p>
+      <h2>Curated 6-Vehicle Flagship Fleet</h2>
+      <p>Each model accurately calibrated to its 3D architectural showroom exhibition bay.</p>
     </div>
 
     <div class="inventory-grid" id="inventory-grid">
-      <!-- 10 Car Cards -->
-      <div class="car-card" data-type="SUV" data-price="2450000" data-fuel="Diesel">
-        <div class="card-badge">GROUND FLOOR • SUV</div>
-        <div class="card-img-placeholder scorpio-bg"></div>
+      <!-- 1. Tactical Cyber SUV -->
+      <div class="car-card" data-type="SUV" data-price="8800000" data-fuel="Electric">
+        <div class="card-badge">GROUND FLOOR • TACTICAL HEAVY BAY</div>
+        <div class="card-img-placeholder apex-bg"></div>
         <div class="card-body">
-          <h3>Mahindra Scorpio-N Z8L 4x4</h3>
-          <p class="card-price">₹ 24,50,000</p>
+          <h3>Apex Raider Tactical Cyber-SUV</h3>
+          <p class="card-price">₹ 88,00,000</p>
           <ul class="card-features">
-            <li>✓ 2023 Model • 12,000 KM</li>
-            <li>✓ 2.2L Diesel (172 BHP) • 4WD</li>
-            <li>✓ Sunroof & Sony 3D Audio</li>
+            <li>✓ 2024 Prototype • 1,200 KM</li>
+            <li>✓ Tri-Motor Electric AWD (800 BHP)</li>
+            <li>✓ Ballistic Armor & Active Air Damping</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[0]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
 
-      <div class="car-card" data-type="EV" data-price="1680000" data-fuel="Electric">
-        <div class="card-badge electric-badge">GROUND FLOOR • EV</div>
-        <div class="card-img-placeholder nexon-bg"></div>
+      <!-- 2. Baja Dune Buggy -->
+      <div class="car-card" data-type="SUV" data-price="4200000" data-fuel="Petrol">
+        <div class="card-badge">GROUND FLOOR • DAKAR RALLY BAY</div>
+        <div class="card-img-placeholder dune-bg"></div>
         <div class="card-body">
-          <h3>Tata Nexon EV Dark Edition</h3>
-          <p class="card-price">₹ 16,80,000</p>
+          <h3>Baja Dune Stormer 4x4 Trophy Buggy</h3>
+          <p class="card-price">₹ 42,00,000</p>
           <ul class="card-features">
-            <li>✓ 2023 Model • 8,500 KM</li>
-            <li>✓ Electric (465 KM Range)</li>
-            <li>✓ Ventilated Seats & 360 Camera</li>
+            <li>✓ 2023 Motorsport Spec • 3,800 KM</li>
+            <li>✓ 2.5L Turbo Charged Boxer (450 BHP)</li>
+            <li>✓ Chromoly Spaceframe & Fox Racing</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[1]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
 
-      <div class="car-card" data-type="SUV" data-price="1520000" data-fuel="Petrol">
-        <div class="card-badge">GROUND FLOOR • 4X4</div>
-        <div class="card-img-placeholder thar-bg"></div>
+      <!-- 3. Heavy Cyber Hauler -->
+      <div class="car-card" data-type="Utility" data-price="7500000" data-fuel="Electric">
+        <div class="card-badge">GROUND FLOOR • CYBER UTILITY BAY</div>
+        <div class="card-img-placeholder titan-bg"></div>
         <div class="card-body">
-          <h3>Mahindra Thar LX Hard Top</h3>
-          <p class="card-price">₹ 15,20,000</p>
+          <h3>Titan Hauler Autonomous Electric Transport</h3>
+          <p class="card-price">₹ 75,00,000</p>
           <ul class="card-features">
-            <li>✓ 2022 Model • 18,400 KM</li>
-            <li>✓ 2.0L Turbo Petrol 4WD</li>
-            <li>✓ Touchscreen & Convertible Vibes</li>
+            <li>✓ 2024 Heavy Concept • 900 KM</li>
+            <li>✓ Quad-Motor Electric (1200 Nm Torque)</li>
+            <li>✓ 800 kWh Megawatt Autonomous Platform</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[2]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
 
-      <div class="car-card" data-type="SUV" data-price="1090000" data-fuel="Diesel">
-        <div class="card-badge">GROUND FLOOR • UTILITY</div>
-        <div class="card-img-placeholder bolero-bg"></div>
+      <!-- 4. 1967 Grand Heritage Classic Coupe -->
+      <div class="car-card" data-type="Classic" data-price="18500000" data-fuel="Petrol">
+        <div class="card-badge gold-badge">1ST FLOOR • ROYAL CONCOURS SALON</div>
+        <div class="card-img-placeholder heritage-bg"></div>
         <div class="card-body">
-          <h3>Mahindra Bolero Neo N10 Opt</h3>
-          <p class="card-price">₹ 10,90,000</p>
+          <h3>1967 Grand Heritage Classic Coupe</h3>
+          <p class="card-price">₹ 1,85,00,000</p>
           <ul class="card-features">
-            <li>✓ 2022 Model • 24,000 KM</li>
-            <li>✓ 1.5L mHawk Diesel MLD</li>
-            <li>✓ 7-Seater Tough Body</li>
+            <li>✓ 1967 Concours Restored • 14,200 KM</li>
+            <li>✓ 4.2L Naturally Aspirated Inline-6</li>
+            <li>✓ Handcrafted Royal British Coachwork</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[3]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
 
-      <div class="car-card" data-type="Sedan" data-price="13500000" data-fuel="Petrol">
-        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
-        <div class="card-img-placeholder merc-bg"></div>
+      <!-- 5. Aura GT Velocity Coupe -->
+      <div class="car-card" data-type="GT" data-price="13500000" data-fuel="Petrol">
+        <div class="card-badge gold-badge">1ST FLOOR • GRAN TURISMO SALON</div>
+        <div class="card-img-placeholder auragt-bg"></div>
         <div class="card-body">
-          <h3>Mercedes-Benz S-Class S450</h3>
+          <h3>Aura GT Velocity Trackday Coupe</h3>
           <p class="card-price">₹ 1,35,00,000</p>
           <ul class="card-features">
-            <li>✓ 2022 Model • 14,200 KM</li>
-            <li>✓ 3.0L V6 Turbo Petrol</li>
-            <li>✓ Rear Massage Seats & Burmester</li>
+            <li>✓ 2023 Trackday Weapon • 6,800 KM</li>
+            <li>✓ 3.0L Twin-Turbo V6 (520 BHP)</li>
+            <li>✓ 8-Speed Paddle-Shift Dual-Clutch</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[4]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
 
-      <div class="car-card" data-type="Sedan" data-price="11800000" data-fuel="Diesel">
-        <div class="card-badge gold-badge">1ST FLOOR • MEZZANINE</div>
-        <div class="card-img-placeholder bmw-bg"></div>
+      <!-- 6. Ferrari F8 Tributo Supercar -->
+      <div class="car-card" data-type="Supercar" data-price="40200000" data-fuel="Petrol">
+        <div class="card-badge electric-badge">2ND FLOOR • SUPERCAR CROWN DECK</div>
+        <div class="card-img-placeholder ferrari-bg"></div>
         <div class="card-body">
-          <h3>BMW 7 Series 730Ld M-Sport</h3>
-          <p class="card-price">₹ 1,18,00,000</p>
+          <h3>Ferrari F8 Tributo V8 Bi-Turbo</h3>
+          <p class="card-price">₹ 4,02,00,000</p>
           <ul class="card-features">
-            <li>✓ 2021 Model • 22,000 KM</li>
-            <li>✓ 3.0L Straight-6 Diesel</li>
-            <li>✓ Executive Lounge Rear Theater</li>
+            <li>✓ 2023 Exotic Flagship • 3,200 KM</li>
+            <li>✓ 3.9L Twin-Turbo V8 (710 BHP)</li>
+            <li>✓ 0-100 in 2.9s • 340 KM/H Top Speed</li>
           </ul>
           <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[5]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
-        </div>
-      </div>
-
-      <div class="car-card" data-type="SUV" data-price="2640000" data-fuel="Diesel">
-        <div class="card-badge">1ST FLOOR • MEZZANINE</div>
-        <div class="card-img-placeholder jeep-bg"></div>
-        <div class="card-body">
-          <h3>Jeep Compass Model S 4x4</h3>
-          <p class="card-price">₹ 26,40,000</p>
-          <ul class="card-features">
-            <li>✓ 2023 Model • 11,000 KM</li>
-            <li>✓ 2.0L Diesel 9-Speed Automatic</li>
-            <li>✓ Panoramic Sunroof & 4x4 Select</li>
-          </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[6]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
-        </div>
-      </div>
-
-      <div class="car-card" data-type="EV" data-price="16200000" data-fuel="Electric">
-        <div class="card-badge electric-badge">2ND FLOOR • SUPERCAR</div>
-        <div class="card-img-placeholder audi-bg"></div>
-        <div class="card-body">
-          <h3>Audi RS e-tron GT Quattro</h3>
-          <p class="card-price">₹ 1,62,00,000</p>
-          <ul class="card-features">
-            <li>✓ 2023 Model • 6,500 KM</li>
-            <li>✓ 637 HP Dual Electric Motors</li>
-            <li>✓ 0-100 km/h in 3.3 Seconds</li>
-          </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[7]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
-        </div>
-      </div>
-
-      <div class="car-card" data-type="Supercar" data-price="18500000" data-fuel="Petrol">
-        <div class="card-badge gold-badge">2ND FLOOR • SUPERCAR</div>
-        <div class="card-img-placeholder porsche-bg"></div>
-        <div class="card-body">
-          <h3>Porsche 911 Carrera S</h3>
-          <p class="card-price">₹ 1,85,00,000</p>
-          <ul class="card-features">
-            <li>✓ 2022 Model • 4,800 KM</li>
-            <li>✓ 3.0L Twin-Turbo Flat-6 (450 HP)</li>
-            <li>✓ Sport Chrono Package & Exhaust</li>
-          </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[8]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
-        </div>
-      </div>
-
-      <div class="car-card" data-type="SUV" data-price="4450000" data-fuel="Diesel">
-        <div class="card-badge">2ND FLOOR • SUPERCAR</div>
-        <div class="card-img-placeholder fortuner-bg"></div>
-        <div class="card-body">
-          <h3>Toyota Fortuner Legender 4x4</h3>
-          <p class="card-price">₹ 44,50,000</p>
-          <ul class="card-features">
-            <li>✓ 2023 Model • 15,800 KM</li>
-            <li>✓ 2.8L Diesel (204 BHP / 500 Nm)</li>
-            <li>✓ Dual Tone Black Roof & JBL 11 Speaker</li>
-          </ul>
-          <button class="btn-card-action" onclick="zoomInspectCar(showroomCars[9]); window.location.href='#3d-showroom';">Inspect 3D Car Model →</button>
         </div>
       </div>
     </div>
@@ -397,7 +367,7 @@
       <div class="why-card">
         <div class="why-icon">🛡️</div>
         <h3>1-Year Warranty & RSA</h3>
-        <p>Drive with peace of mind with 12 months comprehensive warranty and 24/7 pan-India roadside assistance.</p>
+        <p>Drive with peace of mind with 12 months detailed warranty and 24/7 pan-India roadside assistance.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">🔄</div>
@@ -501,15 +471,13 @@
         </div>
         <div class="form-row">
           <select id="b-car" required>
-            <option value="">Select Preferred Car</option>
-            <option value="Mahindra Scorpio-N">Mahindra Scorpio-N Z8L 4x4</option>
-            <option value="Tata Nexon EV">Tata Nexon EV Dark Edition</option>
-            <option value="Mahindra Thar 4x4">Mahindra Thar LX Hard Top</option>
-            <option value="Mercedes S-Class">Mercedes-Benz S-Class S450</option>
-            <option value="BMW 7 Series">BMW 7 Series 730Ld M-Sport</option>
-            <option value="Audi RS e-tron GT">Audi RS e-tron GT Quattro</option>
-            <option value="Porsche 911 Carrera">Porsche 911 Carrera S</option>
-            <option value="Toyota Fortuner">Toyota Fortuner Legender 4x4</option>
+            <option value="">Select Preferred Vehicle</option>
+            <option value="Apex Raider Cyber-SUV">Apex Raider Tactical Cyber-SUV 4x4 (₹ 88 Lakhs)</option>
+            <option value="Baja Dune Stormer Buggy">Baja Dune Stormer 4x4 Trophy Buggy (₹ 42 Lakhs)</option>
+            <option value="Titan Hauler Transport">Titan Hauler Electric Transport (₹ 75 Lakhs)</option>
+            <option value="1967 Grand Heritage Classic">1967 Grand Heritage Classic Coupe (₹ 1.85 Cr)</option>
+            <option value="Aura GT Velocity Coupe">Aura GT Velocity Trackday Coupe (₹ 1.35 Cr)</option>
+            <option value="Ferrari F8 Tributo">Ferrari F8 Tributo V8 Bi-Turbo (₹ 4.02 Cr)</option>
           </select>
           <input type="text" id="b-city" placeholder="City / Location" required>
         </div>
